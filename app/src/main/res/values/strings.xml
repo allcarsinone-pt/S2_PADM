@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">allcarsinone</string>
+    <string name="loading">Loading…</string>
+    <string name="no_internet_connection">No internet connection!</string>
+    <string name="lbl_email">Email</string>
+    <string name="msg_create_new_account">Create new account</string>
+    <string name="msg_geral_standxpto_pt">geral@standxpto.pt</string>
+    <string name="lbl_login">LOGIN</string>
+    <string name="lbl_password">Password</string>
+    <string name="msg_want_a_brand_new">Want a brand new vehicle?</string>
+    <string name="lbl_welcome">Welcome</string>
+    <string name="msg_forgot_password">Forgot password?</string>
+
 </resources>
