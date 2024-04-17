@@ -22,136 +22,156 @@
                 android:layout_width="match_parent"
                 android:src="@drawable/img_asset_3_1"
                 tools:ignore="ContentDescription" tools:src="@drawable/img_asset_3_1"/>
-            <ImageView android:id="@+id/imageSteeringwheel"
-                android:layout_gravity="center_horizontal"
-                android:layout_height="@dimen/_117pxh"
-                android:layout_marginTop="80dp"
-                android:layout_width="@dimen/_117pxh"
-                android:src="@drawable/img_steering_wheel_1"
-                tools:ignore="ContentDescription" tools:src="@drawable/img_steering_wheel_1"/>
-            <TextView android:gravity="center"
-                android:id="@+id/txtWelcome"
-                android:layout_gravity="center_horizontal"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_37pxv"
-                android:layout_width="wrap_content"
-                android:singleLine="true"
-                android:text="@string/lbl_welcome"
-                style="@style/txtMontserratromanmedium24"/>
-            <TextView android:gravity="center"
-                android:id="@+id/txtWantabrand"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5pxv"
-                android:layout_width="match_parent"
-                android:singleLine="true"
-                android:text="@string/msg_want_a_brand_new"
-                style="@style/txtMontserratromanlight20"/>
-            <LinearLayout android:gravity="start"
-                android:id="@+id/linearColumnemail"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_25pxv"
-                android:layout_width="match_parent" android:orientation="vertical">
-                <TextView android:ellipsize="end"
-                    android:id="@+id/txtEmail"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_2pxh"
-                    android:layout_width="wrap_content"
-                    android:singleLine="true"
-                    android:text="@string/lbl_email"
-                    style="@style/txtMontserratromanregular14"/>
-                <EditText
-                    android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-                    android:drawableEnd="@drawable/drawable_img_checkmark"
-                    android:drawablePadding="@dimen/_30pxh"
 
-                    android:hint="@string/msg_geral_standxpto_pt"
-                    android:id="@+id/etEmail"
-                    android:inputType="text"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_2pxh"
-                    android:layout_marginTop="@dimen/_8pxv"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:paddingBottom="@dimen/_14pxv"
-                    android:paddingEnd="@dimen/_25pxh"
-                    android:paddingStart="@dimen/_21pxh"
-                    android:paddingTop="@dimen/_14pxv"
-                    android:singleLine="true"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView android:id="@+id/imageSteeringwheel"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_height="@dimen/_117pxh"
+                            android:layout_marginTop="80dp"
+                            android:layout_width="@dimen/_117pxh"
+                            android:src="@drawable/img_steering_wheel_1"
+                            tools:ignore="ContentDescription" tools:src="@drawable/img_steering_wheel_1"/>
+                        <TextView android:gravity="center"
+                            android:id="@+id/txtWelcome"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_37pxv"
+                            android:layout_width="wrap_content"
+                            android:singleLine="true"
+                            android:text="@string/lbl_welcome"
+                            style="@style/txtMontserratromanmedium24"/>
+                        <TextView android:gravity="center"
+                            android:id="@+id/txtWantabrand"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5pxv"
+                            android:layout_width="match_parent"
+                            android:singleLine="true"
+                            android:text="@string/msg_want_a_brand_new"
+                            style="@style/txtMontserratromanlight20"/>
+                        <LinearLayout android:gravity="start"
+                            android:id="@+id/linearColumnemail"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_25pxv"
+                            android:layout_width="match_parent" android:orientation="vertical">
+                            <TextView android:ellipsize="end"
+                                android:id="@+id/txtEmail"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_2pxh"
+                                android:layout_width="wrap_content"
+                                android:singleLine="true"
+                                android:text="@string/lbl_email"
+                                style="@style/txtMontserratromanregular14"/>
+                            <EditText
+                                android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
+                                android:drawableEnd="@drawable/drawable_img_checkmark"
+                                android:drawablePadding="@dimen/_30pxh"
 
-                    android:textColorHint="@color/black_900_cc"
-                    style="@style/etSolidRoundedOutline_1" tools:ignore="Autofill"/>
-            </LinearLayout>
-            <LinearLayout android:gravity="start"
-                android:id="@+id/linearColumnpassword"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_22pxv"
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:paddingEnd="@dimen/_1pxh" android:paddingStart="@dimen/_1pxh">
-                <TextView android:ellipsize="end"
-                    android:id="@+id/txtPassword"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_1pxh"
-                    android:layout_width="wrap_content"
-                    android:singleLine="true"
-                    android:text="@string/lbl_password"
-                    style="@style/txtMontserratromanregular14"/>
-                <EditText
-                    android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-                    android:drawableEnd="@drawable/drawable_img_group_6"
-                    android:drawablePadding="@dimen/_23pxh"
+                                android:hint="@string/msg_geral_standxpto_pt"
+                                android:id="@+id/etEmail"
+                                android:inputType="text"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_2pxh"
+                                android:layout_marginTop="@dimen/_8pxv"
+                                android:layout_width="match_parent"
+                                android:paddingBottom="@dimen/_14pxv"
+                                android:paddingEnd="@dimen/_25pxh"
+                                android:paddingStart="@dimen/_21pxh"
+                                android:paddingTop="@dimen/_14pxv"
+                                android:singleLine="true"
 
-                    android:id="@+id/etPassword"
-                    android:inputType="textPassword"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_7pxv"
-                    android:layout_width="match_parent"
-                    android:paddingBottom="@dimen/_14pxv"
-                    android:paddingEnd="@dimen/_25pxh"
-                    android:paddingStart="@dimen/_21pxh"
-                    android:paddingTop="@dimen/_14pxv"
-                    android:singleLine="true"
-                    tools:text="ola mundo"
+                                android:textColorHint="@color/black_900_cc"
+                                style="@style/etSolidRoundedOutline_1" tools:ignore="Autofill"/>
+                        </LinearLayout>
+                        <LinearLayout android:gravity="start"
+                            android:id="@+id/linearColumnpassword"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_22pxv"
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:paddingEnd="@dimen/_1pxh" android:paddingStart="@dimen/_1pxh">
+                            <TextView android:ellipsize="end"
+                                android:id="@+id/txtPassword"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_1pxh"
+                                android:layout_width="wrap_content"
+                                android:singleLine="true"
+                                android:text="@string/lbl_password"
+                                style="@style/txtMontserratromanregular14"/>
+                            <EditText
+                                android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
+                                android:drawableEnd="@drawable/drawable_img_group_6"
+                                android:drawablePadding="@dimen/_23pxh"
 
-                    style="@style/etSolidRoundedOutline_1" tools:ignore="Autofill"/>
+                                android:id="@+id/etPassword"
+                                android:inputType="textPassword"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_7pxv"
+                                android:layout_width="match_parent"
+                                android:paddingBottom="@dimen/_14pxv"
+                                android:paddingEnd="@dimen/_25pxh"
+                                android:paddingStart="@dimen/_21pxh"
+                                android:paddingTop="@dimen/_14pxv"
+                                android:singleLine="true"
+                                tools:text="ola mundo"
+
+                                style="@style/etSolidRoundedOutline_1" tools:ignore="Autofill"/>
+                        </LinearLayout>
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:ellipsize="end" android:gravity="center"
+                            android:id="@+id/btnLogin"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_31pxv"
+                            android:layout_width="match_parent"
+                            android:paddingBottom="@dimen/_18pxv"
+                            android:paddingEnd="@dimen/_30pxh"
+                            android:paddingStart="@dimen/_30pxh"
+                            android:paddingTop="@dimen/_18pxv"
+                            android:singleLine="true"
+                            android:text="@string/lbl_login"
+                            android:textAllCaps="false"
+                            style="@style/btnSolidRounded" tools:text="@string/lbl_login"/>
+                        <LinearLayout android:gravity="center_vertical"
+                            android:id="@+id/linearRowforgotpasswo"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_36pxv"
+                            android:paddingBottom="60dp"
+                            android:layout_width="match_parent" android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/txtForgotpassword"
+                                android:layout_gravity="bottom"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_1pxv"
+                                android:layout_width="wrap_content"
+                                android:singleLine="true"
+                                android:text="@string/msg_forgot_password"
+                                style="@style/txtMontserratromanlight14"/>
+                            <TextView
+                                android:id="@+id/txtCreatenew"
+                                android:layout_gravity="top"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="84dp"
+                                android:layout_width="wrap_content"
+                                android:singleLine="true"
+                                android:text="Create new Account"
+                                style="@style/txtMontserratromanmedium14"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </ScrollView>
+
             </LinearLayout>
-            <androidx.appcompat.widget.AppCompatButton
-                android:ellipsize="end" android:gravity="center"
-                android:id="@+id/btnLogin"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_31pxv"
-                android:layout_width="match_parent"
-                android:paddingBottom="@dimen/_18pxv"
-                android:paddingEnd="@dimen/_30pxh"
-                android:paddingStart="@dimen/_30pxh"
-                android:paddingTop="@dimen/_18pxv"
-                android:singleLine="true"
-                android:text="@string/lbl_login"
-                android:textAllCaps="false"
-                style="@style/btnSolidRounded" tools:text="@string/lbl_login"/>
-            <LinearLayout android:gravity="center_vertical"
-                android:id="@+id/linearRowforgotpasswo"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_36pxv"
-                android:layout_width="match_parent" android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/txtForgotpassword"
-                    android:layout_gravity="bottom"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_1pxv"
-                    android:layout_width="wrap_content"
-                    android:singleLine="true"
-                    android:text="@string/msg_forgot_password"
-                    style="@style/txtMontserratromanlight14"/>
-                <TextView
-                    android:id="@+id/txtCreatenew"
-                    android:layout_gravity="top"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="84dp"
-                    android:layout_width="wrap_content"
-                    android:singleLine="true"
-                    android:text="Create new Account"
-                    style="@style/txtMontserratromanmedium14"/>
             </LinearLayout>
-        </LinearLayout>
 </LinearLayout>
 
