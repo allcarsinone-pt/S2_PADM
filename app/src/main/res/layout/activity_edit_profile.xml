@@ -15,16 +15,13 @@
         android:id="@+id/editProfile_toolbar_rl"
         app:layout_constraintTop_toTopOf="parent"
         >
-
         <ImageButton
             android:layout_width="38dp"
             android:layout_height="38dp"
             android:src="@drawable/backbutton"
             android:id="@+id/editProfile_backbutton_btn"
             android:background="@drawable/circle_button"
-            android:layout_margin="20dp"
-
-            ></ImageButton>
+            android:layout_margin="20dp"></ImageButton>
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -33,28 +30,38 @@
             android:src="@drawable/logo_cropped"></ImageView>
     </RelativeLayout>
     <TextView
+        android:id="@+id/tv_EditProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Edit Profile"
         app:layout_constraintTop_toBottomOf="@id/editProfile_toolbar_rl"
-        app:layout_constraintBottom_toTopOf="@id/editProfile_form_ll"
+        app:layout_constraintBottom_toTopOf="@id/iv_ProfilePhoto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="24sp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/montserratromanmedium">
     </TextView>
+    <ImageView
+        android:id="@+id/iv_ProfilePhoto"
+        app:layout_constraintTop_toBottomOf="@id/tv_EditProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/default_profile"
+        android:background="@drawable/img"></ImageView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:id="@+id/editProfile_form_ll"
-        app:layout_constraintTop_toBottomOf="@id/editProfile_toolbar_rl"
+        app:layout_constraintTop_toBottomOf="@id/iv_ProfilePhoto"
         app:layout_constraintBottom_toBottomOf="parent">
 
 
-        <TextView android:ellipsize="end"
+        <TextView
             android:id="@+id/editprofile_username_tv"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
@@ -65,9 +72,6 @@
 
         <EditText
             android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-            android:drawableEnd="@drawable/drawable_img_checkmark"
-            android:drawablePadding="@dimen/_30pxh"
-
             android:hint="johndoe1900"
             android:id="@+id/editprofile_username_et"
             android:layout_marginBottom="18dp"
@@ -85,9 +89,8 @@
             android:textColorHint="@color/black_900_cc"
             style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
 
-        <TextView android:ellipsize="end"
+        <TextView
             android:id="@+id/editprofile_name_tv"
-
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:layout_width="wrap_content"
@@ -97,8 +100,6 @@
 
         <EditText
             android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-            android:drawableEnd="@drawable/drawable_img_checkmark"
-            android:drawablePadding="@dimen/_30pxh"
             android:layout_marginBottom="18dp"
             android:hint="John Doe"
             android:id="@+id/editprofile_name_et"
@@ -116,7 +117,7 @@
             android:textColorHint="@color/black_900_cc"
             style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
 
-        <TextView android:ellipsize="end"
+        <TextView
             android:id="@+id/editprofile_email_tv"
 
             android:layout_height="wrap_content"
@@ -128,8 +129,6 @@
 
         <EditText
             android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-            android:drawableEnd="@drawable/drawable_img_checkmark"
-            android:drawablePadding="@dimen/_30pxh"
             android:layout_marginBottom="18dp"
             android:hint="jonhdoe@xpto.com"
             android:id="@+id/editprofile_email_et"
@@ -147,7 +146,7 @@
             android:textColorHint="@color/black_900_cc"
             style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
 
-        <TextView android:ellipsize="end"
+        <TextView
             android:id="@+id/editprofile_password_tv"
 
             android:layout_height="wrap_content"
@@ -159,8 +158,6 @@
 
         <EditText
             android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-            android:drawableEnd="@drawable/drawable_img_checkmark"
-            android:drawablePadding="@dimen/_30pxh"
             android:layout_marginBottom="18dp"
             android:id="@+id/register_password_et"
             android:inputType="textPassword"
@@ -177,7 +174,7 @@
             android:textColorHint="@color/black_900_cc"
             style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
 
-        <TextView android:ellipsize="end"
+        <TextView
             android:id="@+id/editprofile_confirmPassword_tv"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
@@ -188,8 +185,6 @@
 
         <EditText
             android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-            android:drawableEnd="@drawable/drawable_img_checkmark"
-            android:drawablePadding="@dimen/_30pxh"
             android:layout_marginBottom="18dp"
             android:id="@+id/editprofile_confirmPassword_et"
             android:inputType="textPassword"
@@ -207,11 +202,11 @@
             style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:ellipsize="end" android:gravity="center"
+            android:gravity="center"
             android:id="@+id/editprofile_edit_btn"
             android:layout_marginHorizontal="30dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_31pxv"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:paddingBottom="@dimen/_18pxv"
             android:paddingEnd="@dimen/_30pxh"
