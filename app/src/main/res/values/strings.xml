@@ -10,5 +10,6 @@
     <string name="msg_want_a_brand_new">Want a brand new vehicle?</string>
     <string name="lbl_welcome">Welcome</string>
     <string name="msg_forgot_password">Forgot password?</string>
+    <string name="msg_recover_password">Recover password</string>
 
 </resources>
