@@ -7,9 +7,12 @@
     <string name="msg_geral_standxpto_pt">geral@standxpto.pt</string>
     <string name="lbl_login">LOGIN</string>
     <string name="lbl_password">Password</string>
+    <string name="lbl_confirm_password">Confirm Password</string>
     <string name="msg_want_a_brand_new">Want a brand new vehicle?</string>
     <string name="lbl_welcome">Welcome</string>
     <string name="msg_forgot_password">Forgot password?</string>
     <string name="msg_recover_password">Recover password</string>
+    <string name="msg_sign_in">Sign In</string>
+    <string name="change_password">Change Password</string>
 
 </resources>
