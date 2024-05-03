@@ -30,11 +30,16 @@ class RegisterActivity : AppCompatActivity() {
 
         val pattern = Patterns.EMAIL_ADDRESS.matcher(email)
 
-        if(username.length < 5 || password.length < 8 ||
-            confirmPassword != password || !(pattern.matches()))
-            Toast.makeText(this, "Erro", Toast.LENGTH_LONG).show()
+        if(username.length < 5)
+            Toast.makeText(this, "Username must be at least 5 characters", Toast.LENGTH_SHORT).show()
+        if(password.length < 8)
+            Toast.makeText(this, "Password must be at least 8 characters.", Toast.LENGTH_SHORT).show()
+        if(confirmPassword != password)
+            Toast.makeText(this, "Password and Confirmation Password doesn't match.", Toast.LENGTH_SHORT).show()
+        if(!(pattern.matches()))
+                Toast.makeText(this, "Email is not valid. Ex: example@allcarsinone.pt", Toast.LENGTH_SHORT).show()
         if(name.length < 5)
-            Toast.makeText(this, "Name must be at least 5 characters.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Name must be at least 5 characters.", Toast.LENGTH_SHORT).show()
     }
 
 }
