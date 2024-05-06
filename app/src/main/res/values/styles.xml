@@ -63,6 +63,11 @@
         <item name="android:fontFamily">@font/montserratromanregular</item>
         <item name="android:textSize">@dimen/_10pxh</item>
     </style>
+    <style name="txtSmallGray">
+        <item name="android:textColor">@color/lightGray</item>
+        <item name="android:fontFamily">@font/montserratromanregular</item>
+        <item name="android:textSize">@dimen/_10pxh</item>
+    </style>
     <style name="searchBarRoundNoBorder">
         <item name="android:textSize">@dimen/_12pxh</item>
         <item name="android:textColor">@color/gray_600</item>
