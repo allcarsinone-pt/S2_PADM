@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/generalBack"
+    tools:context=".InitialPage">
+
+    <RelativeLayout
+        android:layout_margin="@dimen/_35sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editProfile_toolbar_rl"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/iv_ProfilePhoto"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:cardCornerRadius="360dp">
+
+            <ImageView
+                android:id="@+id/news_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/ic_launcher_foreground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </com.google.android.material.card.MaterialCardView>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/initPageLocationTV"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="@dimen/_10sp"
+        android:drawableEnd="@drawable/arrow_down"
+        android:padding="@dimen/_5sp"
+        android:layout_marginHorizontal="35dp"
+        android:text="Braga"
+        app:layout_constraintTop_toBottomOf="@+id/editProfile_toolbar_rl"
+        android:background="@drawable/rectangle_bg_white_border_gray600_radius_5"
+        android:inputType="text"
+        android:singleLine="true"
+        style="@style/etSolidRoundedOutline"
+        android:textStyle = "bold"
+        />
+
+    <TextView
+        android:id="@+id/initPageHello_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sp"
+        android:layout_marginHorizontal="35dp"
+        android:text="Hello"
+        android:textStyle = "bold"
+        app:layout_constraintTop_toBottomOf="@+id/initPageLocationTV"
+        style="@style/txtLightGray"
+        />
+
+    <TextView
+        android:id="@+id/initPageHelloPt2_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="35dp"
+        android:text="Start lloking for your car"
+        app:layout_constraintTop_toBottomOf="@+id/initPageHello_TV"
+        style="@style/txtMediumBlack"
+        />
+
+    <TextView
+        android:id="@+id/initPageSearch_TV"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/_20sp"
+        android:padding="@dimen/_15sp"
+        android:layout_marginHorizontal="35dp"
+        android:text="What are you looking for?"
+        app:layout_constraintTop_toBottomOf="@+id/initPageHelloPt2_TV"
+        android:inputType="text"
+        android:singleLine="true"
+        style="@style/searchBarRoundNoBorder"
+        android:textStyle = "bold"
+        />
+
+    <TextView
+        android:id="@+id/initPagePrice_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_30sp"
+        android:layout_marginHorizontal="35dp"
+        android:text="Price"
+        android:textStyle = "bold"
+        app:layout_constraintTop_toBottomOf="@+id/initPageSearch_TV"
+        style="@style/txtLightGray"
+        />
+
+    <TextView
+        android:id="@+id/initPagePriceStart_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sp"
+        android:layout_marginHorizontal="35dp"
+        android:text="0"
+        android:textAlignment="textStart"
+        android:textStyle = "bold"
+        android:textColor="@color/red"
+        app:layout_constraintTop_toBottomOf="@+id/initPagePrice_TV"
+        style="@style/txtLightGray"
+        />
+
+    <TextView
+        android:id="@+id/initPagePriceEnd_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sp"
+        android:layout_marginHorizontal="35dp"
+        android:text="Max"
+        android:textAlignment="textEnd"
+        android:textStyle = "bold"
+        android:textColor="@color/red"
+        app:layout_constraintTop_toBottomOf="@+id/initPagePrice_TV"
+        style="@style/txtLightGray"
+        />
+
+    <SeekBar
+        android:id="@+id/initPageSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/_15sp"
+        android:max="100"
+        android:progress="50"
+        app:layout_constraintTop_toBottomOf="@+id/initPagePrice_TV"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:minHeight="5dp"
+        android:maxHeight="5dp"
+        android:background="@android:color/transparent"
+        android:progressDrawable="@drawable/sb_progress_drawable"
+        android:secondaryProgress="0"
+        android:thumbOffset="0dp"
+        android:thumb="@drawable/sb_thumb"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/initPageImageRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="@dimen/_5sp"
+        app:layout_constraintTop_toBottomOf="@+id/initPageSlider"
+        >
+        <ImageView
+            android:id="@+id/initPageImage1"
+            android:layout_width="match_parent"
+            android:layout_height="460dp"
+            android:layout_margin="20dp"
+            android:padding="@dimen/_10sp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ferrari"
+            />
+
+        <View
+            android:id="@+id/initPageCar_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/image_init_page_round_corners" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/initPageContentRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="35dp"
+        app:layout_constraintBottom_toBottomOf="@+id/initPageImageRelativeLayout"
+        >
+        <ImageView
+            android:id="@+id/initPageRectImage"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:src="@drawable/round_corners_rectangle_back_color"
+            />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/initPageCarBrand_TV"
+                android:layout_marginTop="@dimen/_10sp"
+                android:layout_marginHorizontal="25dp"
+                android:text="Ferrari 458 Italia"
+                android:textAlignment="textStart"
+                style="@style/txtMediumBlack"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_weight="1"
+                />
+
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_5sp"
+                >
+
+                <TableRow
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    >
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/initPageProfilePhotoCar_MV"
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    app:cardCornerRadius="360dp"
+                    android:layout_marginLeft="25dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/initPageProfilePhotoCar_IMG"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/ic_launcher_foreground"
+                        />
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/initPageStandName_TV"
+                    android:text="Stand André"
+                    android:textAlignment="textStart"
+                    style="@style/txtSmallBlack"
+                    android:layout_weight="1"
+                    />
+                </TableRow>
+
+
+            <TextView
+                android:id="@+id/initPageCarPrice_TV"
+                android:layout_marginHorizontal="25dp"
+                android:text="120.000€"
+                android:textAlignment="textEnd"
+                style="@style/txtMediumBlack"
+                android:layout_weight="1"
+                />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_5sp"
+                >
+
+            <TextView
+                android:id="@+id/initPageCarStand_TV"
+                android:layout_marginHorizontal="25dp"
+                android:text="* * * * *"
+                android:textAlignment="textStart"
+                style="@style/txtMediumBlack"
+                />
+            </TableRow>
+
+        </TableLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/initPageFooter_LAY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/white"
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_40sp"
+        android:paddingVertical="@dimen/_20sp"
+        >
+
+        <ImageView
+            android:id="@+id/initPageFooter_home_Img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/home"
+            android:layout_weight="1"
+            >
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/initPageFooter_heart_Img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/heart"
+            android:layout_weight="1">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/initPageFooter_location_Img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/location"
+            android:layout_weight="1">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/initPageFooter_more_Img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/more"
+            android:layout_weight="1">
+        </ImageView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

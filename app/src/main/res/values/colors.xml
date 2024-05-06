@@ -16,4 +16,7 @@
     <color name="greenstats">#08D110</color>
     <color name="redstats">#AD2323</color>
     <color name="gray">#808080</color>
+    <color name="lightGray">#B3B3B3</color>
+    <color name="generalBack">#F8FBFF</color>
+
 </resources>
