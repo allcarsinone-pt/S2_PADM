@@ -14,4 +14,16 @@
     <string name="msg_recover_password">Recover password</string>
     <string name="msg_sign_in">Sign In</string>
     <string name="change_password">Change Password</string>
+    <string name="braga">Braga</string>
+    <string name="hello">Hello</string>
+    <string name="username">Username</string>
+    <string name="start_looking_for_your_car">Start looking for your car</string>
+    <string name="what_are_you_looking_for">What are you looking for?</string>
+    <string name="price">Price</string>
+    <string name="_0">0</string>
+    <string name="max">Max</string>
+    <string name="all_cars_in_one">All Cars In One</string>
+    <string name="default_stand">Default Stand</string>
+    <string name="_999_000">999.000€</string>
+    <string name="opinions">opinions</string>
 </resources>
