@@ -26,4 +26,5 @@
     <string name="default_stand">Default Stand</string>
     <string name="_999_000">999.000€</string>
     <string name="opinions">opinions</string>
+    <string name="default_location">Default location</string>
 </resources>

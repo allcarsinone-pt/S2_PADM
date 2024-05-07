@@ -20,7 +20,7 @@
             android:id="@+id/initPageLayoutTop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="4"
             android:orientation="vertical">
             <RelativeLayout
                 android:id="@+id/editProfile_toolbar_rl"
@@ -96,18 +96,16 @@
                 android:layout_marginTop="@dimen/_15sp"
                 android:padding="@dimen/_15sp"
                 android:text="@string/what_are_you_looking_for"
-                android:singleLine="true"
-                style="@style/searchBarRoundNoBorder"
-                android:textStyle = "bold"
+                style="@style/txtlightGray15LookingFor"
                 app:drawableEndCompat="@drawable/find" />
             <TextView
                 android:id="@+id/initPagePrice_TV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sp"
+                android:layout_marginTop="@dimen/_10sp"
                 android:text="@string/price"
                 android:textStyle = "bold"
-                style="@style/txtLightGray" />
+                style="@style/txtlightGray20" />
             <RelativeLayout
                 android:id="@+id/initPageSliderLAY"
                 android:layout_width="match_parent"
@@ -119,18 +117,15 @@
                     android:layout_marginTop="@dimen/_3sp"
                     android:text="@string/_0"
                     android:textAlignment="textStart"
-                    android:textStyle = "bold"
-                    android:textColor="@color/red"
-                    style="@style/txtLightGray" />
+                    style="@style/txtRed14" />
+
                 <TextView
                     android:id="@+id/initPagePriceEnd_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/max"
                     android:textAlignment="textEnd"
-                    android:textStyle = "bold"
-                    android:textColor="@color/red"
-                    style="@style/txtLightGray" />
+                    style="@style/txtRed14" />
                 <SeekBar
                     android:layout_marginStart="-16dp"
                     android:layout_marginEnd="-16dp"
@@ -154,14 +149,14 @@
             android:id="@+id/initPageLayoutMid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="5"
             app:layout_constraintTop_toBottomOf="@+id/initPageLayoutTop">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/initPageContentCardView"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                app:cardCornerRadius="40dp"
+                app:cardCornerRadius="20dp"
                 android:elevation="1dp"
                 app:layout_constraintTop_toTopOf="parent">
                 <ImageView
@@ -170,14 +165,25 @@
                     android:layout_height="match_parent"
                     android:src="@drawable/ferrari"
                     android:scaleType="centerCrop"
-                    android:elevation="1dp"
+                    android:elevation="1dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle_gray_half_circle_corner"
+                    android:text="@string/default_location"
+                    android:padding="10dp"
+                    android:layout_margin="20dp"
+                    android:elevation="2dp"
+                    app:drawableStartCompat="@drawable/locationdark"
+                    style="@style/txtSmallBlack"
+                    android:drawablePadding="5dip"
                     />
             </androidx.cardview.widget.CardView>
 
             <RelativeLayout
                 android:id="@+id/initPageContentRelativeLayout"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="100dp"
                 app:layout_constraintBottom_toBottomOf="@+id/initPageContentCardView"
                 android:elevation="2dp">
                 <ImageView
@@ -188,13 +194,13 @@
                 <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingHorizontal="@dimen/_10sp">
+                    android:paddingHorizontal="@dimen/_15sp">
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                         <TextView
                             android:id="@+id/initPageCarBrand_TV"
-                            android:layout_marginTop="@dimen/_15sp"
+                            android:layout_marginTop="@dimen/_10sp"
                             android:text="@string/all_cars_in_one"
                             android:textAlignment="textStart"
                             style="@style/txtMediumBlack" />
@@ -292,7 +298,7 @@
                                 android:orientation="horizontal">
                                 <ImageView
                                     android:id="@+id/initPageIconSit"
-                                    android:layout_width="30dp"
+                                    android:layout_width="10dp"
                                     android:layout_height="wrap_content"
                                     android:src="@drawable/carsit"
                                     android:layout_weight="1" />
@@ -304,7 +310,7 @@
                                     android:text="2" />
                                 <ImageView
                                     android:id="@+id/initPageIconGear"
-                                    android:layout_width="30dp"
+                                    android:layout_width="10dp"
                                     android:layout_height="wrap_content"
                                     android:src="@drawable/cargear"
                                     android:layout_weight="1" />
@@ -316,7 +322,7 @@
                                     android:text="6" />
                                 <ImageView
                                     android:id="@+id/initPageIconDoor"
-                                    android:layout_width="30dp"
+                                    android:layout_width="10dp"
                                     android:layout_height="wrap_content"
                                     android:src="@drawable/cardoor"
                                     android:layout_weight="1" />
@@ -332,19 +338,18 @@
                 </TableLayout>
             </RelativeLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
         android:paddingHorizontal="@dimen/_35sp"
         android:background="@color/white"
         android:weightSum="4"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent">
-
         <ImageView
             android:id="@+id/initPageFooter_home_Img"
             android:layout_width="match_parent"
@@ -373,6 +378,7 @@
             android:src="@drawable/more"
             android:layout_weight="1">
         </ImageView>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
