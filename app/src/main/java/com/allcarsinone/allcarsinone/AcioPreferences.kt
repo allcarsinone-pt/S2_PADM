@@ -34,7 +34,7 @@ class AcioPreferences(var userName: String = "", var installDate: Date = Date(),
     }
 
     companion object {
-        fun convertJSONToStudent(json: String): AcioPreferences {
+        fun convertJSONToPreferences(json: String): AcioPreferences {
             val jsonObj = JSONObject(json)
             val prefs = AcioPreferences()
             prefs.userName = jsonObj.getString("username")

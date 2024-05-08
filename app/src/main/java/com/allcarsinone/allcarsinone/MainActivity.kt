@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         if (preferencesString != null) {
             val prefs2 = AcioPreferences(preferencesString)
             // ou
-            val prefs3 = AcioPreferences.convertJSONToStudent(preferencesString)
+            val prefs3 = AcioPreferences.convertJSONToPreferences(preferencesString)
         }
     }
 }

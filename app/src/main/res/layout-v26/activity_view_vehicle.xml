@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/generalBack"
+    tools:context=".InitialPage">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/initPageContentCardView"
+            android:layout_width="match_parent"
+            android:layout_height="470dp"
+            app:cardCornerRadius="20dp"
+            android:elevation="1dp"
+            app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:id="@+id/roundedImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ferrari"
+                android:scaleType="fitStart"
+                android:elevation="1dp" />
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/backbutton"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:elevation="2dp" />
+
+        <ImageView
+            android:id="@+id/viewVehicleLikeIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/likebutton"
+            app:layout_constraintBottom_toTopOf="@+id/viewVehiclesInfoLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            android:elevation="2dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_green_half_circle_corner"
+            android:text="@string/availability"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="30dp"
+            android:elevation="2dp"
+            android:layout_margin="20dp"
+            style="@style/txtSmallWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/viewVehiclesInfoLayout" />
+
+        <RelativeLayout
+            android:id="@+id/viewVehiclesInfoLayout"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:layout_constraintBottom_toBottomOf="@+id/initPageContentCardView"
+            android:elevation="2dp">
+            <ImageView
+                android:id="@+id/initPageRectImage"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:src="@drawable/round_corners_rectangle_back_color" />
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="@dimen/_15sp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="30dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="5dip"
+                        android:gravity="center_horizontal"
+                        android:text="@string/default_location"
+                        app:drawableLeftCompat="@drawable/locationdark" />
+                </LinearLayout>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal">
+                    <TextView
+                        android:id="@+id/initPageCarBrand_TV"
+                        android:layout_marginTop="@dimen/_5sp"
+                        android:text="@string/all_cars_in_one"
+                        android:textAlignment="center"
+                        style="@style/txtMedium24Blue"
+                        android:textStyle = "bold" />
+                </TableRow>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/_5sp"
+                    android:weightSum="10">
+                    <ImageView
+                        android:id="@+id/initPageIconSit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/reddot"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:id="@+id/initPageIconSitText_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/txtSmallGray"
+                        android:text="19L/100Km"
+                        android:layout_weight="1"/>
+                    <ImageView
+                        android:id="@+id/initPageIconGear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/reddot"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:id="@+id/initPageIconGearText_TV"
+                        style="@style/txtSmallGray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="540CV"
+                        android:layout_weight="1"/>
+                    <ImageView
+                        android:id="@+id/initPageIconDoor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/reddot"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:id="@+id/initPageIcondoorText_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/txtSmallGray"
+                        android:text="2010"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/_5sp"
+                    android:paddingHorizontal="@dimen/_50sp"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/viewVehicleFuel_TV"
+                        android:text="Gasoline"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawableLeft="@drawable/carfuel"
+                        style="@style/txtlightGray15"
+                        android:textStyle = "bold"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/viewVehicleKms_TV"
+                        android:text="135000 Kms"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawableLeft="@drawable/carkms"
+                        style="@style/txtlightGray15"
+                        android:textStyle = "bold"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </TableLayout>
+        </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/viewVehicleIconsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@+id/viewVehiclesInfoLayout"
+        android:background="@drawable/relative_layout_border"
+        android:orientation="horizontal"
+        android:paddingVertical="@dimen/_5sp"
+        android:weightSum="4">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Information"
+            app:drawableTopCompat="@drawable/information"
+            android:gravity="center_horizontal"
+            style="@style/txtlightGray12"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comments"
+            app:drawableTopCompat="@drawable/comments"
+            android:gravity="center_horizontal"
+            style="@style/txtlightGray12"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shared"
+            app:drawableTopCompat="@drawable/shared"
+            android:gravity="center_horizontal"
+            style="@style/txtlightGray12"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Test drive"
+            app:drawableTopCompat="@drawable/testdrive"
+            android:gravity="center_horizontal"
+            style="@style/txtlightGray12"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/viewVehicleDescriptionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/viewVehicleIconsLayout"
+        android:orientation="vertical"
+        android:padding="@dimen/_15sp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sp"
+            android:text="Description"
+            android:textAlignment="textStart"
+            style="@style/txtMedium20Blue"
+            android:textStyle = "bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sp"
+            android:text="Ferrari 458 Italy is a masterpiece on wheels, a perfect fusion of luxury, performance and a dash of pure Italian passion. This is not just a vehicle, it is an emotional and financial investment that only tends to appreciate in value over time.
+This isn't just a Ferrari 458 Italy it's a style statement, a performance promise and a smart investment decision."
+            android:textAlignment="textStart"
+            style="@style/txtSmallGray"
+            android:justificationMode="inter_word"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sp"
+            android:paddingHorizontal="@dimen/_35sp"
+            android:background="@color/white"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="€ 120.000"
+            style="@style/txtMedium20Blue"
+            android:textStyle = "bold"
+            android:gravity="start"
+            android:layout_weight="1" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnBuy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_15sp"
+            android:singleLine="true"
+            android:text="@string/buy"
+            android:textAllCaps="false"
+            style="@style/btnSolidRounded" tools:text="BUY"
+            android:layout_weight="1" />
+
+        </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

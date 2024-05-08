@@ -27,4 +27,6 @@
     <string name="_999_000">999.000€</string>
     <string name="opinions">opinions</string>
     <string name="default_location">Default location</string>
+    <string name="availability">Availability</string>
+    <string name="buy">BUY</string>
 </resources>

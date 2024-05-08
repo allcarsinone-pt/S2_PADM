@@ -6,349 +6,337 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/generalBack"
-    tools:context=".InitialPage">
+    tools:context=".InitialPage" >
 
     <LinearLayout
-        android:id="@+id/initPageLayoutMain"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="@dimen/_35sp"
-        android:weightSum="10">
-
-        <LinearLayout
-            android:id="@+id/initPageLayoutTop"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:orientation="vertical">
-            <RelativeLayout
-                android:id="@+id/editProfile_toolbar_rl"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="3">
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/iv_ProfilePhoto"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    app:cardCornerRadius="360dp">
-                    <ImageView
-                        android:id="@+id/news_image"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/ic_launcher_foreground" />
-
-                </com.google.android.material.card.MaterialCardView>
-                <ImageView
-                    android:id="@+id/imageView12"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:src="@drawable/menu" />
-            </RelativeLayout>
-
-
-            <TextView
-                android:id="@+id/initPageLocationTV"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginTop="@dimen/_15sp"
-                android:padding="@dimen/_5sp"
-                android:text="@string/braga"
-                android:background="@drawable/rectangle_bg_white_border_gray600_radius_5"
-                style="@style/etSolidRoundedOutline"
-                android:textStyle = "bold"
-                app:drawableEndCompat="@drawable/arrow_down" />
-
-            <RelativeLayout
-                android:id="@+id/initPageHello_TV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sp"
-                android:layout_gravity="right">
-                <TextView
-                    android:id="@+id/initPage_TV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/hello"
-                    android:textStyle = "bold"
-                    style="@style/txtLightGray"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/initPage_TV"
-                    android:paddingHorizontal="5dp"
-                    android:text="@string/username"
-                    android:textStyle = "bold"
-                    style="@style/txtLightGray" />
-            </RelativeLayout>
-            <TextView
-                android:id="@+id/initPageHelloPt2_TV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/start_looking_for_your_car"
-                style="@style/txtMediumBlack" />
-            <TextView
-                android:id="@+id/initPageSearch_TV"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="@dimen/_15sp"
-                android:padding="@dimen/_15sp"
-                android:text="@string/what_are_you_looking_for"
-                style="@style/txtlightGray15LookingFor"
-                app:drawableEndCompat="@drawable/find" />
-            <TextView
-                android:id="@+id/initPagePrice_TV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sp"
-                android:text="@string/price"
-                android:textStyle = "bold"
-                style="@style/txtlightGray20" />
-            <RelativeLayout
-                android:id="@+id/initPageSliderLAY"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/initPagePriceStart_TV"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_3sp"
-                    android:text="@string/_0"
-                    android:textAlignment="textStart"
-                    style="@style/txtRed14" />
-
-                <TextView
-                    android:id="@+id/initPagePriceEnd_TV"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/max"
-                    android:textAlignment="textEnd"
-                    style="@style/txtRed14" />
-                <SeekBar
-                    android:layout_marginStart="-16dp"
-                    android:layout_marginEnd="-16dp"
-                    android:id="@+id/initPageSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="100"
-                    android:layout_marginTop="@dimen/_20sp"
-                    android:progress="50"
-                    android:maxHeight="3dp"
-                    android:minHeight="5dp"
-                    android:background="@android:color/transparent"
-                    android:progressDrawable="@drawable/sb_progress_drawable"
-                    android:secondaryProgress="0"
-                    android:thumbOffset="0dp"
-                    android:thumb="@drawable/sb_thumb" />
-            </RelativeLayout>
-        </LinearLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/initPageLayoutMid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            app:layout_constraintTop_toBottomOf="@+id/initPageLayoutTop">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/initPageContentCardView"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                app:cardCornerRadius="20dp"
-                android:elevation="1dp"
-                app:layout_constraintTop_toTopOf="parent">
-                <ImageView
-                    android:id="@+id/roundedImageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ferrari"
-                    android:scaleType="centerCrop"
-                    android:elevation="1dp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/rectangle_gray_half_circle_corner"
-                    android:text="@string/default_location"
-                    android:padding="10dp"
-                    android:layout_margin="20dp"
-                    android:elevation="2dp"
-                    app:drawableStartCompat="@drawable/locationdark"
-                    style="@style/txtSmallBlack"
-                    android:drawablePadding="5dip"
-                    />
-            </androidx.cardview.widget.CardView>
-
-            <RelativeLayout
-                android:id="@+id/initPageContentRelativeLayout"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                app:layout_constraintBottom_toBottomOf="@+id/initPageContentCardView"
-                android:elevation="2dp">
-                <ImageView
-                    android:id="@+id/initPageRectImage"
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:src="@drawable/round_corners_rectangle_back_color" />
-                <TableLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingHorizontal="@dimen/_15sp">
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <TextView
-                            android:id="@+id/initPageCarBrand_TV"
-                            android:layout_marginTop="@dimen/_10sp"
-                            android:text="@string/all_cars_in_one"
-                            android:textAlignment="textStart"
-                            style="@style/txtMediumBlack" />
-                    </TableRow>
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="@dimen/_5sp">
-                        <TableRow
-                            android:layout_width="20dp"
-                            android:layout_height="20dp">
-                            <com.google.android.material.card.MaterialCardView
-                                android:id="@+id/initPageProfilePhotoCar_MV"
-                                android:layout_width="20sp"
-                                android:layout_height="20sp"
-                                app:cardCornerRadius="360dp">
-                                <ImageView
-                                    android:id="@+id/initPageProfilePhotoCar_IMG"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:src="@mipmap/ic_launcher_foreground" />
-                            </com.google.android.material.card.MaterialCardView>
-                            <TextView
-                                android:id="@+id/initPageStandName_TV"
-                                android:text="@string/default_stand"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="start|center"
-                                android:paddingHorizontal="5dp"
-                                style="@style/txtSmallBlack" />
-                        </TableRow>
-                        <TextView
-                            android:id="@+id/initPageCarPrice_TV"
-                            android:text="@string/_999_000"
-                            android:gravity="end|center"
-                            style="@style/txtMediumBlack"
-                            android:layout_weight="1" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_marginTop="@dimen/_5sp"
-                        android:textAlignment="textEnd"
-                        android:weightSum="6">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:layout_weight="3">
-                            <ImageView
-                                android:id="@+id/initPageStandStar1Img"
-                                android:layout_width="15dp"
-                                android:layout_height="match_parent"
-                                android:src="@drawable/star" />
-                            <ImageView
-                                android:id="@+id/initPageStandStar2Img"
-                                android:layout_width="15dp"
-                                android:layout_height="match_parent"
-                                android:src="@drawable/star" />
-                            <ImageView
-                                android:id="@+id/initPageStandStar3Img"
-                                android:layout_width="15dp"
-                                android:layout_height="match_parent"
-                                android:src="@drawable/star" />
-                            <ImageView
-                                android:id="@+id/initPageStandStar4Img"
-                                android:layout_width="15dp"
-                                android:layout_height="match_parent"
-                                android:src="@drawable/star" />
-                            <ImageView
-                                android:id="@+id/initPageStandStar5Img"
-                                android:layout_width="15dp"
-                                android:layout_height="match_parent"
-                                android:src="@drawable/star" />
-                            <TextView
-                                android:id="@+id/initPageStandOpinions_TV"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:paddingHorizontal="5dp"
-                                style="@style/txtSmallGray"
-                                android:text="25"/>
-                            <TextView
-                                android:id="@+id/initPageStandOpinionsTxt_TV"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                style="@style/txtSmallGray"
-                                android:text="@string/opinions"/>
-                        </LinearLayout>
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_weight="3">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:orientation="horizontal">
-                                <ImageView
-                                    android:id="@+id/initPageIconSit"
-                                    android:layout_width="10dp"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/carsit"
-                                    android:layout_weight="1" />
-                                <TextView
-                                    android:id="@+id/initPageIconSitText_TV"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/txtSmallBlack"
-                                    android:text="2" />
-                                <ImageView
-                                    android:id="@+id/initPageIconGear"
-                                    android:layout_width="10dp"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/cargear"
-                                    android:layout_weight="1" />
-                                <TextView
-                                    android:id="@+id/initPageIconGearText_TV"
-                                    style="@style/txtSmallBlack"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="6" />
-                                <ImageView
-                                    android:id="@+id/initPageIconDoor"
-                                    android:layout_width="10dp"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/cardoor"
-                                    android:layout_weight="1" />
-                                <TextView
-                                    android:id="@+id/initPageIcondoorText_TV"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/txtSmallBlack"
-                                    android:text="2" />
-                            </LinearLayout>
-                        </TableRow>
-                    </TableRow>
-                </TableLayout>
-            </RelativeLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
-
-    <LinearLayout
+        android:id="@+id/initPageLayoutTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="4"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_15sp"
+        android:paddingTop="@dimen/_20sp"
+        app:layout_constraintTop_toTopOf="parent">
+        <RelativeLayout
+            android:id="@+id/editProfile_toolbar_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/iv_ProfilePhoto"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:cardCornerRadius="360dp">
+                <ImageView
+                    android:id="@+id/news_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/ic_launcher_foreground" />
+
+            </com.google.android.material.card.MaterialCardView>
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/menu" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/initPageLocationTV"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/_15sp"
+            android:padding="@dimen/_5sp"
+            android:text="@string/braga"
+            android:background="@drawable/rectangle_bg_white_border_gray600_radius_5"
+            style="@style/etSolidRoundedOutline"
+            android:textStyle = "bold"
+            app:drawableEndCompat="@drawable/arrow_down" />
+
+        <RelativeLayout
+            android:id="@+id/initPageHello_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sp"
+            android:layout_gravity="right">
+            <TextView
+                android:id="@+id/initPage_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hello"
+                android:textStyle = "bold"
+                style="@style/txtLightGray"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/initPage_TV"
+                android:paddingHorizontal="5dp"
+                android:text="@string/username"
+                android:textStyle = "bold"
+                style="@style/txtLightGray" />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/initPageHelloPt2_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/start_looking_for_your_car"
+            style="@style/txtMediumBlack" />
+        <TextView
+            android:id="@+id/initPageSearch_TV"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/_15sp"
+            android:padding="@dimen/_15sp"
+            android:text="@string/what_are_you_looking_for"
+            style="@style/txtlightGray15LookingFor"
+            app:drawableEndCompat="@drawable/find" />
+        <TextView
+            android:id="@+id/initPagePrice_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sp"
+            android:text="@string/price"
+            android:textStyle = "bold"
+            style="@style/txtlightGray20" />
+        <RelativeLayout
+            android:id="@+id/initPageSliderLAY"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/initPagePriceStart_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sp"
+                android:text="@string/_0"
+                android:textAlignment="textStart"
+                style="@style/txtRed14" />
+
+            <TextView
+                android:id="@+id/initPagePriceEnd_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/max"
+                android:textAlignment="textEnd"
+                style="@style/txtRed14" />
+            <SeekBar
+                android:layout_marginStart="-16dp"
+                android:layout_marginEnd="-16dp"
+                android:id="@+id/initPageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:layout_marginTop="@dimen/_20sp"
+                android:progress="50"
+                android:maxHeight="3dp"
+                android:minHeight="5dp"
+                android:background="@android:color/transparent"
+                android:progressDrawable="@drawable/sb_progress_drawable"
+                android:secondaryProgress="0"
+                android:thumbOffset="0dp"
+                android:thumb="@drawable/sb_thumb" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/initPageContentCardView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:cardCornerRadius="20dp"
+        android:elevation="1dp"
+        android:layout_margin="@dimen/_15sp"
+        app:layout_constraintTop_toBottomOf="@+id/initPageLayoutTop">
+        <ImageView
+            android:id="@+id/roundedImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ferrari"
+            android:scaleType="centerCrop"
+            android:elevation="1dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_gray_half_circle_corner"
+            android:text="@string/default_location"
+            android:padding="10dp"
+            android:layout_margin="20dp"
+            android:elevation="2dp"
+            app:drawableStartCompat="@drawable/locationdark"
+            style="@style/txtSmallBlack"
+            android:drawablePadding="5dip"
+            />
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:layout_marginHorizontal="@dimen/_15sp"
+        android:id="@+id/initPageContentRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/initPageContentCardView"
+        android:elevation="2dp">
+        <ImageView
+            android:id="@+id/initPageRectImage"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:src="@drawable/round_corners_rectangle_back_color" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="@dimen/_15sp">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/initPageCarBrand_TV"
+                    android:layout_marginTop="@dimen/_10sp"
+                    android:text="@string/all_cars_in_one"
+                    android:textAlignment="textStart"
+                    style="@style/txtMediumBlack" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_5sp">
+                <TableRow
+                    android:layout_width="20dp"
+                    android:layout_height="20dp">
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/initPageProfilePhotoCar_MV"
+                        android:layout_width="20sp"
+                        android:layout_height="20sp"
+                        app:cardCornerRadius="360dp">
+
+                        <ImageView
+                            android:id="@+id/initPageProfilePhotoCar_IMG"
+                            android:layout_width="14dp"
+                            android:layout_height="match_parent"
+                            android:src="@mipmap/ic_launcher_foreground" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/initPageStandName_TV"
+                        android:text="@string/default_stand"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="start|center"
+                        android:paddingHorizontal="5dp"
+                        style="@style/txtSmallBlack" />
+                </TableRow>
+                <TextView
+                    android:id="@+id/initPageCarPrice_TV"
+                    android:text="@string/_999_000"
+                    android:gravity="end|center"
+                    style="@style/txtMediumBlack"
+                    android:layout_weight="1" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_5sp"
+                android:textAlignment="textEnd"
+                android:weightSum="6">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="3">
+                    <ImageView
+                        android:id="@+id/initPageStandStar1Img"
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/star" />
+                    <ImageView
+                        android:id="@+id/initPageStandStar2Img"
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/star" />
+                    <ImageView
+                        android:id="@+id/initPageStandStar3Img"
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/star" />
+                    <ImageView
+                        android:id="@+id/initPageStandStar4Img"
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/star" />
+                    <ImageView
+                        android:id="@+id/initPageStandStar5Img"
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/star" />
+                    <TextView
+                        android:id="@+id/initPageStandOpinions_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="5dp"
+                        style="@style/txtSmallGray"
+                        android:text="25"/>
+                    <TextView
+                        android:id="@+id/initPageStandOpinionsTxt_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        style="@style/txtSmallGray"
+                        android:text="@string/opinions"/>
+                </LinearLayout>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_weight="3">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:id="@+id/initPageIconSit"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/carsit"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/initPageIconSitText_TV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/txtSmallBlack"
+                            android:text="2" />
+                        <ImageView
+                            android:id="@+id/initPageIconGear"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/cargear"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/initPageIconGearText_TV"
+                            style="@style/txtSmallBlack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="6" />
+                        <ImageView
+                            android:id="@+id/initPageIconDoor"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/cardoor"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/initPageIcondoorText_TV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/txtSmallBlack"
+                            android:text="2" />
+                    </LinearLayout>
+                </TableRow>
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sp"
         android:paddingHorizontal="@dimen/_35sp"
         android:background="@color/white"
         android:weightSum="4"
         android:orientation="horizontal"
-        android:gravity="center_vertical"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent">
         <ImageView
             android:id="@+id/initPageFooter_home_Img"
@@ -378,7 +366,5 @@
             android:src="@drawable/more"
             android:layout_weight="1">
         </ImageView>
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
