@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Payment">
+    tools:context=".PaymentActivity">
 
     <RelativeLayout
         android:id="@+id/PaymentHeader_LAY"
@@ -97,7 +97,6 @@
             android:singleLine="true"
             style="@style/txtMontserratromanregular14"
             android:text="@string/cardholder_name"/>
-
         <EditText
             android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
             android:id="@+id/Payment_cardholder_ET"
@@ -167,21 +166,16 @@
                     android:singleLine="true"
                     style="@style/txtMontserratromanregular14"
                     android:text="@string/exp_month"/>
-                <EditText
-                    android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-                    android:id="@+id/Payment_Exp_Mon_ET"
-                    android:inputType="text"
+                <Spinner
+                    android:id="@+id/Payment_Exp_Mon_Spinner_ET"
+                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:singleLine="true"
-                    android:textColorHint="@color/black_900_cc"
-                    style="@style/etSolidRoundedOutline"
-                    android:paddingBottom="@dimen/_14pxv"
+                    android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
+                    android:autofillHints="creditCardExpirationMonth"
                     android:paddingEnd="@dimen/_25pxh"
                     android:paddingStart="@dimen/_21pxh"
-                    android:paddingTop="@dimen/_14pxv"
-                    android:layout_marginTop="@dimen/_8pxv"
-                    tools:ignore="Autofill"/>
+                    android:layout_marginTop="@dimen/_8pxv" />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/Payment_Expire_Right_LAY"
@@ -198,21 +192,16 @@
                     android:singleLine="true"
                     style="@style/txtMontserratromanregular14"
                     android:text="@string/exp_year"/>
-                <EditText
-                    android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-                    android:id="@+id/Payment_Exp_Year_ET"
-                    android:inputType="text"
+                <Spinner
+                    android:id="@+id/Payment_Exp_Year_Spinner_ET"
+                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:singleLine="true"
-                    android:textColorHint="@color/black_900_cc"
-                    style="@style/etSolidRoundedOutline"
-                    android:paddingBottom="@dimen/_14pxv"
+                    android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
+                    android:autofillHints="creditCardExpirationYear"
                     android:paddingEnd="@dimen/_25pxh"
                     android:paddingStart="@dimen/_21pxh"
-                    android:paddingTop="@dimen/_14pxv"
-                    android:layout_marginTop="@dimen/_8pxv"
-                    tools:ignore="Autofill"/>
+                    android:layout_marginTop="@dimen/_8pxv" />
             </LinearLayout>
         </LinearLayout>
 
@@ -247,7 +236,7 @@
                 <EditText
                     android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
                     android:id="@+id/Payment_Cvc_ET"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:singleLine="true"
