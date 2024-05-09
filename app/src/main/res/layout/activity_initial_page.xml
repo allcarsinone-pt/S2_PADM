@@ -44,7 +44,7 @@
         </RelativeLayout>
 
 
-        <TextView
+        <EditText
             android:id="@+id/initPageLocationTV"
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:text="@string/start_looking_for_your_car"
             style="@style/txtMediumBlack" />
-        <TextView
+        <EditText
             android:id="@+id/initPageSearch_TV"
             android:layout_width="match_parent"
             android:layout_height="50dp"

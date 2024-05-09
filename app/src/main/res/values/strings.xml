@@ -29,4 +29,18 @@
     <string name="default_location">Default location</string>
     <string name="availability">Availability</string>
     <string name="buy">BUY</string>
+    <string name="information">Information</string>
+    <string name="comments">Comments</string>
+    <string name="shared">Shared</string>
+    <string name="test_drive">Test drive</string>
+    <string name="description">Description</string>
+    <string name="enter_your_payment_details">Enter your payment details</string>
+    <string name="cardholder_name">CardHolder Name</string>
+    <string name="card_number">Card Number</string>
+    <string name="exp_month">Exp Month</string>
+    <string name="exp_year">Exp Year</string>
+    <string name="cvc">CVC</string>
+    <string name="_3_or_4_digits_usually_found_on_the_signature_strip">3 or 4 digits usually found on the signature strip</string>
+    <string name="by_continuing_you_agree_to_our">By continuing you agree to our</string>
+    <string name="terms">Terms</string>
 </resources>

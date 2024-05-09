@@ -6,60 +6,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/generalBack"
-    tools:context=".InitialPage">
+    tools:context=".ViewVehicle">
+
+    <RelativeLayout
+        android:id="@+id/PaymentHeader_LAY"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="3dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/backbutton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:elevation="2dp" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/logo_cropped" />
+    </RelativeLayout>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/initPageContentCardView"
+        android:id="@+id/ViewVehicleContentCardView"
         android:layout_width="match_parent"
         android:layout_height="470dp"
         app:cardCornerRadius="20dp"
         android:elevation="1dp"
         app:layout_constraintTop_toTopOf="parent">
         <ImageView
-            android:id="@+id/roundedImageView"
+            android:id="@+id/ViewVehicleroundedImageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ferrari"
             android:scaleType="fitStart"
             android:elevation="1dp" />
     </androidx.cardview.widget.CardView>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/backbutton"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:elevation="2dp" />
-
     <ImageView
         android:id="@+id/viewVehicleLikeIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/likebutton"
-        app:layout_constraintBottom_toTopOf="@+id/viewVehiclesInfoLayout"
+        app:layout_constraintBottom_toTopOf="@+id/ViewVehicleInfoLayout"
         app:layout_constraintStart_toStartOf="parent"
         android:elevation="2dp" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rectangle_green_half_circle_corner"
-        android:text="@string/availability"
         android:paddingVertical="10dp"
         android:paddingHorizontal="30dp"
         android:elevation="2dp"
         android:layout_margin="20dp"
         style="@style/txtSmallWhite"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/viewVehiclesInfoLayout" />
-
+        app:layout_constraintBottom_toTopOf="@+id/ViewVehicleInfoLayout"
+        android:text="@string/availability"/>
     <RelativeLayout
-        android:id="@+id/viewVehiclesInfoLayout"
+        android:id="@+id/ViewVehicleInfoLayout"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        app:layout_constraintBottom_toBottomOf="@+id/initPageContentCardView"
+        app:layout_constraintBottom_toBottomOf="@+id/ViewVehicleContentCardView"
         android:elevation="2dp">
         <ImageView
             android:id="@+id/initPageRectImage"
@@ -81,8 +90,8 @@
                     android:layout_height="wrap_content"
                     android:drawablePadding="5dip"
                     android:gravity="center_horizontal"
-                    android:text="@string/default_location"
-                    app:drawableLeftCompat="@drawable/locationdark" />
+                    app:drawableLeftCompat="@drawable/locationdark"
+                    android:text="@string/default_location"/>
             </LinearLayout>
             <TableRow
                 android:layout_width="match_parent"
@@ -91,10 +100,10 @@
                 <TextView
                     android:id="@+id/initPageCarBrand_TV"
                     android:layout_marginTop="@dimen/_5sp"
-                    android:text="@string/all_cars_in_one"
                     android:textAlignment="center"
                     style="@style/txtMedium24Blue"
-                    android:textStyle = "bold" />
+                    android:textStyle = "bold"
+                    android:text="@string/all_cars_in_one"/>
             </TableRow>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -103,44 +112,44 @@
                 android:layout_marginTop="@dimen/_5sp"
                 android:weightSum="10">
                 <ImageView
-                    android:id="@+id/initPageIconSit"
+                    android:id="@+id/ViewVehicleIconSit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/reddot"
                     android:layout_weight="1" />
                 <TextView
-                    android:id="@+id/initPageIconSitText_TV"
+                    android:id="@+id/ViewVehicleIconSitText_TV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/txtSmallGray"
-                    android:text="19L/100Km"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:text="19L/100Km"/>
                 <ImageView
-                    android:id="@+id/initPageIconGear"
+                    android:id="@+id/ViewVehicleIconGear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/reddot"
                     android:layout_weight="1" />
                 <TextView
-                    android:id="@+id/initPageIconGearText_TV"
+                    android:id="@+id/ViewVehicleIconGearText_TV"
                     style="@style/txtSmallGray"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="540CV"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:text="540CV"/>
                 <ImageView
-                    android:id="@+id/initPageIconDoor"
+                    android:id="@+id/ViewVehicleIconDoor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/reddot"
                     android:layout_weight="1" />
                 <TextView
-                    android:id="@+id/initPageIcondoorText_TV"
+                    android:id="@+id/ViewVehicleIcondoorText_TV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/txtSmallGray"
-                    android:text="2010"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:text="2010"/>
             </LinearLayout>
 
             <LinearLayout
@@ -149,99 +158,98 @@
                 android:layout_marginTop="@dimen/_5sp"
                 android:paddingHorizontal="@dimen/_50sp"
                 android:weightSum="2">
-
                 <TextView
-                    android:id="@+id/viewVehicleFuel_TV"
-                    android:text="Gasoline"
+                    android:id="@+id/ViewVehicleFuel_TV"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:drawableLeft="@drawable/carfuel"
                     style="@style/txtlightGray15"
                     android:textStyle = "bold"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    app:drawableLeftCompat="@drawable/carfuel"
+                    android:text="Gasoline" />
 
                 <TextView
-                    android:id="@+id/viewVehicleKms_TV"
-                    android:text="135000 Kms"
+                    android:id="@+id/ViewVehicleKms_TV"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:drawableLeft="@drawable/carkms"
                     style="@style/txtlightGray15"
                     android:textStyle = "bold"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    app:drawableLeftCompat="@drawable/carkms"
+                    android:text="135000 Kms" />
             </LinearLayout>
         </TableLayout>
     </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/viewVehicleIconsLayout"
+        android:id="@+id/ViewVehicleIconsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/viewVehiclesInfoLayout"
+        app:layout_constraintTop_toBottomOf="@+id/ViewVehicleInfoLayout"
         android:background="@drawable/relative_layout_border"
         android:orientation="horizontal"
         android:paddingVertical="@dimen/_10sp"
         android:weightSum="4">
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Information"
             app:drawableTopCompat="@drawable/information"
             android:gravity="center_horizontal"
             style="@style/txtlightGray12"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="@string/information"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Comments"
             app:drawableTopCompat="@drawable/comments"
             android:gravity="center_horizontal"
             style="@style/txtlightGray12"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="@string/comments"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Shared"
             app:drawableTopCompat="@drawable/shared"
             android:gravity="center_horizontal"
             style="@style/txtlightGray12"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="@string/shared"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Test drive"
             app:drawableTopCompat="@drawable/testdrive"
             android:gravity="center_horizontal"
             style="@style/txtlightGray12"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="@string/test_drive"/>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/viewVehicleDescriptionLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/viewVehicleIconsLayout"
+        app:layout_constraintTop_toBottomOf="@+id/ViewVehicleIconsLayout"
         android:orientation="vertical"
         android:padding="@dimen/_15sp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description"
             android:textAlignment="textStart"
             style="@style/txtMedium20Blue"
-            android:textStyle = "bold" />
+            android:textStyle = "bold"
+            android:text="@string/description"/>
         <TextView
+            android:id="@+id/ViewVehicleDescription_TV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sp"
-            android:text="Ferrari 458 Italy is a masterpiece on wheels, a perfect fusion of luxury, performance and a dash of pure Italian passion. This is not just a vehicle, it is an emotional and financial investment that only tends to appreciate in value over time.
-This isn't just a Ferrari 458 Italy it's a style statement, a performance promise and a smart investment decision."
             android:textAlignment="textStart"
             style="@style/txtSmallGray"
-            android:justificationMode="inter_word" />
+            android:justificationMode="inter_word"
+            android:text="Ferrari 458 Italy is a masterpiece on wheels, a perfect fusion of luxury, performance and a dash of pure Italian passion. This is not just a vehicle, it is an emotional and financial investment that only tends to appreciate in value over time.
+This isn't just a Ferrari 458 Italy it's a style statement, a performance promise and a smart investment decision."
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -254,22 +262,23 @@ This isn't just a Ferrari 458 Italy it's a style statement, a performance promis
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent">
         <TextView
+            android:id="@+id/ViewVehiclePrice_TV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="€ 120.000"
             style="@style/txtMedium20Blue"
             android:textStyle = "bold"
             android:gravity="start"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:text="€ 120.000"/>
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnBuy"
+            android:id="@+id/ViewVehicleBuy_BTN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/_15sp"
             android:singleLine="true"
-            android:text="@string/buy"
             android:textAllCaps="false"
             style="@style/btnSolidRounded" tools:text="BUY"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:text="@string/buy" />
         </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
