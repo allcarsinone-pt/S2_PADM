@@ -9,24 +9,24 @@
     tools:context=".EditProfileActivity">
 
     <RelativeLayout
+        android:id="@+id/editProfile_toolbar_rl"
+        android:paddingTop="@dimen/_30sp"
+        android:paddingHorizontal="@dimen/_30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editProfile_toolbar_rl"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent" >
         <ImageButton
             android:layout_width="38dp"
             android:layout_height="38dp"
             android:src="@drawable/backbutton"
-            android:id="@+id/editProfile_backbutton_btn"
+            android:id="@+id/Notifications_backbutton_btn"
             android:background="@drawable/circle_button"
-            android:layout_margin="20dp"></ImageButton>
+            android:layout_marginTop="20dp" />
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp"
-            android:src="@drawable/logo_cropped"></ImageView>
+            android:src="@drawable/logo_cropped" />
     </RelativeLayout>
 
     <androidx.cardview.widget.CardView

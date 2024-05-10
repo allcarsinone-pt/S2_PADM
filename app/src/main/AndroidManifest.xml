@@ -43,10 +43,10 @@
             android:name=".RecoverPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".NotificationsActivity"
             android:exported="false" />
         <activity
-            android:name=".NotificationsActivity"
+            android:name=".RegisterActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
