@@ -1,463 +1,475 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/main"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="@color/generalBack"
-tools:context=".InitialPageStandActivity" >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/generalBack"
+    tools:context=".InitialPageStandActivity">
 
     <LinearLayout
         android:id="@+id/InitialPageStandActivityLayoutTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_27pxh"
         android:orientation="horizontal"
-        android:layout_margin="@dimen/_15sp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:weightSum="10" >
+        android:weightSum="10"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent">
         <EditText
             android:id="@+id/InitialPageStandActivitySearch_TV"
+            style="@style/txtlightGray15LookingFor"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:padding="@dimen/_15sp"
             android:layout_marginEnd="@dimen/_20sp"
+            android:layout_weight="8"
+            android:padding="@dimen/_15sp"
             android:text="@string/what_are_you_looking_for"
-            style="@style/txtlightGray15LookingFor"
-            app:drawableEndCompat="@drawable/find"
-            android:layout_weight="8" />
+            app:drawableEndCompat="@drawable/find" />
         <ImageView
             android:id="@+id/imageView12"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/menu"
-            android:layout_weight="2"/>
+            android:layout_weight="2"
+            android:src="@drawable/menu" />
     </LinearLayout>
+
     <LinearLayout
-        android:id="@+id/InitialPageStandActivityLayoutTodaySales"
+        android:id="@+id/RecoverPass_mid_MAIN_LAY"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/InitialPageStandActivityLayoutTop"
-        android:orientation="vertical"
-        android:padding="@dimen/_15sp">
-        <TextView
+        android:layout_marginStart="@dimen/_27pxh"
+        android:layout_marginEnd="@dimen/_27pxh"
+        android:paddingTop="@dimen/_10sp"
+        app:layout_constraintTop_toBottomOf="@+id/InitialPageStandActivityLayoutTop">
+        <ScrollView
+            android:id="@+id/RecoverPass_scrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="textStart"
-            style="@style/txtMedium20Blue"
-            android:textStyle = "bold"
-            android:text="@string/today_s_sales"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sp"
-            android:textAlignment="textStart"
-            style="@style/txtSmallBlack"
-            android:justificationMode="inter_word"
-            android:text="Sales summary" />
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_100sp"
-            android:gravity="center"
-            android:background="@color/white"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/_10sp"
-            app:layout_constraintBottom_toBottomOf="parent">
+            android:layout_height="match_parent">
             <LinearLayout
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_width="@dimen/_100sp"
-                android:layout_height="@dimen/_100sp"
-                android:gravity="center|bottom"
-                android:orientation="vertical"
-                android:background="@drawable/sales1"
-                android:padding="@dimen/_5sp">
-                <TextView
-                    android:id="@+id/InitialPageStandSales1Number"
+                android:id="@+id/RecoverPass_mid_LAY"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/InitialPageStandActivityLayoutTodaySales"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="textStart"
-                    style="@style/txtSmallWhite"
-                    android:text="9"
-                    android:textStyle = "bold" />
-                <TextView
-                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/InitialPageStandActivityLayoutTop">
+                    <TextView
+                        style="@style/txtMedium20Blue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/today_s_sales"
+                        android:textAlignment="textStart"
+                        android:textStyle="bold" />
+                    <TextView
+                        style="@style/txtSmallBlack"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sp"
+                        android:justificationMode="inter_word"
+                        android:text="Sales summary"
+                        android:textAlignment="textStart" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_100sp"
+                        android:layout_marginTop="@dimen/_10sp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent">
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sp"
+                            android:layout_height="@dimen/_100sp"
+                            android:background="@drawable/sales1"
+                            android:gravity="center|bottom"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_5sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+                            <TextView
+                                android:id="@+id/InitialPageStandSales1Number"
+                                style="@style/txtSmallWhite"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="9"
+                                android:textAlignment="textStart"
+                                android:textStyle="bold" />
+                            <TextView
+                                style="@style/txtSmallWhite"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Product sold"
+                                android:textAlignment="textStart"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/InitialPageStandSales1Percent"
+                                style="@style/txtSmall"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingVertical="@dimen/_5sp"
+                                android:text="+2%"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/rosestats"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sp"
+                            android:layout_height="@dimen/_100sp"
+                            android:background="@drawable/sales2"
+                            android:gravity="center|bottom"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_5sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+                            <TextView
+                                android:id="@+id/InitialPageStandSales2Number"
+                                style="@style/txtSmallWhite"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="€5k"
+                                android:textAlignment="textStart"
+                                android:textStyle="bold" />
+                            <TextView
+                                style="@style/txtSmallWhite"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Total Sales"
+                                android:textAlignment="textStart"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/InitialPageStandSales2Percent"
+                                style="@style/txtSmall"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingVertical="@dimen/_5sp"
+                                android:text="+10%"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/yellowstats"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sp"
+                            android:layout_height="@dimen/_100sp"
+                            android:background="@drawable/sales3"
+                            android:gravity="center|bottom"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_5sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+                            <TextView
+                                android:id="@+id/InitialPageStandSales3Number"
+                                style="@style/txtSmallWhite"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="500"
+                                android:textAlignment="textStart"
+                                android:textStyle="bold" />
+                            <TextView
+                                style="@style/txtSmallWhite"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Total Order"
+                                android:textAlignment="textStart"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/InitialPageStandSales3Percent"
+                                style="@style/txtSmall"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingVertical="@dimen/_5sp"
+                                android:text="+10%"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/bluestats"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/InitialPageStandView1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAlignment="textStart"
-                    style="@style/txtSmallWhite"
-                    android:text="Product sold"
-                    android:textStyle = "bold" />
-                <TextView
-                    android:id="@+id/InitialPageStandSales1Percent"
-                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/InitialPageStandActivityLayoutTodaySales">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/InitialPageStandContentCardView"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:elevation="1dp"
+                        app:cardCornerRadius="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent">
+                        <ImageView
+                            android:id="@+id/roundedImageView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:elevation="1dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ferrari" />
+                    </androidx.cardview.widget.CardView>
+                    <RelativeLayout
+                        android:id="@+id/InitialPageStandContentRelativeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="75dp"
+                        android:elevation="2dp"
+                        app:layout_constraintBottom_toBottomOf="parent">
+                        <ImageView
+                            android:id="@+id/InitialPageStandRectImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/rectangle_bg_white_a700" />
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingHorizontal="@dimen/_15sp">
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TextView
+                                    android:id="@+id/InitialPageStandCarBrand_TV"
+                                    style="@style/txtMedium20Blue"
+                                    android:text="@string/all_cars_in_one"
+                                    android:textAlignment="textStart"
+                                    android:textStyle="bold" />
+                            </TableRow>
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TableRow
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp">
+                                    <com.google.android.material.card.MaterialCardView
+                                        android:id="@+id/InitialPageStandProfilePhotoCar_MV"
+                                        android:layout_width="20sp"
+                                        android:layout_height="20sp"
+                                        app:cardCornerRadius="360dp">
+                                        <ImageView
+                                            android:id="@+id/InitialPageStandProfilePhotoCar_IMG"
+                                            android:layout_width="20dp"
+                                            android:layout_height="match_parent"
+                                            android:src="@mipmap/ic_launcher_foreground" />
+                                    </com.google.android.material.card.MaterialCardView>
+                                    <TextView
+                                        android:id="@+id/InitialPageStandName_TV"
+                                        style="@style/txtSmallBlack"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="start|center"
+                                        android:paddingHorizontal="5dp"
+                                        android:text="@string/default_stand" />
+                                </TableRow>
+                            </TableRow>
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:gravity="center_vertical"
+                                android:weightSum="6">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="3"
+                                    android:orientation="horizontal">
+                                    <ImageView
+                                        android:id="@+id/InitialPageStandStar1Img"
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/star" />
+                                    <ImageView
+                                        android:id="@+id/InitialPageStandStar2Img"
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/star" />
+                                    <ImageView
+                                        android:id="@+id/InitialPagetandStar3Img"
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/star" />
+                                    <ImageView
+                                        android:id="@+id/InitialPageStandStar4Img"
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/star" />
+                                    <ImageView
+                                        android:id="@+id/InitialPageStandStar5Img"
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/star" />
+                                    <TextView
+                                        android:id="@+id/InitialPageStandOpinions_TV"
+                                        style="@style/txtSmallGray"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:paddingHorizontal="5dp"
+                                        android:text="25" />
+                                    <TextView
+                                        android:id="@+id/InitialPageStandOpinionsTxt_TV"
+                                        style="@style/txtSmallGray"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="@string/opinions" />
+                                </LinearLayout>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_weight="3">
+                                    <TextView
+                                        android:id="@+id/InitialPageStandCarPrice_TV"
+                                        style="@style/txtMedium20Blue"
+                                        android:layout_weight="1"
+                                        android:gravity="end|center"
+                                        android:text="@string/_999_000"
+                                        android:textStyle="bold" />
+                                </TableRow>
+                            </TableRow>
+                        </TableLayout>
+                    </RelativeLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/InitialPageStandView2"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAlignment="textStart"
-                    android:paddingVertical="@dimen/_5sp"
-                    style="@style/txtSmall"
-                    android:textColor="@color/rosestats"
-                    android:textStyle = "bold"
-                    android:text="+2%"/>
+                    android:layout_marginTop="@dimen/_20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/InitialPageStandView1">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/InitialPageStandContentCardView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:elevation="1dp"
+                        app:cardCornerRadius="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent">
+                        <ImageView
+                            android:id="@+id/roundedImageView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:elevation="1dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ferrari" />
+                    </androidx.cardview.widget.CardView>
+                    <RelativeLayout
+                        android:id="@+id/InitialPageStandContentRelativeLayout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="75dp"
+                        android:elevation="2dp"
+                        app:layout_constraintBottom_toBottomOf="parent">
+                        <ImageView
+                            android:id="@+id/InitialPageStandRectImage2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/rectangle_bg_white_a700" />
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingHorizontal="@dimen/_15sp">
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TextView
+                                    android:id="@+id/InitialPageStandCarBrand2_TV"
+                                    style="@style/txtMedium20Blue"
+                                    android:text="@string/all_cars_in_one"
+                                    android:textAlignment="textStart"
+                                    android:textStyle="bold" />
+                            </TableRow>
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TableRow
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp">
+                                    <com.google.android.material.card.MaterialCardView
+                                        android:id="@+id/InitialPageStandProfilePhotoCar2_MV"
+                                        android:layout_width="20sp"
+                                        android:layout_height="20sp"
+                                        app:cardCornerRadius="360dp">
+                                        <ImageView
+                                            android:id="@+id/InitialPageStandProfilePhotoCar2_IMG"
+                                            android:layout_width="20dp"
+                                            android:layout_height="match_parent"
+                                            android:src="@mipmap/ic_launcher_foreground" />
+                                    </com.google.android.material.card.MaterialCardView>
+                                    <TextView
+                                        android:id="@+id/InitialPageStandName2_TV"
+                                        style="@style/txtSmallBlack"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="start|center"
+                                        android:paddingHorizontal="5dp"
+                                        android:text="@string/default_stand" />
+                                </TableRow>
+                            </TableRow>
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:gravity="center_vertical"
+                                android:weightSum="6">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="3"
+                                    android:orientation="horizontal">
+                                    <ImageView
+                                        android:id="@+id/InitialPageStandStar12_Img"
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/star" />
+                                    <ImageView
+                                        android:id="@+id/InitialPageStandStar22_Img"
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/star" />
+                                    <ImageView
+                                        android:id="@+id/InitialPageStandStar32_Img"
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/star" />
+                                    <ImageView
+                                        android:id="@+id/InitialPageStandStar42_Img"
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/star" />
+                                    <ImageView
+                                        android:id="@+id/InitialPageStandStar52_Img"
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/star" />
+                                    <TextView
+                                        android:id="@+id/InitialPageStandOpinions2_TV"
+                                        style="@style/txtSmallGray"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:paddingHorizontal="5dp"
+                                        android:text="25" />
+                                    <TextView
+                                        android:id="@+id/InitialPageStandOpinionsTxt2_TV"
+                                        style="@style/txtSmallGray"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="@string/opinions" />
+                                </LinearLayout>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_weight="3">
+                                    <TextView
+                                        android:id="@+id/InitialPageStandCarPrice2_TV"
+                                        style="@style/txtMedium20Blue"
+                                        android:layout_weight="1"
+                                        android:gravity="end|center"
+                                        android:text="@string/_999_000"
+                                        android:textStyle="bold" />
+                                </TableRow>
+                            </TableRow>
+                        </TableLayout>
+                    </RelativeLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
-            <LinearLayout
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_width="@dimen/_100sp"
-                android:layout_height="@dimen/_100sp"
-                android:gravity="center|bottom"
-                android:orientation="vertical"
-                android:background="@drawable/sales2"
-                android:padding="@dimen/_5sp">
-                <TextView
-                    android:id="@+id/InitialPageStandSales2Number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textStart"
-                    style="@style/txtSmallWhite"
-                    android:text="€5k"
-                    android:textStyle = "bold" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textStart"
-                    style="@style/txtSmallWhite"
-                    android:text="Total Sales"
-                    android:textStyle = "bold" />
-                <TextView
-                    android:id="@+id/InitialPageStandSales2Percent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textStart"
-                    android:paddingVertical="@dimen/_5sp"
-                    style="@style/txtSmall"
-                    android:textColor="@color/yellowstats"
-                    android:textStyle = "bold"
-                    android:text="+10%"/>
-            </LinearLayout>
-            <LinearLayout
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_width="@dimen/_100sp"
-                android:layout_height="@dimen/_100sp"
-                android:gravity="center|bottom"
-                android:orientation="vertical"
-                android:background="@drawable/sales3"
-                android:padding="@dimen/_5sp">
-                <TextView
-                    android:id="@+id/InitialPageStandSales3Number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textStart"
-                    style="@style/txtSmallWhite"
-                    android:text="500"
-                    android:textStyle = "bold" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textStart"
-                    style="@style/txtSmallWhite"
-                    android:text="Total Order"
-                    android:textStyle = "bold" />
-                <TextView
-                    android:id="@+id/InitialPageStandSales3Percent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textStart"
-                    android:paddingVertical="@dimen/_5sp"
-                    style="@style/txtSmall"
-                    android:textColor="@color/bluestats"
-                    android:textStyle = "bold"
-                    android:text="+10%"/>
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
     </LinearLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/InitialPageStandView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InitialPageStandActivityLayoutTodaySales">
-        <androidx.cardview.widget.CardView
-            android:id="@+id/InitialPageStandContentCardView"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_margin="@dimen/_15sp"
-            android:elevation="1dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:cardCornerRadius="20dp">
-            <ImageView
-                android:id="@+id/roundedImageView1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ferrari"
-                android:scaleType="centerCrop"
-                android:elevation="1dp" />
-        </androidx.cardview.widget.CardView>
-        <RelativeLayout
-            android:layout_marginHorizontal="@dimen/_15sp"
-            android:id="@+id/InitialPageStandContentRelativeLayout"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:elevation="2dp">
-            <ImageView
-                android:id="@+id/InitialPageStandRectImage"
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                android:src="@drawable/rectangle_bg_white_a700" />
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingHorizontal="@dimen/_15sp">
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/InitialPageStandCarBrand_TV"
-                        android:text="@string/all_cars_in_one"
-                        android:textAlignment="textStart"
-                        style="@style/txtMedium20Blue"
-                        android:textStyle = "bold"/>
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-                    <TableRow
-                        android:layout_width="20dp"
-                        android:layout_height="20dp">
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/InitialPageStandProfilePhotoCar_MV"
-                            android:layout_width="20sp"
-                            android:layout_height="20sp"
-                            app:cardCornerRadius="360dp">
-
-                            <ImageView
-                                android:id="@+id/InitialPageStandProfilePhotoCar_IMG"
-                                android:layout_width="14dp"
-                                android:layout_height="match_parent"
-                                android:src="@mipmap/ic_launcher_foreground" />
-                        </com.google.android.material.card.MaterialCardView>
-                        <TextView
-                            android:id="@+id/InitialPageStandName_TV"
-                            android:text="@string/default_stand"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="start|center"
-                            android:paddingHorizontal="5dp"
-                            style="@style/txtSmallBlack" />
-                    </TableRow>
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:gravity="center_vertical"
-                    android:weightSum="6">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_weight="3">
-                        <ImageView
-                            android:id="@+id/InitialPageStandStar1Img"
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/star" />
-                        <ImageView
-                            android:id="@+id/InitialPageStandStar2Img"
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/star" />
-                        <ImageView
-                            android:id="@+id/InitialPagetandStar3Img"
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/star" />
-                        <ImageView
-                            android:id="@+id/InitialPageStandStar4Img"
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/star" />
-                        <ImageView
-                            android:id="@+id/InitialPageStandStar5Img"
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/star" />
-                        <TextView
-                            android:id="@+id/InitialPageStandOpinions_TV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:paddingHorizontal="5dp"
-                            android:gravity="center"
-                            style="@style/txtSmallGray"
-                            android:text="25"/>
-                        <TextView
-                            android:id="@+id/InitialPageStandOpinionsTxt_TV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            style="@style/txtSmallGray"
-                            android:gravity="center"
-                            android:text="@string/opinions"/>
-                    </LinearLayout>
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_weight="3">
-                        <TextView
-                            android:id="@+id/InitialPageStandCarPrice_TV"
-                            android:text="@string/_999_000"
-                            android:gravity="end|center"
-                            style="@style/txtMedium20Blue"
-                            android:textStyle = "bold"
-                            android:layout_weight="1" />
-                    </TableRow>
-                </TableRow>
-            </TableLayout>
-        </RelativeLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/InitialPageStandView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InitialPageStandView1">
-        <androidx.cardview.widget.CardView
-            android:id="@+id/InitialPageStandContentCardView2"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_margin="@dimen/_15sp"
-            android:elevation="1dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:cardCornerRadius="20dp">
-            <ImageView
-                android:id="@+id/roundedImageView2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ferrari"
-                android:scaleType="centerCrop"
-                android:elevation="1dp" />
-        </androidx.cardview.widget.CardView>
-        <RelativeLayout
-            android:layout_marginHorizontal="@dimen/_15sp"
-            android:id="@+id/InitialPageStandContentRelativeLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:elevation="2dp">
-            <ImageView
-                android:id="@+id/InitialPageStandRectImage2"
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                android:src="@drawable/rectangle_bg_white_a700" />
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingHorizontal="@dimen/_15sp">
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/InitialPageStandCarBrand2_TV"
-                        android:text="@string/all_cars_in_one"
-                        android:textAlignment="textStart"
-                        style="@style/txtMedium20Blue"
-                        android:textStyle = "bold"/>
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-                    <TableRow
-                        android:layout_width="20dp"
-                        android:layout_height="20dp">
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/InitialPageStandProfilePhotoCar2_MV"
-                            android:layout_width="20sp"
-                            android:layout_height="20sp"
-                            app:cardCornerRadius="360dp">
-
-                            <ImageView
-                                android:id="@+id/InitialPageStandProfilePhotoCar2_IMG"
-                                android:layout_width="14dp"
-                                android:layout_height="match_parent"
-                                android:src="@mipmap/ic_launcher_foreground" />
-                        </com.google.android.material.card.MaterialCardView>
-                        <TextView
-                            android:id="@+id/InitialPageStandName2_TV"
-                            android:text="@string/default_stand"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="start|center"
-                            android:paddingHorizontal="5dp"
-                            style="@style/txtSmallBlack" />
-                    </TableRow>
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:gravity="center_vertical"
-                    android:weightSum="6">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_weight="3">
-                        <ImageView
-                            android:id="@+id/InitialPageStandStar12_Img"
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/star" />
-                        <ImageView
-                            android:id="@+id/InitialPageStandStar22_Img"
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/star" />
-                        <ImageView
-                            android:id="@+id/InitialPageStandStar32_Img"
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/star" />
-                        <ImageView
-                            android:id="@+id/InitialPageStandStar42_Img"
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/star" />
-                        <ImageView
-                            android:id="@+id/InitialPageStandStar52_Img"
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/star" />
-                        <TextView
-                            android:id="@+id/InitialPageStandOpinions2_TV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:paddingHorizontal="5dp"
-                            android:gravity="center"
-                            style="@style/txtSmallGray"
-                            android:text="25"/>
-                        <TextView
-                            android:id="@+id/InitialPageStandOpinionsTxt2_TV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            style="@style/txtSmallGray"
-                            android:gravity="center"
-                            android:text="@string/opinions"/>
-                    </LinearLayout>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_weight="3">
-                        <TextView
-                            android:id="@+id/InitialPageStandCarPrice2_TV"
-                            android:text="@string/_999_000"
-                            android:gravity="end|center"
-                            style="@style/txtMedium20Blue"
-                            android:textStyle = "bold"
-                            android:layout_weight="1" />
-                    </TableRow>
-                </TableRow>
-            </TableLayout>
-        </RelativeLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

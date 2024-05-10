@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Allcarsinone"
         tools:targetApi="31">
         <activity
-            android:name=".InitialPageStandActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".PaymentActivity"
@@ -46,7 +46,7 @@
             android:name=".NotificationsActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".InitialPageStandActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
