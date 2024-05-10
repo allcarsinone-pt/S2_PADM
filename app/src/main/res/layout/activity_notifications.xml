@@ -45,7 +45,7 @@ tools:context=".NotificationsActivity">
     </TextView>
 
     <LinearLayout
-        android:id="@+id/Payment_form_ll"
+        android:id="@+id/Notifications_main_LAY"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -117,7 +117,7 @@ tools:context=".NotificationsActivity">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Notifications_update_btn"
-        app:layout_constraintTop_toBottomOf="@+id/Payment_form_ll"
+        app:layout_constraintTop_toBottomOf="@+id/Notifications_main_LAY"
         android:layout_marginHorizontal="30dp"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
