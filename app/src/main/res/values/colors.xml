@@ -20,5 +20,6 @@
     <color name="verylightGray">#F9F9F9</color>
     <color name="generalBack">#F8FBFF</color>
     <color name="availableGreen">#6CC775</color>
+    <color name="darkBlue">#171821</color>
 
 </resources>

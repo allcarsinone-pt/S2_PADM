@@ -5,11 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/generalBack"
     android:orientation="vertical"
     tools:context=".PaymentActivity">
 
     <RelativeLayout
         android:id="@+id/PaymentHeader_LAY"
+        android:layout_marginTop="@dimen/_20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" >
@@ -301,7 +303,7 @@
                 android:singleLine="true"
                 android:textStyle="italic"
                 android:paddingHorizontal="@dimen/_5sp"
-                style="@style/txtMontserratromanregular14BoldUl"
+                style="@style/txtMontserratromanregular14Ul"
                 android:text="@string/terms" />
         </LinearLayout>
 
