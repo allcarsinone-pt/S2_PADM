@@ -55,7 +55,7 @@
             android:layout_marginHorizontal="30dp"
             android:layout_width="wrap_content"
             android:singleLine="true"
-            android:text="Username"
+            android:text="@string/username"
             style="@style/txtMontserratromanregular14"/>
         <EditText
             android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
@@ -82,7 +82,7 @@
             android:layout_marginHorizontal="30dp"
             android:layout_width="wrap_content"
             android:singleLine="true"
-            android:text="Name"
+            android:text="@string/name"
             style="@style/txtMontserratromanregular14"/>
         <EditText
             android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
@@ -109,7 +109,7 @@
             android:layout_marginHorizontal="30dp"
             android:layout_width="wrap_content"
             android:singleLine="true"
-            android:text="Email"
+            android:text="@string/email"
             style="@style/txtMontserratromanregular14"/>
         <EditText
             android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
@@ -118,7 +118,7 @@
             android:layout_marginBottom="18dp"
             android:hint="jonhdoe@xpto.com"
             android:id="@+id/register_email_et"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:layout_marginTop="@dimen/_8pxv"
@@ -136,7 +136,7 @@
             android:layout_marginHorizontal="30dp"
             android:layout_width="wrap_content"
             android:singleLine="true"
-            android:text="Password"
+            android:text="@string/password"
             style="@style/txtMontserratromanregular14"/>
         <EditText
             android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
@@ -162,7 +162,7 @@
             android:layout_marginHorizontal="30dp"
             android:layout_width="wrap_content"
             android:singleLine="true"
-            android:text="Confirm Password"
+            android:text="@string/confirm_password"
             style="@style/txtMontserratromanregular14"/>
         <EditText
             android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
@@ -194,7 +194,7 @@
             android:paddingStart="@dimen/_30pxh"
             android:paddingTop="@dimen/_18pxv"
             android:singleLine="true"
-            android:text="Register"
+            android:text="@string/register"
             style="@style/btnSolidRounded"/>
         <androidx.appcompat.widget.AppCompatButton
             android:ellipsize="end" android:gravity="center"
@@ -208,7 +208,7 @@
             android:paddingStart="@dimen/_30pxh"
             android:paddingTop="@dimen/_18pxv"
             android:singleLine="true"
-            android:text="SIGN IN"
+            android:text="@string/sign_in"
             style="?borderlessButtonStyle"
             android:textColor="@color/red_900" />
     </LinearLayout>

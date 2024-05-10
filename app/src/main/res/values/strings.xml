@@ -52,5 +52,11 @@
     <string name="messages">Messages</string>
     <string name="delete_older_than_2_days">Delete older than 2 days</string>
     <string name="set_all_notifications_as_read">Set all notifications as read</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="sign_in">SIGN IN</string>
 
 </resources>
