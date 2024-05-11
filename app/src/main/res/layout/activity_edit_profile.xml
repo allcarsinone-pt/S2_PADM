@@ -19,7 +19,7 @@
             android:layout_width="38dp"
             android:layout_height="38dp"
             android:src="@drawable/backbutton"
-            android:id="@+id/Notifications_backbutton_btn"
+            android:id="@+id/editProfile_backbutton_btn"
             android:background="@drawable/circle_button"
             android:layout_marginTop="20dp" />
         <ImageView
