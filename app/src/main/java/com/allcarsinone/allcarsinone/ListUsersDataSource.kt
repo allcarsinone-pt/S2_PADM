@@ -14,8 +14,19 @@ class ListUsersDataSource(private val mList : MutableList<User>): UsersDataSourc
         return true;
     }
 
-    override fun updateUser() {
+    override fun updateUser(username: String,
+                            name: String,
+                            email: String,
+                            password: String) : Boolean {
 
+        val findUser = mList.find { it.username == username } == null
+
+        if(findUser != null) {
+            val index = mList.indexOfFirst { it.username == username }
+            mList[index] = User(username, name, email, password)
+            return true
+        }
+        return false
     }
 
     override fun getUser(username: String) {

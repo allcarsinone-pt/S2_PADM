@@ -9,7 +9,10 @@ interface UsersDataSource {
                    email: String,
                    password: String) : Boolean
 
-    fun updateUser()
+    fun updateUser(username: String,
+                   name: String,
+                   email: String,
+                   password: String) : Boolean
 
     fun getUser(username: String)
 
