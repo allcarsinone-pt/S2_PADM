@@ -6,5 +6,111 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BookTestDriveActivity">
+    <RelativeLayout
+        android:id="@+id/bookTestDrive_toolbar_rl"
+        android:padding="@dimen/_30sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" >
+        <ImageButton
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/backbutton"
+            android:id="@+id/bookTestDrive_backbutton_btn"
+            android:background="@drawable/circle_button"
+            android:layout_marginTop="20dp" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/logo_cropped" />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/bookTestDrive_toolbar_rl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/bookTestDrive_toolbar_rl"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/bookTestDrive_message_tv"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Book now your test drive!"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:layout_marginHorizontal="40dp"
+                style="@style/txtMontserratromanmedium24"
+                />
+
+            <TextView android:ellipsize="end"
+                android:id="@+id/bookTestDrive_date_tv"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:paddingTop="20dp"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="Select a date"
+                style="@style/txtMontserratromanregular14"/>
+            <CalendarView
+                android:id="@+id/bookTestDrive_date_cv"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/calendarViewCustom"
+                />
+            <TextView android:ellipsize="end"
+                android:id="@+id/bookTestDrive_comments_tv"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="Comments"
+                style="@style/txtMontserratromanregular14"/>
+            <EditText
+                android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
+                android:drawablePadding="@dimen/_30pxh"
+                android:hint=""
+                android:id="@+id/bookTestDrive_comments_et"
+                android:layout_marginBottom="18dp"
+                android:inputType="text"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="@dimen/_8pxv"
+                android:layout_width="match_parent"
+                android:paddingBottom="@dimen/_12pxv"
+                android:paddingEnd="@dimen/_25pxh"
+                android:paddingStart="@dimen/_21pxh"
+                android:paddingTop="@dimen/_20pxv"
+                android:singleLine="true"
+                android:textColorHint="@color/black_900_cc"
+                style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:ellipsize="end" android:gravity="center"
+                android:id="@+id/bookTestDrive_book_btn"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20pxv"
+                android:layout_width="match_parent"
+                android:paddingBottom="@dimen/_18pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_18pxv"
+                android:singleLine="true"
+                android:text="BOOK"
+                android:layout_margin="15dp"
+                android:textAllCaps="false"
+                style="@style/btnSolidRounded" tools:text="BOOK"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
