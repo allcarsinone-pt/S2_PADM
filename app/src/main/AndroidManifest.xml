@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Allcarsinone"
         tools:targetApi="31">
         <activity
+            android:name=".BookTestDriveActivity"
+            android:exported="false" />
+        <activity
             android:name=".FavoritesActivity"
             android:exported="true">
             <intent-filter>
@@ -62,8 +65,7 @@
             android:exported="false" />
         <activity
             android:name=".InitialPageStandActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
     </application>
 
 </manifest>
