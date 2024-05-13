@@ -143,5 +143,9 @@
         <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textFontWeight" tools:targetApi="p">300</item>
     </style>
+    <style name="calendarViewCustom">
+        <item name="colorControlActivated">@color/red</item>
+        <item name="android:textColorPrimaryInverse">@color/white</item>
+    </style>
 
 </resources>
