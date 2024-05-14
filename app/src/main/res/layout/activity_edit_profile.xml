@@ -159,7 +159,7 @@
         <EditText
             android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
             android:layout_marginBottom="18dp"
-            android:id="@+id/register_password_et"
+            android:id="@+id/editprofile_password_et"
             android:inputType="textPassword"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
