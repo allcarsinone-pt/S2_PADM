@@ -162,7 +162,6 @@
                     android:layout_weight="1"
                     app:drawableLeftCompat="@drawable/carfuel"
                     android:text="Gasoline" />
-
                 <TextView
                     android:id="@+id/ViewVehicleKms_TV"
                     android:gravity="center"
