@@ -7,7 +7,7 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:background="@color/generalBack"
 android:orientation="vertical"
-tools:context=".NotificationsActivity">
+tools:context=".activities.NotificationsActivity">
 
     <RelativeLayout
         android:id="@+id/NotificationsHeader_LAY"

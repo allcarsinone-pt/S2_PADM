@@ -1,15 +1,14 @@
-package com.allcarsinone.allcarsinone
+package com.allcarsinone.allcarsinone.activities
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.allcarsinone.allcarsinone.R
 
-class NotificationsActivity : AppCompatActivity() {
+class InitialPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_notifications)
+        setContentView(R.layout.activity_initial_page)
     }
 }

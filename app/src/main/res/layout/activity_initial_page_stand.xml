@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/generalBack"
-    tools:context=".InitialPageStandActivity">
+    tools:context=".activities.InitialPageStandActivity">
 
     <LinearLayout
         android:id="@+id/InitialPageStandActivityLayoutTop"

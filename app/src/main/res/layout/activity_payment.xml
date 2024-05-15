@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/generalBack"
     android:orientation="vertical"
-    tools:context=".PaymentActivity">
+    tools:context=".activities.PaymentActivity">
 
     <RelativeLayout
         android:id="@+id/PaymentHeader_LAY"

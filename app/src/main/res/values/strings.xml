@@ -58,5 +58,6 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="register">Register</string>
     <string name="sign_in">SIGN IN</string>
+    <string name="notifications">Notifications</string>
 
 </resources>

@@ -12,8 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Allcarsinone"
         tools:targetApi="31">
+
         <activity
-            android:name=".FavoritesActivity"
+            android:name=".activities.NotificationsViewActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,48 +23,50 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EditVehicleActivity"
+            android:name=".activities.EditVehicleActivity"
             android:exported="false" />
         <activity
-            android:name=".ViewStandProfileActivity"
+            android:name=".activities.ViewStandProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".PaymentActivity"
+            android:name=".activities.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".ViewVehicle"
+            android:name=".activities.ViewVehicleActivity"
             android:exported="false" />
         <activity
-            android:name=".InitialPage"
-            android:exported="true" />
-        <activity
-            android:name=".ChangePasswordActivity"
+            android:name=".activities.InitialPageActivity"
             android:exported="false" />
         <activity
-            android:name=".EditProfileActivity"
+            android:name=".activities.ChangePasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".EditProfilePhotoActivity"
+            android:name=".activities.EditProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activities.EditProfilePhotoActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".RecoverPasswordActivity"
+            android:name=".activities.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".NotificationsActivity"
+            android:name=".activities.RecoverPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".InitialPageStandActivity"
-            android:exported="false">
-        </activity>
+            android:name=".activities.NotificationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FavoritesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.InitialPageStandActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

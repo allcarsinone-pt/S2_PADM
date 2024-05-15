@@ -1,7 +1,9 @@
-package com.allcarsinone.allcarsinone
+package com.allcarsinone.allcarsinone.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.allcarsinone.allcarsinone.AcioPreferences
+import com.allcarsinone.allcarsinone.DataUtils
 import com.allcarsinone.allcarsinone.databinding.ActivityMainBinding
 import java.util.Date
 
@@ -23,7 +25,8 @@ class MainActivity : AppCompatActivity() {
             .putString("acioPreferences", prefs.toJSONString())
             .apply()
 
-        val preferencesString = DataUtils.getSharedPreferences(this).getString("acioPreferences", null)
+        val preferencesString = DataUtils.getSharedPreferences(this)
+            .getString("acioPreferences", null)
         if (preferencesString != null) {
             val prefs2 = AcioPreferences(preferencesString)
             // ou

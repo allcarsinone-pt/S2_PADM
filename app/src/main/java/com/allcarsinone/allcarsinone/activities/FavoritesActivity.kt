@@ -1,15 +1,14 @@
-package com.allcarsinone.allcarsinone
+package com.allcarsinone.allcarsinone.activities
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.allcarsinone.allcarsinone.R
 
-class InitialPage : AppCompatActivity() {
+class FavoritesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_initial_page)
+        setContentView(R.layout.activity_favorites)
     }
 }

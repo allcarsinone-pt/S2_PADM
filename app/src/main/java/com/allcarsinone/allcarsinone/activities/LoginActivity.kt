@@ -1,4 +1,4 @@
-package com.allcarsinone.allcarsinone
+package com.allcarsinone.allcarsinone.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
