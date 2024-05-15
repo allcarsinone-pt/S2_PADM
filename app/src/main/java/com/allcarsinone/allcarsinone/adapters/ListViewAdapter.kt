@@ -49,8 +49,8 @@ class ListViewAdapter(private val list: ArrayList<Notifications>) : RecyclerView
         viewHolder.cv.text = notify.comment
 
         val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-        val fdate = sdf.format(notify.date)
-        viewHolder.dv.text = fdate
+        val fdt = sdf.format(notify.date)
+        viewHolder.dv.text = fdt
     }
     override fun getItemCount() = list.size
 }
