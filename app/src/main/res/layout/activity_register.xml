@@ -39,6 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="24sp"
         android:layout_centerHorizontal="true"
+        android:textColor="@color/red"
         android:fontFamily="@font/montserratromanmedium">
     </TextView>
     <LinearLayout
