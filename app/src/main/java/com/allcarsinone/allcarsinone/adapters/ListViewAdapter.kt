@@ -18,7 +18,6 @@ import java.text.SimpleDateFormat
 import java.util.Date
 
 class ListViewAdapter(private val list: ArrayList<Notifications>) : RecyclerView.Adapter<ListViewAdapter.ViewHolder>() {
-
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
     {
         val iv: ImageView = view.findViewById<ImageView>(R.id.Notifications_Image_LV)
@@ -37,12 +36,12 @@ class ListViewAdapter(private val list: ArrayList<Notifications>) : RecyclerView
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int)
     {
         val notify = list[position]
-        val colors = when(position % 2) {
-            0 -> R.color.generalBack
-            1 -> R.color.white
+        val backStyle = when(position % 2) {
+            0 -> R.drawable.rectangle_round_corners_20_back
+            1 -> R.drawable.rectangle_round_corners_20_white
             else -> R.color.gray
         }
-        //viewHolder.layout.setBackgroundResource(colors)
+        viewHolder.layout.setBackgroundResource(backStyle)
 
         viewHolder.iv.setImageResource(notify.image);
         viewHolder.bv.text = notify.brand

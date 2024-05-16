@@ -43,18 +43,18 @@
                 android:src="@drawable/menu" />
         </RelativeLayout>
 
-
-        <EditText
-            android:id="@+id/initPageLocationTV"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="@dimen/_15sp"
-            android:padding="@dimen/_5sp"
-            android:text="@string/braga"
-            android:background="@drawable/rectangle_bg_white_border_gray600_radius_5"
-            style="@style/etSolidRoundedOutline"
-            android:textStyle = "bold"
-            app:drawableEndCompat="@drawable/arrow_down" />
+            android:layout_height="40dp"
+            android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
+            android:layout_marginTop="@dimen/_8pxv"
+            >
+        <Spinner
+            android:id="@+id/InitPageLocationSpinner_SP"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/initPageHello_TV"

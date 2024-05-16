@@ -16,7 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:cardCornerRadius="20dp"
-        android:background="@drawable/rectangle_round_corners_20"
         >
 
         <LinearLayout

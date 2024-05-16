@@ -38,9 +38,7 @@ class NotificationsViewActivity : AppCompatActivity() {
         arraylist.add( Notifications(R.drawable.ferrari, "Brand9", "This is a comment that needs ate least two lines to be shown", Date()))
 
         val recyclerView = findViewById<RecyclerView>( R.id.NotificationsView_RecycleView)
-        val adapter = ListViewAdapter( arraylist );
-
+        recyclerView.adapter = ListViewAdapter( arraylist );
         recyclerView.layoutManager = LinearLayoutManager( this )
-        recyclerView.adapter = adapter
     }
 }
