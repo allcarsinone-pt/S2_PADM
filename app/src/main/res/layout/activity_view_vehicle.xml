@@ -8,6 +8,16 @@
     android:background="@color/generalBack"
     tools:context=".activities.ViewVehicleActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
     <RelativeLayout
         android:id="@+id/PaymentHeader_LAY"
         android:layout_width="match_parent"
@@ -26,8 +36,9 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/ViewVehicleContentCardView"
         android:layout_width="match_parent"
-        android:layout_height="470dp"
         app:cardCornerRadius="20dp"
+        android:layout_height="470dp"
+
         android:elevation="1dp"
         app:layout_constraintTop_toTopOf="parent">
         <ImageView
@@ -274,4 +285,7 @@ This isn't just a Ferrari 458 Italy it's a style statement, a performance promis
             android:layout_weight="1"
             android:text="@string/buy" />
         </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
