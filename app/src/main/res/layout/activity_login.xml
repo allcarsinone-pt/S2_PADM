@@ -141,7 +141,7 @@
                         android:text="@string/msg_forgot_password"
                         style="@style/txtMontserratromanlight14"/>
                     <TextView
-                        android:id="@+id/txtCreatenew"
+                        android:id="@+id/login_create_account_tv"
                         android:layout_gravity="top"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="84dp"

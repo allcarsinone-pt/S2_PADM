@@ -1,5 +1,6 @@
 package com.allcarsinone.allcarsinone.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
@@ -34,7 +35,10 @@ class RegisterActivity : AppCompatActivity() {
         call.enqueue(object: Callback<User> {
             override fun onResponse(p0: Call<User>, p1: Response<User>) {
                 if(p1.isSuccessful) {
-                    Toast.makeText(this@RegisterActivity, "User Registered Successfully", Toast.LENGTH_LONG).show()
+                    val intent = Intent()
+                    intent.putExtra("email", p1.body()!!.email)
+                    setResult(RESULT_OK, intent)
+                    finish()
                 }
                 else {
                     when(p1.code()) {
