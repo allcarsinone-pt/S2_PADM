@@ -11,4 +11,4 @@ data class RegisterUserDto(@SerializedName("username") val username: String,
                            @SerializedName("postalcode") val postalcode: String,
                            @SerializedName("mobilephone") val mobilephone: String,
                            @SerializedName("role_id") val role_id: Int
-))
+)
