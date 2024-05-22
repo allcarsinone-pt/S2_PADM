@@ -10,7 +10,7 @@ import retrofit2.http.PUT
 import retrofit2.http.PATCH
 interface UserAPI {
 
-    @POST("users")
+    @POST("proxy-auth/users")
     fun register(@Body registerUserDto: RegisterUserDto) : Call<User>
 
 }

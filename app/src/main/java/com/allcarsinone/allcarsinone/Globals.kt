@@ -10,7 +10,7 @@ object Globals {
     lateinit var userAPI: UserAPI
     private lateinit var retrofit: Retrofit
     fun initAPIs() {
-        retrofit = Retrofit.Builder().baseUrl("https://ac35-193-137-231-142.ngrok-free.app/").addConverterFactory(GsonConverterFactory.create()).build()
+        retrofit = Retrofit.Builder().baseUrl("https://e0a1-193-137-231-142.ngrok-free.app/").addConverterFactory(GsonConverterFactory.create()).build()
         userAPI = retrofit.create(UserAPI::class.java)
 
 
