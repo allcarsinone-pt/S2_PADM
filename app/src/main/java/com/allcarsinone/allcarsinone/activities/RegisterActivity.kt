@@ -61,23 +61,15 @@ class RegisterActivity : AppCompatActivity() {
         val password = viewBinding.registerPasswordEt.text.toString()
         val confirmPassword = viewBinding.registerConfirmPasswordEt.text.toString()
 
-        val pattern = Patterns.EMAIL_ADDRESS.matcher(email)
-
-        if(username.length < 5)
-            Toast.makeText(this, "Username must be at least 5 characters", Toast.LENGTH_SHORT).show()
-        if(password.length < 8)
-            Toast.makeText(this, "Password must be at least 8 characters.", Toast.LENGTH_SHORT).show()
-        if(confirmPassword != password)
-            Toast.makeText(this, "Password and Confirmation Password doesn't match.", Toast.LENGTH_SHORT).show()
-        if(!(pattern.matches()))
-                Toast.makeText(this, "Email is not valid. Ex: example@allcarsinone.pt", Toast.LENGTH_SHORT).show()
-        if(name.length < 5)
-            Toast.makeText(this, "Name must be at least 5 characters.", Toast.LENGTH_SHORT).show()
-
-
-        // 1- Admin, 2-Stand 3- Customer
-        val user = RegisterUserDto(username, name, email, password, confirmPassword,"","","", 3)
-        registerUser(user)
+        try {
+            // 1- Admin, 2-Stand 3- Customer
+            // By defaut user is always created as a Customer
+            val user =
+                RegisterUserDto(username, name, email, password, confirmPassword, "", "", "", 3)
+            registerUser(user)
+        } catch (ex:Exception) {
+            Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
+        }
     }
 
 }
