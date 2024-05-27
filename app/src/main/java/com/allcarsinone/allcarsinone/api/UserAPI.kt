@@ -1,6 +1,8 @@
 package com.allcarsinone.allcarsinone.api
 
+import com.allcarsinone.allcarsinone.dtos.LoginUserDto
 import com.allcarsinone.allcarsinone.dtos.RegisterUserDto
+import com.allcarsinone.allcarsinone.models.Token
 import com.allcarsinone.allcarsinone.models.User
 import retrofit2.Call
 import retrofit2.http.Body
@@ -13,4 +15,6 @@ interface UserAPI {
     @POST("proxy-auth/users")
     fun register(@Body registerUserDto: RegisterUserDto) : Call<User>
 
+    @POST("proxy-auth/users")
+    fun login(@Body loginUserDto: LoginUserDto): Call<Token>
 }
