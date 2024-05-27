@@ -55,14 +55,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-                    android:layout_marginTop="@dimen/_8pxv"
-                    >
+                    android:layout_marginTop="@dimen/_8pxv">
                 <Spinner
                     android:id="@+id/InitPageLocationSpinner_SP"
                     android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
-            </RelativeLayout>
+                </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/initPageHello_TV"

@@ -21,5 +21,6 @@
     <color name="generalBack">#F8FBFF</color>
     <color name="availableGreen">#6CC775</color>
     <color name="darkBlue">#171821</color>
+    <color name="greenChart">#08D110</color>
 
 </resources>
