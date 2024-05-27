@@ -11,7 +11,7 @@ class AcioPreferences(var userName: String = "", var installDate: Date = Date(),
     fun toJSONString(): String {
         var jsonObj = JSONObject()
         jsonObj.put("username", this.userName)
-        jsonObj.put("birthdate", this.installDate.time)
+        jsonObj.put("installDate", this.installDate.time)
         jsonObj.put("notifySetAllRead", this.notifySetAllRead)
         jsonObj.put("notifyDeleteOlder", this.notifyDeleteOlder)
         jsonObj.put("notifyMessages", this.notifyMessages)

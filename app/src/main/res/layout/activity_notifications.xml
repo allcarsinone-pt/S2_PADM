@@ -62,7 +62,7 @@ tools:context=".activities.NotificationsActivity">
                     android:layout_marginHorizontal="@dimen/_30sp"
                     app:layout_constraintTop_toBottomOf="@id/NotificationsTitle_TV" >
                     <Switch
-                        android:id="@+id/Notifications_switch1"
+                        android:id="@+id/Notifications_switch_allNotif"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/notificationsTextBlue16"
@@ -71,7 +71,7 @@ tools:context=".activities.NotificationsActivity">
                         android:paddingVertical="@dimen/_20sp"
                         android:text="@string/set_all_notifications_as_read" />
                     <Switch
-                        android:id="@+id/Notifications_switch2"
+                        android:id="@+id/Notifications_switch_older2days"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/notificationsTextBlue16"
@@ -80,7 +80,7 @@ tools:context=".activities.NotificationsActivity">
                         android:paddingVertical="@dimen/_20sp"
                         android:text="@string/delete_older_than_2_days" />
                     <Switch
-                        android:id="@+id/Notifications_switch3"
+                        android:id="@+id/Notifications_switch_msgs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/notificationsTextBlue16"
@@ -89,7 +89,7 @@ tools:context=".activities.NotificationsActivity">
                         android:paddingVertical="@dimen/_20sp"
                         android:text="@string/messages" />
                     <Switch
-                        android:id="@+id/Notifications_switch4"
+                        android:id="@+id/Notifications_switch_favorits"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/notificationsTextBlue16"
@@ -98,7 +98,7 @@ tools:context=".activities.NotificationsActivity">
                         android:paddingVertical="@dimen/_20sp"
                         android:text="@string/favorites" />
                     <Switch
-                        android:id="@+id/Notifications_switch5"
+                        android:id="@+id/Notifications_switch_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/notificationsTextBlue16"
@@ -107,7 +107,7 @@ tools:context=".activities.NotificationsActivity">
                         android:paddingVertical="@dimen/_20sp"
                         android:text="@string/e_mail_notifications" />
                     <Switch
-                        android:id="@+id/Notifications_switch6"
+                        android:id="@+id/Notifications_switch_shareFavs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/notificationsTextBlue16"
@@ -126,6 +126,7 @@ tools:context=".activities.NotificationsActivity">
                         android:layout_marginVertical="60dp"
                         android:singleLine="true"
                         style="@style/btnSolidRounded"
+                        android:onClick="notifSavePreferences"
                         android:text="@string/update"/>
                 </LinearLayout>
             </RelativeLayout>
