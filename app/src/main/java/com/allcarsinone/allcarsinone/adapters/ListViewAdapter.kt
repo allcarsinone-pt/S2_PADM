@@ -30,6 +30,8 @@ class ListViewAdapter(private val list: ArrayList<Notifications>) : RecyclerView
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder
     {
         val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.listview_layout, viewGroup, false)
+        //view = LayoutInflater.from(viewGroup.context).inflate(R.layout.listview_layout_comments, viewGroup, false)
+
         return ViewHolder(view)
     }
 
