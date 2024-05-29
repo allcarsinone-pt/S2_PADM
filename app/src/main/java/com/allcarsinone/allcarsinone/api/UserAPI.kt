@@ -20,6 +20,9 @@ interface UserAPI {
     @POST("proxy-auth/users")
     fun login(@Body loginUserDto: LoginUserDto): Call<Token>
 
-    @PUT("proxy-auth/users/{username}")
+    @GET("/users/:username")
+    fun getUser(@Path("username") username: String): Call<User>
+
+    @PUT("/users/:username")
     fun edit(@Path("username") username: String, @Body editUserDto: EditUserDto): Call<User>
 }
