@@ -32,14 +32,15 @@ class EditProfileActivity : AppCompatActivity() {
     }
 
     fun editUser(body: EditUserDto) {
-        val call = usersAPI.edit(body.username, body)
+        val call = usersAPI.edit("goncalo2", body)
 
         call.enqueue(object: Callback<User> {
             override fun onResponse(p0: Call<User>, p1: Response<User>) {
                 if(p1.isSuccessful) {
-                    Toast.makeText(this@EditProfileActivity,
-                        "User updated with success!",
-                        Toast.LENGTH_LONG).show()
+
+                    val intent = Intent()
+                    setResult(RESULT_OK, intent)
+                    finish()
                 }
                 else {
                     when(p1.code()) {
