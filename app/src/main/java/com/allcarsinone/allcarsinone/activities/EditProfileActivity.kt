@@ -31,10 +31,7 @@ class EditProfileActivity : AppCompatActivity() {
         viewBinding.editprofileEditBtn.setOnClickListener {
             validateDataFields()
         }
-    }
 
-    override fun onResume() {
-        super.onResume()
         val call = usersAPI.getUser("admin")
 
         call.enqueue(object: Callback<User> {
@@ -43,7 +40,6 @@ class EditProfileActivity : AppCompatActivity() {
                     viewBinding.editprofileUsernameEt.setText(p1.body()!!.username)
                     viewBinding.editprofileNameEt.setText(p1.body()!!.name)
                     viewBinding.editprofileEmailEt.setText(p1.body()!!.email)
-
                 }
                 else {
                     when(p1.code()) {
