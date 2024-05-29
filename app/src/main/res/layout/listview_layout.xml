@@ -37,37 +37,40 @@
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/Notifications_Date_LV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="15dp">
-                <TextView
-                    android:id="@+id/Notifications_Brand_LV"
+                android:hint="12/12/2024"
+                android:gravity="end"
+                style="@style/txtTinyBlack" />
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:hint="This is a brand"
-                    style="@style/txtSmall20Blue"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:id="@+id/Notifications_Comment_LV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:hint="This is a comment"
-                    style="@style/txtSmallBlack"
-                    />
-
-                <TextView
-                    android:id="@+id/Notifications_Date_LV"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="5dp"
-                    android:hint="12/12/2024"
-                    style="@style/txtTinyBlack" />
+                    android:orientation="vertical"
+                    android:layout_margin="15dp">
+                    <TextView
+                        android:id="@+id/Notifications_Brand_LV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:hint="This is a brand"
+                        style="@style/txtSmall20Blue"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:id="@+id/Notifications_Comment_LV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:hint="This is a comment"
+                        style="@style/txtSmallBlack"
+                        />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

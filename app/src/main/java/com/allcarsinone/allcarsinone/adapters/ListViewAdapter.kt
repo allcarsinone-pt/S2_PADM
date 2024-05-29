@@ -1,57 +1,77 @@
 package com.allcarsinone.allcarsinone.adapters
 
-import android.graphics.Typeface
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.allcarsinone.allcarsinone.Notifications
 import com.allcarsinone.allcarsinone.R
 import java.text.SimpleDateFormat
 import java.util.Date
 
-class ListViewAdapter(private val list: ArrayList<Notifications>) : RecyclerView.Adapter<ListViewAdapter.ViewHolder>() {
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
-    {
-        val iv: ImageView = view.findViewById<ImageView>(R.id.Notifications_Image_LV)
-        val bv: TextView = view.findViewById<TextView>(R.id.Notifications_Brand_LV)
-        val cv: TextView = view.findViewById<TextView>(R.id.Notifications_Comment_LV)
-        val dv: TextView = view.findViewById<TextView>(R.id.Notifications_Date_LV)
-        val layout: LinearLayout = view.findViewById<LinearLayout>(R.id.Notifications_Inner_LAY)
+sealed class ListItem {
+    data class Layout1(val image: Int, val brand: String, val comment: String, val regDate: Date) : ListItem()
+    data class Layout2(val image: Int, val brand: String, val regDate: Date) : ListItem()
+}
+class ListViewAdapter( private val items: List<ListItem>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    inner class LayoutHolder1(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(item: ListItem.Layout1) {
+            // Bind data to views
+            val iv: ImageView = itemView.findViewById<ImageView>(R.id.Notifications_Image_LV)
+            val bv: TextView = itemView.findViewById<TextView>(R.id.Notifications_Brand_LV)
+            bv.text = item.brand
+            val cv: TextView = itemView.findViewById<TextView>(R.id.Notifications_Comment_LV)
+            cv.text = item.comment
+            val dv: TextView = itemView.findViewById<TextView>(R.id.Notifications_Date_LV)
+            val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+            val fdt = sdf.format(item.regDate)
+            dv.text = fdt
+        }
     }
-
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder
-    {
-        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.listview_layout, viewGroup, false)
-        //view = LayoutInflater.from(viewGroup.context).inflate(R.layout.listview_layout_comments, viewGroup, false)
-
-        return ViewHolder(view)
+    inner class LayoutHolder2(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(item: ListItem.Layout2) {
+            val iv: ImageView = itemView.findViewById<ImageView>(R.id.Notifications2_Image_LV)
+            val bv: TextView = itemView.findViewById<TextView>(R.id.Notifications2_Brand_LV)
+            bv.text = item.brand
+            val dv: TextView = itemView.findViewById<TextView>(R.id.Notifications2_Date_LV)
+            val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+            val fdt = sdf.format(item.regDate)
+            dv.text = fdt
+        }
     }
-
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int)
-    {
-        val notify = list[position]
+    override fun getItemViewType(position: Int): Int {
+        return when (items[position]) {
+            is ListItem.Layout1 -> 0
+            is ListItem.Layout2 -> 1
+        }
+    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return when (viewType) {
+            0 -> LayoutHolder1(
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.listview_layout, parent, false)
+            )
+            1 -> LayoutHolder2(
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.listview_layout_comments, parent, false)
+            )
+            else -> throw IllegalArgumentException("Invalid view type")
+        }
+    }
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (val item = items[position]) {
+            is ListItem.Layout1 -> (holder as LayoutHolder1).bind(item)
+            is ListItem.Layout2 -> (holder as LayoutHolder2).bind(item)
+        }
         val backStyle = when(position % 2) {
             0 -> R.drawable.rectangle_round_corners_20_back
             1 -> R.drawable.rectangle_round_corners_20_white
             else -> R.color.gray
         }
-        viewHolder.layout.setBackgroundResource(backStyle)
-
-        viewHolder.iv.setImageResource(notify.image);
-        viewHolder.bv.text = notify.brand
-        viewHolder.cv.text = notify.comment
-
-        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-        val fdt = sdf.format(notify.date)
-        viewHolder.dv.text = fdt
+        holder.itemView.setBackgroundResource(backStyle)
     }
-    override fun getItemCount() = list.size
+    override fun getItemCount() = items.size
 }
