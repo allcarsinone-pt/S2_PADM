@@ -1,4 +1,4 @@
-package com.allcarsinone.allcarsinone.interfaces
+package com.allcarsinone.allcarsinone.models.room.interfaces
 
 import androidx.room.Dao
 import androidx.room.Delete

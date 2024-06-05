@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "vehicles")
-data class Vehicles(@PrimaryKey(autoGenerate = true) val id: Int = 0,
+data class Vehicles(@PrimaryKey(autoGenerate = true) val id: Int,
                     @ColumnInfo(name = "standid") val standid: Int = 0,
                     @ColumnInfo(name = "model") val model: String = "",
                     @ColumnInfo(name = "year") val year: Int = 0,

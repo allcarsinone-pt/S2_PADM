@@ -1,4 +1,4 @@
-package com.allcarsinone.allcarsinone.api
+package com.allcarsinone.allcarsinone.api.interfaces
 
 import com.allcarsinone.allcarsinone.dtos.EditUserDto
 import com.allcarsinone.allcarsinone.dtos.LoginUserDto

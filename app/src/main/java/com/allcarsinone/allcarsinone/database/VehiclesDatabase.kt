@@ -4,11 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.allcarsinone.allcarsinone.interfaces.VehiclesDao
+import com.allcarsinone.allcarsinone.models.room.interfaces.VehiclesDao
 import com.allcarsinone.allcarsinone.models.room.Vehicles
 
 @Database(entities = arrayOf(Vehicles::class), version = 1)
-abstract class VehiclesDatabase: RoomDatabase() {
+abstract class VehiclesDatabase : RoomDatabase() {
     abstract fun vehiclesDao(): VehiclesDao
     companion object {
         @Volatile private var instance: VehiclesDatabase? = null

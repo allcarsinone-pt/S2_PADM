@@ -1,4 +1,4 @@
-package com.allcarsinone.allcarsinone.interfaces
+package com.allcarsinone.allcarsinone.models.room.interfaces
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -14,7 +14,7 @@ interface VehiclesDao {
     fun getAll(): List<Vehicles>
 
     @Query("SELECT * FROM vehicles WHERE id = :id")
-    fun findByID(id: Int)
+    fun findByID(id: Int):Vehicles
 
     @Insert
     fun insert(vehicle: Vehicles)
@@ -23,6 +23,5 @@ interface VehiclesDao {
     fun update(vehicle: Vehicles)
 
     @Delete
-    @Query("DELETE FROM vehicles WHERE 1")
-    fun delete(id: Int)
+    fun delete(vararg vehicle: Vehicles)
 }
