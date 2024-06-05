@@ -9,6 +9,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.PUT
 import retrofit2.http.Path
 import retrofit2.http.PATCH
@@ -25,4 +26,7 @@ interface UserAPI {
 
     @PUT("proxy-auth/users/:username")
     fun edit(@Path("username") username: String, @Body editUserDto: EditUserDto): Call<User>
+
+    @GET("proxy-auth/auth")
+    fun validate(@Header("Authorization") authHeader: Header): Call<User>
 }
