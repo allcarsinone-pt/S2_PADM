@@ -24,13 +24,13 @@ interface VehicleAPI {
                  @Part attachments: List<MultipartBody.Part>
     ) : Call<Vehicle>
 
-    @GET("proxy-vehicles")
+    @GET("proxy-vehicles/vehicles")
     fun filter(): Call<List<Vehicle>>
 
-    @GET("proxy-vehicles/:vehicleid")
+    @GET("proxy-vehicles/vehicles/:vehicleid")
     fun getVehicle(@Path("vehicleid") vehicleid: Number): Call<Vehicle>
 
-    @PUT("proxy-vehicles/:vehicleid")
+    @PUT("proxy-vehicles/vehicles/:vehicleid")
     fun edit(@Path("vehicleid") vehicleid: Number, @Body editVehicleDto: EditVehicleDto): Call<Vehicle>
 
 }
