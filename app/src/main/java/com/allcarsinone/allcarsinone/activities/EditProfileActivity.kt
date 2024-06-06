@@ -56,7 +56,6 @@ class EditProfileActivity : AppCompatActivity() {
                 Toast.makeText(this@EditProfileActivity, p1.message, Toast.LENGTH_LONG).show()
             }
         })
-
     }
 
     fun editUser(body: EditUserDto) {

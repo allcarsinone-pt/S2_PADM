@@ -5,9 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.allcarsinone.allcarsinone.models.room.interfaces.VehiclesDao
-import com.allcarsinone.allcarsinone.models.room.Vehicles
+import com.allcarsinone.allcarsinone.models.room.VehiclesModel
 
-@Database(entities = arrayOf(Vehicles::class), version = 1)
+@Database(entities = arrayOf(VehiclesModel::class), version = 1)
 abstract class VehiclesDatabase : RoomDatabase() {
     abstract fun vehiclesDao(): VehiclesDao
     companion object {

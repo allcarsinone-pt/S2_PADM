@@ -196,7 +196,7 @@
                 android:text="@string/insert_vehicle"
                 android:layout_margin="30dp"
                 android:textAllCaps="false"
-                style="@style/btnSolidRounded" tools:text="@string/insert_vehicle"/>
+                style="@style/btnSolidRounded" tools:text="EDIT VEHICLE"/>
 
         </LinearLayout>
 

@@ -28,5 +28,5 @@ interface UserAPI {
     fun edit(@Path("username") username: String, @Body editUserDto: EditUserDto): Call<User>
 
     @GET("proxy-auth/auth")
-    fun validate(@Header("Authorization") authHeader: Header): Call<User>
+    fun validate(@Header("Authorization") authHeader: String): Call<User>
 }
