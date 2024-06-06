@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/generalBack"
+    tools:context=".activities.InitialPageActivity" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/initPageContentCardViewMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/initPageContentCardView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:cardCornerRadius="20dp"
+                android:elevation="1dp"
+                android:layout_margin="@dimen/_15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/initPageContentCardViewMain">
+                <ImageView
+                    android:id="@+id/roundedImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ferrari"
+                    android:scaleType="centerCrop"
+                    android:elevation="1dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle_gray_half_circle_corner"
+                    android:text="@string/default_location"
+                    android:padding="10dp"
+                    android:layout_margin="20dp"
+                    android:elevation="2dp"
+                    app:drawableStartCompat="@drawable/locationdark"
+                    style="@style/txtSmallBlack"
+                    android:drawablePadding="5dip" />
+            </androidx.cardview.widget.CardView>
+
+            <RelativeLayout
+                android:layout_marginHorizontal="@dimen/_15sp"
+                android:id="@+id/initPageContentRelativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:layout_constraintBottom_toBottomOf="@+id/initPageContentCardView"
+                android:elevation="2dp">
+                <ImageView
+                    android:id="@+id/initPageRectImage"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:src="@drawable/round_corners_rectangle_back_color" />
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="@dimen/_15sp">
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/initPageCarBrand_TV"
+                            android:layout_marginTop="@dimen/_10sp"
+                            android:text="@string/all_cars_in_one"
+                            android:textAlignment="textStart"
+                            style="@style/txtMediumBlack" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_5sp">
+                        <TableRow
+                            android:layout_width="20dp"
+                            android:layout_height="20dp">
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/initPageProfilePhotoCar_MV"
+                                android:layout_width="20sp"
+                                android:layout_height="20sp"
+                                app:cardCornerRadius="360dp">
+
+                                <ImageView
+                                    android:id="@+id/initPageProfilePhotoCar_IMG"
+                                    android:layout_width="14dp"
+                                    android:layout_height="match_parent"
+                                    android:src="@mipmap/ic_launcher_foreground" />
+                            </com.google.android.material.card.MaterialCardView>
+                            <TextView
+                                android:id="@+id/initPageStandName_TV"
+                                android:text="@string/default_stand"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="start|center"
+                                android:paddingHorizontal="5dp"
+                                style="@style/txtSmallBlack" />
+                        </TableRow>
+                        <TextView
+                            android:id="@+id/initPageCarPrice_TV"
+                            android:text="@string/_999_000"
+                            android:gravity="end|center"
+                            style="@style/txtMediumBlack"
+                            android:layout_weight="1" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/_5sp"
+                        android:textAlignment="textEnd"
+                        android:weightSum="6">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_weight="3">
+                            <ImageView
+                                android:id="@+id/initPageStandStar1Img"
+                                android:layout_width="15dp"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/star" />
+                            <ImageView
+                                android:id="@+id/initPageStandStar2Img"
+                                android:layout_width="15dp"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/star" />
+                            <ImageView
+                                android:id="@+id/initPageStandStar3Img"
+                                android:layout_width="15dp"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/star" />
+                            <ImageView
+                                android:id="@+id/initPageStandStar4Img"
+                                android:layout_width="15dp"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/star" />
+                            <ImageView
+                                android:id="@+id/initPageStandStar5Img"
+                                android:layout_width="15dp"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/star" />
+                            <TextView
+                                android:id="@+id/initPageStandOpinions_TV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:paddingHorizontal="5dp"
+                                style="@style/txtSmallGray"
+                                android:text="25"/>
+                            <TextView
+                                android:id="@+id/initPageStandOpinionsTxt_TV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                style="@style/txtSmallGray"
+                                android:text="@string/opinions"/>
+                        </LinearLayout>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_weight="3">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/initPageIconSit"
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/carsit"
+                                    android:layout_weight="1" />
+                                <TextView
+                                    android:id="@+id/initPageIconSitText_TV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    style="@style/txtSmallBlack"
+                                    android:text="2" />
+                                <ImageView
+                                    android:id="@+id/initPageIconGear"
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/cargear"
+                                    android:layout_weight="1" />
+                                <TextView
+                                    android:id="@+id/initPageIconGearText_TV"
+                                    style="@style/txtSmallBlack"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="6" />
+                                <ImageView
+                                    android:id="@+id/initPageIconDoor"
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/cardoor"
+                                    android:layout_weight="1" />
+                                <TextView
+                                    android:id="@+id/initPageIcondoorText_TV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    style="@style/txtSmallBlack"
+                                    android:text="2" />
+                            </LinearLayout>
+                        </TableRow>
+                    </TableRow>
+                </TableLayout>
+            </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
