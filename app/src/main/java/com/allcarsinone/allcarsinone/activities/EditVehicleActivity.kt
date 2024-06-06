@@ -119,7 +119,7 @@ class EditVehicleActivity : AppCompatActivity() {
         val model = "XPTO" //viewBinding.editVehicleBrandEt.text.toString()
         val year = 2020
         val mileage = 120000
-        val price = 12.6 //viewBinding.editVehiclePriceEt.text.toString().toDouble()
+        val price = 12500 //viewBinding.editVehiclePriceEt.text.toString().toDouble()
         val availability = true
         val description = "Muito bom"
         val brandname = ""

@@ -18,7 +18,7 @@ import retrofit2.http.Path
 
 interface VehicleAPI {
     @Multipart
-    @POST("/vehicles/")
+    @POST("proxy-vehicles/vehicles/")
     fun register(@Header("Authorization") authHeader: String,
                  @Part("vehicle") body: RequestBody,
                  @Part attachments: List<MultipartBody.Part>
@@ -26,6 +26,10 @@ interface VehicleAPI {
 
     @GET("proxy-vehicles/vehicles")
     fun filter(): Call<List<Vehicle>>
+
+    //@GET("proxy-vehicles")
+    @GET("proxy-vehicles/vehicles/")
+    fun getAll(): Call<List<Vehicle>>
 
     @GET("proxy-vehicles/vehicles/:vehicleid")
     fun getVehicle(@Path("vehicleid") vehicleid: Number): Call<Vehicle>
