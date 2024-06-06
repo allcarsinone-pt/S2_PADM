@@ -11,7 +11,7 @@
         android:padding="@dimen/_30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
         <ImageButton
             android:layout_width="38dp"
             android:layout_height="38dp"
@@ -26,339 +26,340 @@
             android:src="@drawable/logo_cropped" />
     </RelativeLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:id="@+id/editVehicle_inside_sv_rl"
         app:layout_constraintTop_toBottomOf="@id/editVehicle_toolbar_rl"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/editVehicle_toolbar_rl"
-            android:orientation="vertical">
-        <TextView android:ellipsize="end"
-            android:id="@+id/editVehicle_brand_tv"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_width="wrap_content"
-            android:singleLine="true"
-            android:text="Brand"
-            style="@style/txtMontserratromanregular14"/>
-        <EditText
-            android:id="@+id/editVehicle_brand_et"
-            android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-            android:drawablePadding="@dimen/_30pxh"
-            android:hint="Tesla"
-            android:layout_marginBottom="18dp"
-            android:inputType="text"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="@dimen/_8pxv"
-            android:layout_width="match_parent"
-            android:paddingBottom="@dimen/_14pxv"
-            android:paddingEnd="@dimen/_25pxh"
-            android:paddingStart="@dimen/_21pxh"
-            android:paddingTop="@dimen/_14pxv"
-            android:singleLine="true"
-            android:textColorHint="@color/black_900_cc"
-            style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
-
-        <TextView android:ellipsize="end"
-            android:id="@+id/editVehicle_model_tv"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_width="wrap_content"
-            android:singleLine="true"
-            android:text="Model"
-            style="@style/txtMontserratromanregular14"/>
-        <EditText
-            android:id="@+id/editVehicle_model_et"
-            android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-            android:drawablePadding="@dimen/_30pxh"
-            android:hint="Model X"
-            android:layout_marginBottom="18dp"
-            android:inputType="text"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="@dimen/_8pxv"
-            android:layout_width="match_parent"
-            android:paddingBottom="@dimen/_14pxv"
-            android:paddingEnd="@dimen/_25pxh"
-            android:paddingStart="@dimen/_21pxh"
-            android:paddingTop="@dimen/_14pxv"
-            android:singleLine="true"
-            android:textColorHint="@color/black_900_cc"
-            style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
-
-            <TextView android:ellipsize="end"
-                android:id="@+id/editVehicle_gastype_tv"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_width="wrap_content"
-                android:singleLine="true"
-                android:text="Gas Type"
-                style="@style/txtMontserratromanregular14"/>
-            <EditText
-                android:id="@+id/editVehicle_gastype_et"
-                android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-                android:drawablePadding="@dimen/_30pxh"
-                android:hint="Diesel"
-                android:layout_marginBottom="18dp"
-                android:inputType="text"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="@dimen/_8pxv"
-                android:layout_width="match_parent"
-                android:paddingBottom="@dimen/_14pxv"
-                android:paddingEnd="@dimen/_25pxh"
-                android:paddingStart="@dimen/_21pxh"
-                android:paddingTop="@dimen/_14pxv"
-                android:singleLine="true"
-                android:textColorHint="@color/black_900_cc"
-                style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
-
-            <TextView android:ellipsize="end"
-                android:id="@+id/editVehicle_year_tv"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_width="wrap_content"
-                android:singleLine="true"
-                android:text="Year"
-                style="@style/txtMontserratromanregular14"/>
-            <EditText
-                android:id="@+id/editVehicle_year_et"
-                android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-                android:hint="2020"
-                android:layout_marginBottom="18dp"
-                android:inputType="numberDecimal"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="@dimen/_8pxv"
-                android:layout_width="match_parent"
-                android:paddingBottom="@dimen/_14pxv"
-                android:paddingEnd="@dimen/_25pxh"
-                android:paddingStart="@dimen/_21pxh"
-                android:paddingTop="@dimen/_14pxv"
-                android:singleLine="true"
-                android:textColorHint="@color/black_900_cc"
-                style="@style/etSolidRoundedOutline"/>
-
-            <TextView android:ellipsize="end"
-                android:id="@+id/editVehicle_mileage_tv"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_width="wrap_content"
-                android:singleLine="true"
-                android:text="Mileage"
-                style="@style/txtMontserratromanregular14"/>
-            <EditText
-                android:id="@+id/editVehicle_mileage_et"
-                android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-                android:hint="95000"
-                android:layout_marginBottom="18dp"
-                android:inputType="numberDecimal"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="@dimen/_8pxv"
-                android:layout_width="match_parent"
-                android:paddingBottom="@dimen/_14pxv"
-                android:paddingEnd="@dimen/_25pxh"
-                android:paddingStart="@dimen/_21pxh"
-                android:paddingTop="@dimen/_14pxv"
-                android:singleLine="true"
-                android:textColorHint="@color/black_900_cc"
-                style="@style/etSolidRoundedOutline"/>
-
-        <TextView android:ellipsize="end"
-            android:id="@+id/editVehicle_price_tv"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_width="wrap_content"
-            android:singleLine="true"
-            android:text="Price"
-            style="@style/txtMontserratromanregular14"/>
-        <EditText
-            android:id="@+id/editVehicle_price_et"
-            android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-            android:hint="120000"
-            android:layout_marginBottom="18dp"
-            android:inputType="numberDecimal"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="@dimen/_8pxv"
-            android:layout_width="match_parent"
-            android:paddingBottom="@dimen/_14pxv"
-            android:paddingEnd="@dimen/_25pxh"
-            android:paddingStart="@dimen/_21pxh"
-            android:paddingTop="@dimen/_14pxv"
-            android:singleLine="true"
-            android:textColorHint="@color/black_900_cc"
-            style="@style/etSolidRoundedOutline"/>
-
-
-            <TextView android:ellipsize="end"
-                android:id="@+id/editVehicle_availabiulity_tv"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_width="wrap_content"
-                android:singleLine="true"
-                android:text="Availability"
-                style="@style/txtMontserratromanregular14"/>
-
-            <Switch
-                android:id="@+id/editVehicle_availability_et"
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="@dimen/_8pxv"
-                style="@style/notificationsTextBlue16"
-                android:thumb="@drawable/switch_thumb"
-                android:track="@drawable/switch_track"
-                android:layout_marginBottom="18dp"/>
-
-            <TextView android:ellipsize="end"
-                android:id="@+id/editVehicle_description_tv"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_width="wrap_content"
-                android:singleLine="true"
-                android:text="Description"
-                style="@style/txtMontserratromanregular14"/>
-            <EditText
-                android:id="@+id/editVehicle_description_et"
-                android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-                android:hint="Description"
-                android:layout_marginBottom="18dp"
-                android:inputType="textMultiLine"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="@dimen/_8pxv"
-                android:layout_width="match_parent"
-                android:lines="4"
-                android:paddingBottom="@dimen/_14pxv"
-                android:paddingEnd="@dimen/_25pxh"
-                android:paddingStart="@dimen/_21pxh"
-                android:paddingTop="@dimen/_14pxv"
-                android:singleLine="true"
-                android:textColorHint="@color/black_900_cc"
-                style="@style/etSolidRoundedOutline"/>
-
-            <TextView android:ellipsize="end"
-                android:id="@+id/editVehicle_consume_tv"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_width="wrap_content"
-                android:singleLine="true"
-                android:text="Consume"
-                style="@style/txtMontserratromanregular14"/>
-            <EditText
-                android:id="@+id/editVehicle_consume_et"
-                android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
-                android:hint="9,5"
-                android:layout_marginBottom="18dp"
-                android:inputType="numberDecimal"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="@dimen/_8pxv"
-                android:layout_width="match_parent"
-                android:paddingBottom="@dimen/_14pxv"
-                android:paddingEnd="@dimen/_25pxh"
-                android:paddingStart="@dimen/_21pxh"
-                android:paddingTop="@dimen/_14pxv"
-                android:singleLine="true"
-                android:textColorHint="@color/black_900_cc"
-                style="@style/etSolidRoundedOutline"/>
-
-        <ImageView
-            android:id="@+id/editVehicle_photo1"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:src="@drawable/ferrari"
-            android:layout_gravity="center"
-            >
-        </ImageView>
+            android:paddingVertical="38dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center"
-                android:layout_marginHorizontal="30dp"
-                android:orientation="horizontal">
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="wrap_content"
+                android:orientation="vertical">
+                <TextView android:ellipsize="end"
+                    android:id="@+id/editVehicle_brand_tv"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="30dp">
-                    <ImageView
-                        android:id="@+id/editVehicle_photo2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_launcher_foreground">
-                    </ImageView>
-                </com.google.android.material.card.MaterialCardView>
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="Brand"
+                    style="@style/txtMontserratromanregular14"/>
+                <EditText
+                    android:id="@+id/editVehicle_brand_et"
+                    android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
+                    android:drawablePadding="@dimen/_30pxh"
+                    android:hint="Tesla"
+                    android:layout_marginBottom="18dp"
+                    android:inputType="text"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="@dimen/_8pxv"
+                    android:layout_width="match_parent"
+                    android:paddingBottom="@dimen/_14pxv"
+                    android:paddingEnd="@dimen/_25pxh"
+                    android:paddingStart="@dimen/_21pxh"
+                    android:paddingTop="@dimen/_14pxv"
+                    android:singleLine="true"
+                    android:textColorHint="@color/black_900_cc"
+                    style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
 
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="wrap_content"
+                <TextView android:ellipsize="end"
+                    android:id="@+id/editVehicle_model_tv"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="30dp">
-                    <ImageView
-                        android:id="@+id/editVehicle_photo3"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="Model"
+                    style="@style/txtMontserratromanregular14"/>
+                <EditText
+                    android:id="@+id/editVehicle_model_et"
+                    android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
+                    android:drawablePadding="@dimen/_30pxh"
+                    android:hint="Model X"
+                    android:layout_marginBottom="18dp"
+                    android:inputType="text"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="@dimen/_8pxv"
+                    android:layout_width="match_parent"
+                    android:paddingBottom="@dimen/_14pxv"
+                    android:paddingEnd="@dimen/_25pxh"
+                    android:paddingStart="@dimen/_21pxh"
+                    android:paddingTop="@dimen/_14pxv"
+                    android:singleLine="true"
+                    android:textColorHint="@color/black_900_cc"
+                    style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
+
+                <TextView android:ellipsize="end"
+                    android:id="@+id/editVehicle_gastype_tv"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="Gas Type"
+                    style="@style/txtMontserratromanregular14"/>
+                <EditText
+                    android:id="@+id/editVehicle_gastype_et"
+                    android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
+                    android:drawablePadding="@dimen/_30pxh"
+                    android:hint="Diesel"
+                    android:layout_marginBottom="18dp"
+                    android:inputType="text"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="@dimen/_8pxv"
+                    android:layout_width="match_parent"
+                    android:paddingBottom="@dimen/_14pxv"
+                    android:paddingEnd="@dimen/_25pxh"
+                    android:paddingStart="@dimen/_21pxh"
+                    android:paddingTop="@dimen/_14pxv"
+                    android:singleLine="true"
+                    android:textColorHint="@color/black_900_cc"
+                    style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
+
+                <TextView android:ellipsize="end"
+                    android:id="@+id/editVehicle_year_tv"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="Year"
+                    style="@style/txtMontserratromanregular14"/>
+                <EditText
+                    android:id="@+id/editVehicle_year_et"
+                    android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
+                    android:hint="2020"
+                    android:layout_marginBottom="18dp"
+                    android:inputType="numberDecimal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="@dimen/_8pxv"
+                    android:layout_width="match_parent"
+                    android:paddingBottom="@dimen/_14pxv"
+                    android:paddingEnd="@dimen/_25pxh"
+                    android:paddingStart="@dimen/_21pxh"
+                    android:paddingTop="@dimen/_14pxv"
+                    android:singleLine="true"
+                    android:textColorHint="@color/black_900_cc"
+                    style="@style/etSolidRoundedOutline"/>
+
+                <TextView android:ellipsize="end"
+                    android:id="@+id/editVehicle_mileage_tv"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="Mileage"
+                    style="@style/txtMontserratromanregular14"/>
+                <EditText
+                    android:id="@+id/editVehicle_mileage_et"
+                    android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
+                    android:hint="95000"
+                    android:layout_marginBottom="18dp"
+                    android:inputType="numberDecimal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="@dimen/_8pxv"
+                    android:layout_width="match_parent"
+                    android:paddingBottom="@dimen/_14pxv"
+                    android:paddingEnd="@dimen/_25pxh"
+                    android:paddingStart="@dimen/_21pxh"
+                    android:paddingTop="@dimen/_14pxv"
+                    android:singleLine="true"
+                    android:textColorHint="@color/black_900_cc"
+                    style="@style/etSolidRoundedOutline"/>
+
+                <TextView android:ellipsize="end"
+                    android:id="@+id/editVehicle_price_tv"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="Price"
+                    style="@style/txtMontserratromanregular14"/>
+                <EditText
+                    android:id="@+id/editVehicle_price_et"
+                    android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
+                    android:hint="120000"
+                    android:layout_marginBottom="18dp"
+                    android:inputType="numberDecimal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="@dimen/_8pxv"
+                    android:layout_width="match_parent"
+                    android:paddingBottom="@dimen/_14pxv"
+                    android:paddingEnd="@dimen/_25pxh"
+                    android:paddingStart="@dimen/_21pxh"
+                    android:paddingTop="@dimen/_14pxv"
+                    android:singleLine="true"
+                    android:textColorHint="@color/black_900_cc"
+                    style="@style/etSolidRoundedOutline"/>
+
+
+                <TextView android:ellipsize="end"
+                    android:id="@+id/editVehicle_availabiulity_tv"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="Availability"
+                    style="@style/txtMontserratromanregular14"/>
+
+                <Switch
+                    android:id="@+id/editVehicle_availability_et"
+                    android:layout_width="85dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="@dimen/_8pxv"
+                    style="@style/notificationsTextBlue16"
+                    android:thumb="@drawable/switch_thumb"
+                    android:track="@drawable/switch_track"
+                    android:layout_marginBottom="18dp"/>
+
+                <TextView android:ellipsize="end"
+                    android:id="@+id/editVehicle_description_tv"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="Description"
+                    style="@style/txtMontserratromanregular14"/>
+                <EditText
+                    android:id="@+id/editVehicle_description_et"
+                    android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
+                    android:hint="Description"
+                    android:layout_marginBottom="18dp"
+                    android:inputType="textMultiLine"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="@dimen/_8pxv"
+                    android:layout_width="match_parent"
+                    android:lines="4"
+                    android:paddingBottom="@dimen/_14pxv"
+                    android:paddingEnd="@dimen/_25pxh"
+                    android:paddingStart="@dimen/_21pxh"
+                    android:paddingTop="@dimen/_14pxv"
+                    android:singleLine="true"
+                    android:textColorHint="@color/black_900_cc"
+                    style="@style/etSolidRoundedOutline"/>
+
+                <TextView android:ellipsize="end"
+                    android:id="@+id/editVehicle_consume_tv"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="Consume"
+                    style="@style/txtMontserratromanregular14"/>
+                <EditText
+                    android:id="@+id/editVehicle_consume_et"
+                    android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
+                    android:hint="9,5"
+                    android:layout_marginBottom="18dp"
+                    android:inputType="numberDecimal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="@dimen/_8pxv"
+                    android:layout_width="match_parent"
+                    android:paddingBottom="@dimen/_14pxv"
+                    android:paddingEnd="@dimen/_25pxh"
+                    android:paddingStart="@dimen/_21pxh"
+                    android:paddingTop="@dimen/_14pxv"
+                    android:singleLine="true"
+                    android:textColorHint="@color/black_900_cc"
+                    style="@style/etSolidRoundedOutline"/>
+
+                <ImageView
+                    android:id="@+id/editVehicle_photo1"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:src="@drawable/ferrari"
+                    android:layout_gravity="center"
+                    >
+                </ImageView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="30dp"
+                    android:orientation="horizontal">
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_launcher_foreground">
-                    </ImageView>
-                </com.google.android.material.card.MaterialCardView>
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="30dp">
-                    <ImageView
-                        android:id="@+id/editVehicle_photo4"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="30dp">
+                        <ImageView
+                            android:id="@+id/editVehicle_photo2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_launcher_foreground">
+                        </ImageView>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_launcher_foreground">
-                    </ImageView>
-                </com.google.android.material.card.MaterialCardView>
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="30dp">
-                    <ImageView
-                        android:id="@+id/editVehicle_photo5"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="30dp">
+                        <ImageView
+                            android:id="@+id/editVehicle_photo3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_launcher_foreground">
+                        </ImageView>
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_launcher_foreground">
-                    </ImageView>
-                </com.google.android.material.card.MaterialCardView>
+                        android:layout_weight="1"
+                        app:cardCornerRadius="30dp">
+                        <ImageView
+                            android:id="@+id/editVehicle_photo4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_launcher_foreground">
+                        </ImageView>
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="30dp">
+                        <ImageView
+                            android:id="@+id/editVehicle_photo5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_launcher_foreground">
+                        </ImageView>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:ellipsize="end" android:gravity="center"
+                    android:id="@+id/btnInsertVehicle"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20pxv"
+                    android:layout_width="match_parent"
+                    android:paddingBottom="@dimen/_18pxv"
+                    android:paddingEnd="@dimen/_30pxh"
+                    android:paddingStart="@dimen/_30pxh"
+                    android:paddingTop="@dimen/_18pxv"
+                    android:singleLine="true"
+                    android:text="@string/insert_vehicle"
+                    android:layout_margin="30dp"
+                    android:textAllCaps="false"
+                    style="@style/btnSolidRounded" tools:text="EDIT VEHICLE"/>
             </LinearLayout>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:ellipsize="end" android:gravity="center"
-                android:id="@+id/btnInsertVehicle"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20pxv"
-                android:layout_width="match_parent"
-                android:paddingBottom="@dimen/_18pxv"
-                android:paddingEnd="@dimen/_30pxh"
-                android:paddingStart="@dimen/_30pxh"
-                android:paddingTop="@dimen/_18pxv"
-                android:singleLine="true"
-                android:text="@string/insert_vehicle"
-                android:layout_margin="30dp"
-                android:textAllCaps="false"
-                style="@style/btnSolidRounded" tools:text="EDIT VEHICLE"/>
-
-        </LinearLayout>
-
-    </ScrollView>
-
-
-
-
-
+        </ScrollView>
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

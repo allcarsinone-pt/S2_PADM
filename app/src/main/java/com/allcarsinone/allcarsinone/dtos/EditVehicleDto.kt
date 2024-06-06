@@ -13,6 +13,6 @@ data class EditVehicleDto (@SerializedName("standid") val standid: Number,
                         @SerializedName("brandname") val brandname: String,
                         @SerializedName("gastypename") val gastypename: String,
                         @SerializedName("id") val id: Number,
-                        @SerializedName("photos") val photos: Array<String>,
+                        //@SerializedName("photos") val photos: Array<String>,
                         @SerializedName("consume") val consume: Double,
 )

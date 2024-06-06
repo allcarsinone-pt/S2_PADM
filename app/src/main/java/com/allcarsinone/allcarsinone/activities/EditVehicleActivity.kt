@@ -14,6 +14,8 @@ import com.allcarsinone.allcarsinone.models.Vehicle
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
+import okhttp3.MediaType
+import okhttp3.RequestBody
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -38,18 +40,15 @@ class EditVehicleActivity : AppCompatActivity() {
     }
 
     private fun processVehicle(token: String, body: EditVehicleDto) {
+
+        val jsonString = Gson().toJson(body)
+        val obj = JsonParser.parseString(jsonString).asJsonObject.toString()
+        var rb = RequestBody.create(MediaType.parse("application/json; charset=uft-8"), obj)
+
         val call: Call<Vehicle> = if (body.id.toInt() > 0) {
             vehicleAPI.edit(body.id.toInt(), body)
         } else {
-
-            val jsonString = Gson().toJson(body)
-            val objVehicle = JsonParser.parseString(jsonString).asJsonObject
-            val obj = JsonObject()
-            obj.add("vehicle", objVehicle)
-            val finalJsonString = obj.toString()
-            Log.d("", finalJsonString)
-
-            vehicleAPI.register("Bearer $token", finalJsonString)
+            vehicleAPI.register("Bearer $token", rb, mutableListOf())
         }
 
         call.enqueue(object : Callback<Vehicle> {
@@ -71,7 +70,8 @@ class EditVehicleActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Vehicle>, t: Throwable) {
-                Toast.makeText(this@EditVehicleActivity, t.message, Toast.LENGTH_LONG).show()
+                //Toast.makeText(this@EditVehicleActivity, t.message, Toast.LENGTH_LONG).show()
+                throw t
             }
         })
     }
@@ -129,7 +129,7 @@ class EditVehicleActivity : AppCompatActivity() {
 
         try {
             val vehicle = EditVehicleDto(
-                standid, brandid, gastypeid, model, year, mileage, price, availability, description, brandname, gastypename, id, photos, consume
+                standid, brandid, gastypeid, model, year, mileage, price, availability, description, brandname, gastypename, id, consume
             )
             processVehicle(token, vehicle)
         } catch (ex: Exception) {
