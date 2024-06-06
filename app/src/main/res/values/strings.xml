@@ -59,5 +59,6 @@
     <string name="register">Register</string>
     <string name="sign_in">SIGN IN</string>
     <string name="notifications">Notifications</string>
+    <string name="insert_vehicle">INSERT VEHICLE</string>
 
 </resources>

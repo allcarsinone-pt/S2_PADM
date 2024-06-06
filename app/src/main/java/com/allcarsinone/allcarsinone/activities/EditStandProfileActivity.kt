@@ -1,16 +1,23 @@
 package com.allcarsinone.allcarsinone.activities
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.allcarsinone.allcarsinone.R
+import com.allcarsinone.allcarsinone.Globals
+import com.allcarsinone.allcarsinone.databinding.ActivityEditStandProfileBinding
 
 class EditStandProfileActivity : AppCompatActivity() {
+
+    private lateinit var viewBinding: ActivityEditStandProfileBinding
+    private val usersAPI by lazy { Globals.userAPI }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_edit_stand_profile)
+        viewBinding = ActivityEditStandProfileBinding.inflate(layoutInflater)
+        val view = viewBinding.root
+        setContentView(view)
+        viewBinding.EditStandProfileEditBtn.setOnClickListener {
+
+        }
     }
+
 }

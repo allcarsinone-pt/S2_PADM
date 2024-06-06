@@ -45,10 +45,10 @@
             android:text="Brand"
             style="@style/txtMontserratromanregular14"/>
         <EditText
+            android:id="@+id/editVehicle_brand_et"
             android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
             android:drawablePadding="@dimen/_30pxh"
             android:hint="Tesla"
-            android:id="@+id/editVehicle_brand_et"
             android:layout_marginBottom="18dp"
             android:inputType="text"
             android:layout_height="wrap_content"
@@ -72,10 +72,10 @@
             android:text="Model"
             style="@style/txtMontserratromanregular14"/>
         <EditText
+            android:id="@+id/editVehicle_model_et"
             android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
             android:drawablePadding="@dimen/_30pxh"
             android:hint="Model X"
-            android:id="@+id/editVehicle_model_et"
             android:layout_marginBottom="18dp"
             android:inputType="text"
             android:layout_height="wrap_content"
@@ -99,9 +99,9 @@
             android:text="Price"
             style="@style/txtMontserratromanregular14"/>
         <EditText
+            android:id="@+id/editVehicle_price_et"
             android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10"
             android:hint="120000"
-            android:id="@+id/editVehicle_price_et"
             android:inputType="numberDecimal"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
@@ -116,8 +116,9 @@
             style="@style/etSolidRoundedOutline"/>
 
         <ImageView
-            android:layout_width="240dp"
-            android:layout_height="240dp"
+            android:id="@+id/editVehicle_photo1"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:src="@drawable/ferrari"
             android:layout_gravity="center"
             >
@@ -136,10 +137,10 @@
                     android:layout_weight="1"
                     app:cardCornerRadius="30dp">
                     <ImageView
+                        android:id="@+id/editVehicle_photo2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_launcher_foreground">
-
                     </ImageView>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -149,10 +150,10 @@
                     android:layout_weight="1"
                     app:cardCornerRadius="30dp">
                     <ImageView
+                        android:id="@+id/editVehicle_photo3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_launcher_foreground">
-
                     </ImageView>
                 </com.google.android.material.card.MaterialCardView>
                 <com.google.android.material.card.MaterialCardView
@@ -161,10 +162,10 @@
                     android:layout_weight="1"
                     app:cardCornerRadius="30dp">
                     <ImageView
+                        android:id="@+id/editVehicle_photo4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_launcher_foreground">
-
                     </ImageView>
                 </com.google.android.material.card.MaterialCardView>
                 <com.google.android.material.card.MaterialCardView
@@ -173,17 +174,17 @@
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="30dp">
                     <ImageView
+                        android:id="@+id/editVehicle_photo5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_launcher_foreground">
-
                     </ImageView>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:ellipsize="end" android:gravity="center"
-                android:id="@+id/btnLogin"
+                android:id="@+id/btnInsertVehicle"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20pxv"
                 android:layout_width="match_parent"
@@ -192,10 +193,10 @@
                 android:paddingStart="@dimen/_30pxh"
                 android:paddingTop="@dimen/_18pxv"
                 android:singleLine="true"
-                android:text="@string/lbl_login"
+                android:text="@string/insert_vehicle"
                 android:layout_margin="30dp"
                 android:textAllCaps="false"
-                style="@style/btnSolidRounded" tools:text="@string/lbl_login"/>
+                style="@style/btnSolidRounded" tools:text="@string/insert_vehicle"/>
 
         </LinearLayout>
 
