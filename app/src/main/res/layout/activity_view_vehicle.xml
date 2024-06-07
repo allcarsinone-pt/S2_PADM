@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
             <RelativeLayout
                 android:id="@+id/PaymentHeader_LAY"
@@ -200,7 +200,10 @@
                     android:gravity="center_horizontal"
                     style="@style/txtlightGray12"
                     android:layout_weight="1"
-                    android:text="@string/information"/>
+                    android:text="@string/information"
+                    android:drawableTint="@color/red"
+                    android:textColor="@color/red"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -228,6 +231,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_Description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/ViewVehicleIconsLayout"
@@ -252,36 +256,35 @@
         This isn't just a Ferrari 458 Italy it's a style statement, a performance promise and a smart investment decision."
                     />
             </LinearLayout>
-
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_60sp"
-                    android:paddingHorizontal="@dimen/_35sp"
-                    android:background="@color/white"
-                    android:weightSum="2"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    app:layout_constraintBottom_toBottomOf="parent">
-                <TextView
-                    android:id="@+id/ViewVehiclePrice_TV"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/txtMedium20Blue"
-                    android:textStyle = "bold"
-                    android:gravity="start"
-                    android:layout_weight="1"
-                    android:text="€ 120.000"/>
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/ViewVehicleBuy_BTN"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/_15sp"
-                    android:singleLine="true"
-                    android:textAllCaps="false"
-                    style="@style/btnSolidRounded" tools:text="BUY"
-                    android:layout_weight="1"
-                    android:text="@string/buy" />
-                </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sp"
+        android:paddingHorizontal="@dimen/_35sp"
+        android:background="@color/white"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <TextView
+            android:id="@+id/ViewVehiclePrice_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/txtMedium20Blue"
+            android:textStyle = "bold"
+            android:gravity="start"
+            android:layout_weight="1"
+            android:text="€ 120.000"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ViewVehicleBuy_BTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_15sp"
+            android:singleLine="true"
+            android:textAllCaps="false"
+            style="@style/btnSolidRounded" tools:text="BUY"
+            android:layout_weight="1"
+            android:text="@string/buy" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

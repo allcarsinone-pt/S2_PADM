@@ -14,6 +14,6 @@ data class Vehicle (@SerializedName("standid") val standid: Number,
                     @SerializedName("gastypename") val gastypename: String,
                     @SerializedName("brandname") val brandname: String,
                     @SerializedName("consume") val consume: Float,
-                    @SerializedName("photos") val photos: String,
+                    @SerializedName("photos") val photos: List<String>,
                     @SerializedName("id") val id: Number
     )
