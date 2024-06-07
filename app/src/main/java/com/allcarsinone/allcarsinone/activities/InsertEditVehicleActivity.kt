@@ -28,6 +28,11 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         val view = viewBinding.root
         setContentView(view)
 
+
+        val vehicleID = intent.getIntExtra("vehicleid", 0) as Int
+        //TODO: Testar id
+
+
         viewBinding.btnInsertVehicle.setOnClickListener {
             validateDataFields()
         }
@@ -93,10 +98,11 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         val gastypename = ""
         val photos = arrayOf("")
         val consume = 11.3
+        val location = "Barcelos"
 
         try {
             val vehicle = InsertEditVehicleDto(
-                standid, brandid, gastypeid, model, year, mileage, price, availability, description, brandname, gastypename, id, photos, consume
+                standid, brandid, gastypeid, model, year, mileage, price, availability, description, brandname, gastypename, id, photos, consume, location
             )
             processVehicle(token, vehicle)
         } catch (ex: Exception) {

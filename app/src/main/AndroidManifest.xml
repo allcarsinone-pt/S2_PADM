@@ -21,7 +21,7 @@
             android:name=".activities.FavoritesActivity"
             android:exported="false"/>
         <activity
-            android:name=".activities.InsertEditVehicleActivity"
+            android:name=".activities.InitialPageActivity"
             android:exported="false" />
         <activity
             android:name=".activities.EditStandProfileActivity"
@@ -75,7 +75,7 @@
             android:name=".activities.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.InitialPageActivity"
+            android:name=".activities.InsertEditVehicleActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

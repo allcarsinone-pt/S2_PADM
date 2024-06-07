@@ -15,4 +15,5 @@ data class InsertEditVehicleDto (@SerializedName("standid") val standid: Number,
                                  @SerializedName("id") val id: Number,
                                  @SerializedName("photos") val photos: Array<String>,
                                  @SerializedName("consume") val consume: Double,
+                                 @SerializedName("location") val location: String,
 )
