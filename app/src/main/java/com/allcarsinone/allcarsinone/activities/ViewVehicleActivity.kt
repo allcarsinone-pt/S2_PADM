@@ -28,7 +28,7 @@ class ViewVehicleActivity : AppCompatActivity() {
         viewBinding = ActivityViewVehicleBinding.inflate(layoutInflater)
         val view = viewBinding.root
         setContentView(view)
-        val vehicleId: Int = intent.getIntExtra("id", 0)
+        val vehicleId: Int = intent.getIntExtra("vehicleid", 0)
         getVehicle(vehicleId)
         viewBinding.ViewVehicleBuyBTN.setOnClickListener {
             val intent = Intent(this, PaymentActivity::class.java)

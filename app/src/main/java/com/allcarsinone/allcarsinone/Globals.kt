@@ -14,7 +14,7 @@ object Globals {
     private lateinit var retrofit: Retrofit
     fun initAPIs() {
         // For development: change base url, For production: host at cloud our self host backend
-        retrofit = Retrofit.Builder().baseUrl("https://c4ab-87-196-81-55.ngrok-free.app/").addConverterFactory(GsonConverterFactory.create()).build()
+        retrofit = Retrofit.Builder().baseUrl("http://pauloestevao.com:8080/").addConverterFactory(GsonConverterFactory.create()).build()
         userAPI = retrofit.create(UserAPI::class.java)
         vehicleAPI = retrofit.create(VehicleAPI::class.java)
     }
