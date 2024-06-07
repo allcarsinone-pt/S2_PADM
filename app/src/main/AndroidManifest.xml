@@ -21,7 +21,7 @@
             android:name=".activities.FavoritesActivity"
             android:exported="false"/>
         <activity
-            android:name=".activities.EditVehicleActivity"
+            android:name=".activities.InsertEditVehicleActivity"
             android:exported="false" />
         <activity
             android:name=".activities.EditStandProfileActivity"

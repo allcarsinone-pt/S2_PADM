@@ -1,12 +1,9 @@
 package com.allcarsinone.allcarsinone.api.interfaces
 import com.allcarsinone.allcarsinone.dtos.AddFavoriteDto
-import com.allcarsinone.allcarsinone.dtos.EditVehicleDto
-import com.allcarsinone.allcarsinone.dtos.RegisterVehicleDto
+import com.allcarsinone.allcarsinone.dtos.InsertEditVehicleDto
 import com.allcarsinone.allcarsinone.models.FavoriteUserCar
 import com.allcarsinone.allcarsinone.models.Vehicle
-import com.google.gson.JsonObject
 import okhttp3.RequestBody
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -37,7 +34,7 @@ interface VehicleAPI {
     fun getVehicle(@Path("vehicleid") vehicleid: Int): Call<Vehicle>
 
     @PUT("proxy-vehicles/vehicles/{vehicleid}")
-    fun edit(@Path("vehicleid") vehicleid: Int, @Body editVehicleDto: EditVehicleDto): Call<Vehicle>
+    fun edit(@Path("vehicleid") vehicleid: Int, @Body editVehicleDto: InsertEditVehicleDto): Call<Vehicle>
 
     @POST("proxy-vehicles/vehicles/user/favorites")
     fun addFavorite(@Body favoriteDto: AddFavoriteDto): Call<Unit>
