@@ -33,11 +33,11 @@ interface VehicleAPI {
     @GET("proxy-vehicles/vehicles/")
     fun getAll(): Call<List<Vehicle>>
 
-    @GET("proxy-vehicles/vehicles/:vehicleid")
-    fun getVehicle(@Path("vehicleid") vehicleid: Number): Call<Vehicle>
+    @GET("proxy-vehicles/vehicles/{vehicleid}")
+    fun getVehicle(@Path("vehicleid") vehicleid: Int): Call<Vehicle>
 
-    @PUT("proxy-vehicles/vehicles/:vehicleid")
-    fun edit(@Path("vehicleid") vehicleid: Number, @Body editVehicleDto: EditVehicleDto): Call<Vehicle>
+    @PUT("proxy-vehicles/vehicles/{vehicleid}")
+    fun edit(@Path("vehicleid") vehicleid: Int, @Body editVehicleDto: EditVehicleDto): Call<Vehicle>
 
     @POST("proxy-vehicles/vehicles/user/favorites")
     fun addFavorite(@Body favoriteDto: AddFavoriteDto): Call<Unit>
