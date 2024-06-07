@@ -41,7 +41,7 @@ class ViewVehicleActivity : AppCompatActivity() {
             intent.putExtra("vehicleid", vehicleID)
             startActivity(intent)
         }
-        viewBinding.ViewVehicleBackBtnBtn.setOnClickListener {
+        viewBinding.viewVehicleBackIcon.setOnClickListener {
             finish()
         }
     }

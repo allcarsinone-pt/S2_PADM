@@ -10,7 +10,6 @@ import com.allcarsinone.allcarsinone.R
 import com.allcarsinone.allcarsinone.activities.ViewVehicleActivity
 import com.allcarsinone.allcarsinone.databinding.ListviewLayoutVehiclesBinding
 import com.allcarsinone.allcarsinone.models.Vehicle
-import com.bumptech.glide.Glide
 
 class ListviewVehiclesAdapter(
     private val list: ArrayList<Vehicle>,

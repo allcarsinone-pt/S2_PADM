@@ -222,6 +222,7 @@
                     android:layout_weight="1"
                     android:text="@string/shared"/>
                 <TextView
+                    android:id="@+id/testDrive_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:drawableTopCompat="@drawable/testdrive"
