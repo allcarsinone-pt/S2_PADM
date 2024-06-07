@@ -98,7 +98,7 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         val gastypename = ""
         val photos = arrayOf("")
         val consume = 11.3
-        val location = "Barcelos"
+        val location = "Barcelinhos"
 
         try {
             val vehicle = InsertEditVehicleDto(
