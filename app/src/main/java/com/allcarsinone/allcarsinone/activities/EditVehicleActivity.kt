@@ -116,16 +116,16 @@ class EditVehicleActivity : AppCompatActivity() {
         val standid = 1
         val brandid = 1 //viewBinding.editVehicleBrandEt.text.toString().toInt()
         val gastypeid = 1
-        val model = "XPTO" //viewBinding.editVehicleBrandEt.text.toString()
-        val year = 2020
-        val mileage = 120000
-        val price = 12500 //viewBinding.editVehiclePriceEt.text.toString().toDouble()
+        val model = "Abbarth" //viewBinding.editVehicleBrandEt.text.toString()
+        val year = 2003
+        val mileage = 3230000
+        val price = 33500 //viewBinding.editVehiclePriceEt.text.toString().toDouble()
         val availability = true
-        val description = "Muito bom"
-        val brandname = ""
+        val description = "Bebe como um camelo. Para testar um texto grande."
+        val brandname = "Matavelhos"
         val gastypename = ""
         val photos = arrayOf("F1", "F2")
-        val consume = 10.5
+        val consume = 11.3
 
         try {
             val vehicle = EditVehicleDto(

@@ -39,7 +39,7 @@ class ListviewVehiclesAdapter(private val list: ArrayList<Vehicle>) : RecyclerVi
         }
 
         //viewHolder.image.setImageURI(vehicle.photos[0])
-        viewHolder.brand.text = vehicle.brandname
+        viewHolder.brand.text = vehicle.brandname + " - " + vehicle.model
         viewHolder.price.text = vehicle.price.toString()
         viewHolder.stand.text = "Ir buscar o nome" // vehicle.st standid.toString() // TODO: Ir buscar o nome
         viewHolder.locat.text = "Barcelos"
