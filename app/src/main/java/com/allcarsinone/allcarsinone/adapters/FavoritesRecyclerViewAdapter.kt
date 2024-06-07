@@ -27,7 +27,8 @@ class FavoritesRecyclerViewAdapter(var mList: MutableList<FavoriteUserCar>): Rec
         fun bindData(favorite: FavoriteUserCar) {
             viewBinding.favoritesLayoutPriceTv.text = favorite.price.toString() + "€"
             viewBinding.favoritesLayoutVehicleNameTv.text = favorite.carname
-            Glide.with(viewBinding.root).load("https://c4ab-87-196-81-55.ngrok-free.app"+favorite.thumbnail).into(viewBinding.favorites1Iv)
+            if(favorite.thumbnail != "")
+                Glide.with(viewBinding.root).load("https://c4ab-87-196-81-55.ngrok-free.app"+favorite.thumbnail).into(viewBinding.favorites1Iv)
 
         }
     }
