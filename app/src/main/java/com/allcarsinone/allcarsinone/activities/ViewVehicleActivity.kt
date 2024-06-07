@@ -22,22 +22,29 @@ class ViewVehicleActivity : AppCompatActivity() {
 
     private lateinit var viewBinding: ActivityViewVehicleBinding
     private val vehicleAPI by lazy { Globals.vehicleAPI}
-
+    private var vehicleID : Number = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityViewVehicleBinding.inflate(layoutInflater)
         val view = viewBinding.root
         setContentView(view)
         getVehicle(1)
+        viewBinding.ViewVehicleBuyBTN.setOnClickListener {
+            val intent = Intent(this, PaymentActivity::class.java)
+            intent.putExtra("vehicleid", vehicleID)
+            startActivity(intent)
+        }
     }
 
     fun loadData(vehicle: Vehicle) {
-        viewBinding.ViewVehicleKmsTV.setText(vehicle.mileage.toInt().toString())
+        viewBinding.ViewVehicleKmsTV.setText(vehicle.mileage.toInt().toString() + ' ' + "kms")
         viewBinding.ViewVehiclePriceTV.setText(vehicle.price.toInt().toString()+ ' ' + '€')
         viewBinding.ViewVehicleFuelTV.setText(vehicle.gastypename)
         viewBinding.ViewVehicleDescriptionTV.setText(vehicle.description)
         viewBinding.ViewVehicleIconGearTextTV.setText(vehicle.brandname)
+        viewBinding.ViewVehicleIconSitTextTV.setText(vehicle.consume.toInt().toString() + " l/100km")
         viewBinding.initPageCarBrandTV.setText(vehicle.brandname + ' ' + vehicle.model)
+        vehicleID = vehicle.id
     }
 
     fun getVehicle(vehicleId: Int) {
