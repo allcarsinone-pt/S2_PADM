@@ -52,7 +52,7 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
 
     override fun onItemClick(vehicle: Vehicle) {
         val intent = Intent(this, ViewVehicleActivity::class.java)
-        intent.putExtra("vehicleid", vehicle.id)
+        intent.putExtra("vehicleid", vehicle.id.toInt())
         startActivity(intent)
     }
 

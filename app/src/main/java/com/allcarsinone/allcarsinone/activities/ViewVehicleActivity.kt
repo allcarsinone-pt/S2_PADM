@@ -22,18 +22,27 @@ class ViewVehicleActivity : AppCompatActivity() {
 
     private lateinit var viewBinding: ActivityViewVehicleBinding
     private val vehicleAPI by lazy { Globals.vehicleAPI}
-    private var vehicleID : Number = 0
+    private var vehicleID : Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityViewVehicleBinding.inflate(layoutInflater)
         val view = viewBinding.root
         setContentView(view)
-        val vehicleId: Int = intent.getIntExtra("vehicleid", 0)
-        getVehicle(vehicleId)
+        vehicleID = intent.getIntExtra("vehicleid", 0) as Int
+        print("VEHICLE ID ->> " + vehicleID)
+        getVehicle(vehicleID)
         viewBinding.ViewVehicleBuyBTN.setOnClickListener {
             val intent = Intent(this, PaymentActivity::class.java)
             intent.putExtra("vehicleid", vehicleID)
             startActivity(intent)
+        }
+        viewBinding.testDriveTv.setOnClickListener {
+            val intent = Intent(this, BookTestDriveActivity::class.java)
+            intent.putExtra("vehicleid", vehicleID)
+            startActivity(intent)
+        }
+        viewBinding.ViewVehicleBackBtnBtn.setOnClickListener {
+            finish()
         }
     }
 
@@ -45,7 +54,7 @@ class ViewVehicleActivity : AppCompatActivity() {
         viewBinding.ViewVehicleIconGearTextTV.setText(vehicle.brandname)
         viewBinding.ViewVehicleIconSitTextTV.setText(vehicle.consume.toInt().toString() + " l/100km")
         viewBinding.initPageCarBrandTV.setText(vehicle.brandname + ' ' + vehicle.model)
-        vehicleID = vehicle.id
+        vehicleID = vehicle.id.toInt()
     }
 
     fun getVehicle(vehicleId: Int) {
@@ -56,10 +65,9 @@ class ViewVehicleActivity : AppCompatActivity() {
                 when(p1.code()) {
                     201 -> {
                         loadData(p1.body()!!)
-                        Toast.makeText(this@ViewVehicleActivity, p1.body()!!.description, Toast.LENGTH_LONG).show()
                     }
                     400 -> {
-                        Toast.makeText(this@ViewVehicleActivity, JSONObject(p1.errorBody()?.string()).getString("message"), Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@ViewVehicleActivity, JSONObject(p1.errorBody()?.string()).getString("error"), Toast.LENGTH_LONG).show()
                     }
                 }
             }
