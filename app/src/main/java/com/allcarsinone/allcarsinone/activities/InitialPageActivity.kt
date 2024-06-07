@@ -33,7 +33,7 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
         setContentView(view)
 
         val spinnerMon = findViewById<Spinner>(R.id.InitPageLocationSpinner_SP)
-        val itemsMon = arrayOf("Aveiro", "Bragança", "Braga", "Coimbra", "Faro", "Funchal", "Guarda", "Lisboa", "Portalegre", "Porto", "Santarém", "Viana do Castelo")
+        val itemsMon = arrayOf("Aveiro", "Bragança", "Bragas", "Coimbra", "Faro", "Funchal", "Guarda", "Lisboa", "Portalegre", "Porto", "Santarém", "Viana do Castelo")
         val adapterMon = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, itemsMon)
         spinnerMon.adapter = adapterMon
 
