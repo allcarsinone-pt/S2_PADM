@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("com.github.AppDevNext:AndroidChart:3.1.0.22")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
