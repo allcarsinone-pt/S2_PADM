@@ -8,16 +8,14 @@
     android:layout_height="match_parent"
     tools:context=".activities.ViewStandLocationActivity">
 
-    <ImageView
-        android:id="@+id/ViewStandLocation_image_iv"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/map"
-        android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+
+    <fragment
+        android:id="@+id/mapFragmentViewStandLocation"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </fragment>
 
     <ImageButton
         android:id="@+id/ViewStandLocation_backbutton_btn"
