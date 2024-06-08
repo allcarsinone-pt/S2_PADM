@@ -53,9 +53,9 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         call.enqueue(object : Callback<Vehicle> {
             override fun onResponse(call: Call<Vehicle>, response: Response<Vehicle>) {
                 if (response.isSuccessful) {
-                    val intent = Intent()
+                    val intent = Intent(this@InsertEditVehicleActivity, BookTestDriveActivity::class.java)
                     setResult(RESULT_OK, intent)
-                    finish()
+                    startActivity(intent)
                 } else {
                     when (response.code()) {
                         400 -> {
@@ -98,7 +98,7 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         val gastypename = ""
         val photos = arrayOf("")
         val consume = 11.3
-        val location = "Barcelinhos"
+        val location = "Faro"
 
         try {
             val vehicle = InsertEditVehicleDto(

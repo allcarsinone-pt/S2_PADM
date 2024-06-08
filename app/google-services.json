@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "650779230003",
+    "project_id": "allcarsinone-58d75",
+    "storage_bucket": "allcarsinone-58d75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650779230003:android:756e591e2eb20e95fe8846",
+        "android_client_info": {
+          "package_name": "com.allcarsinone.allcarsinone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBygOagW3gsxUJGK-rAMwvJJ9AxSeK7iNo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
