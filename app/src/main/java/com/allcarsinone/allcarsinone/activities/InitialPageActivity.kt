@@ -53,8 +53,7 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
 
         runVehiclesList(this)
         getToken()
-        //getLoggedUser("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhZG1pbnRlc3RlIiwibmFtZSI6IkFkbWluVGVzdGUiLCJlbWFpbCI6ImFkbWludGVzdGVAYWxsY2Fyc2lub25lLnB0IiwicGFzc3dvcmQiOiIkMmIkMTAkNkdDQjRrUGNveXI1SC5udUZzbnM1ZWlLOFdYRFp4VkNmZXhGdnkwTTdhTm9ySUF5N2JZS2UiLCJhZGRyZXNzIjoiYWtkc3AiLCJjaXR5IjoiYmFyY2Vsb3MiLCJwb3N0YWxjb2RlIjoiMTAtMiIsIm1vYmlsZXBob25lIjoiMTIzNDU2NzgiLCJwaG90byI6bnVsbCwicm9sZV9pZCI6MSwiaWF0IjoxNzE3ODc0NjI2LCJleHAiOjE3MTc4ODE4MjZ9._iOJySvKCJpUDL7lr4iN1WYXlRnGlD0hIXVO9QF8j5U")
-
+        
     }
 
     /*private fun getLoggedUser(token: String?) {
@@ -108,10 +107,7 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
             lifecycleScope.launch {
                 if (tokenStored == "" || tokenStored != token)
                 {
-                    // If you have your own server, call API to send the above token and Date() for this user's device
-
-                    // Example shown below with Firestore
-                    // Add token and timestamp to Firestore for this user
+                   // Add token and timestamp to Firestore for this user
                     val deviceToken = hashMapOf(
                         "token" to token,
                         "timestamp" to FieldValue.serverTimestamp(),
