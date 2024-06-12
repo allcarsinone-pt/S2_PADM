@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:background="@color/generalBack"
+tools:context=".activities.ViewVehicleStandActivity" >
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/listviewVehiclesStandContentCardViewMain"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/listviewVehiclesStandContentCardView"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        app:cardCornerRadius="20dp"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="@+id/listviewVehiclesStandContentCardViewMain">
+        <ImageView
+            android:id="@+id/listviewVehiclesStandImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ferrari"
+            android:scaleType="centerCrop"
+            android:elevation="1dp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:id="@+id/listviewVehiclesStandContentRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/listviewVehiclesStandContentCardView"
+        android:elevation="2dp">
+        <ImageView
+            android:id="@+id/listviewVehiclesStandRectImage"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:src="@drawable/rectangle_bg_white_a700" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="@dimen/_15sp">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/listviewVehiclesStandCarBrand_TV"
+                    android:layout_marginTop="@dimen/_10sp"
+                    android:hint="Brand"
+                    android:textAlignment="textStart"
+                    style="@style/txtMediumBlack" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_5sp">
+                <TableRow
+                    android:layout_width="20dp"
+                    android:layout_height="20dp">
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/listviewVehiclesStandProfilePhotoCar_MV"
+                        android:layout_width="20sp"
+                        android:layout_height="20sp"
+                        app:cardCornerRadius="360dp">
+
+                        <ImageView
+                            android:id="@+id/listviewVehiclesStandProfilePhotoCar_IMG"
+                            android:layout_width="14dp"
+                            android:layout_height="match_parent"
+                            android:src="@mipmap/ic_launcher_foreground" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/listviewVehiclesStandStandName_TV"
+                        android:text="@string/default_stand"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="start|center"
+                        android:paddingHorizontal="5dp"
+                        style="@style/txtSmallBlack" />
+                </TableRow>
+                <TextView
+                    android:id="@+id/listviewVehiclesStandCarPrice_TV"
+                    android:text="@string/_999_000"
+                    android:gravity="end|center"
+                    style="@style/txtMediumBlack"
+                    android:layout_weight="1" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_5sp"
+                android:textAlignment="textEnd"
+                android:weightSum="6">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="3">
+                    <ImageView
+                        android:id="@+id/listviewVehiclesStandStandStar1Img"
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/star" />
+                    <ImageView
+                        android:id="@+id/listviewVehiclesStandStandStar2Img"
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/star" />
+                    <ImageView
+                        android:id="@+id/listviewVehiclesStandStandStar3Img"
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/star" />
+                    <ImageView
+                        android:id="@+id/listviewVehiclesStandStandStar4Img"
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/star" />
+                    <ImageView
+                        android:id="@+id/listviewVehiclesStandStandStar5Img"
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/star" />
+                    <TextView
+                        android:id="@+id/listviewVehiclesStandStandOpinions_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="5dp"
+                        style="@style/txtSmallGray"
+                        android:text="25"/>
+                    <TextView
+                        android:id="@+id/listviewVehiclesStandStandOpinionsTxt_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        style="@style/txtSmallGray"
+                        android:text="@string/opinions"/>
+                </LinearLayout>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_weight="3">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:id="@+id/listviewVehiclesStandIconSit"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/carsit"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/listviewVehiclesStandIconSitText_TV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/txtSmallBlack"
+                            android:text="2" />
+                        <ImageView
+                            android:id="@+id/listviewVehiclesStandIconGear"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/cargear"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/listviewVehiclesStandIconGearText_TV"
+                            style="@style/txtSmallBlack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="6" />
+                        <ImageView
+                            android:id="@+id/listviewVehiclesStandIconDoor"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/cardoor"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/listviewVehiclesStandIcondoorText_TV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/txtSmallBlack"
+                            android:text="2" />
+                    </LinearLayout>
+                </TableRow>
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

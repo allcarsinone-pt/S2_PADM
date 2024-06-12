@@ -96,7 +96,7 @@ class EditProfileActivity : AppCompatActivity() {
         try {
             mobilephone = if(mobilephone!!.length > 8) mobilephone else null
             address = if(address!!.length > 3) address else null
-            val user = EditUserDto(username, name, email, mobilephone, address)
+            val user = EditUserDto(username, name, email, mobilephone, address, "")
             editUser(user)
         } catch (ex:Exception) {
             Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()

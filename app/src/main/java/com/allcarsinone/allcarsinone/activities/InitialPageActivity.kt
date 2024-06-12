@@ -28,11 +28,14 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.ArrayList
 
+interface OnUsersFetchedListener {
+    fun onUsersFetched(user: User)
+}
 interface OnVehiclesFetchedListener {
     fun onVehiclesFetched(vehicleList: ArrayList<Vehicle>)
 }
 
-class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemClickListener, OnVehiclesFetchedListener {
+class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemClickListener, OnVehiclesFetchedListener, OnUsersFetchedListener {
     private lateinit var viewBinding: ActivityInitialPageBinding
     private val vehicleAPI by lazy { Globals.vehicleAPI }
 
@@ -53,38 +56,41 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
 
         runVehiclesList(this)
         getToken()
-        
+
+        getLoggedUser(this)
     }
 
-    /*private fun getLoggedUser(token: String?) {
-
+    private fun getLoggedUser(listener: OnUsersFetchedListener) {
+        val sharedPrefences = DataUtils.getSharedPreferences(context = this)
+        val token = sharedPrefences.getString("token", "")
+        if(token == "")
+            return
         val usersAPI = Globals.userAPI
         val authHeader = "Bearer $token"
         val loggedUser = usersAPI.validate(authHeader)
         loggedUser.enqueue(object : Callback<User> {
-            override fun onResponse(p0: Call<User>, p1: Response<User>) {
-                when(p1.code()) {
-                    200 -> {
-                        getToken()
+            override fun onResponse(call: Call<User>, response: Response<User>) {
+                if (response.isSuccessful) {
+                    response.body()?.let { userGot ->
+                        val user = userGot
+                        listener.onUsersFetched(user)
                     }
-                    401 -> {
-                        Toast.makeText(this@InitialPageActivity, "No token.", Toast.LENGTH_LONG).show()
+                } else {
+                    when (response.code()) {
+                        401 -> { Toast.makeText(this@InitialPageActivity, "No token.", Toast.LENGTH_LONG).show()
+                        }
+                        500 -> {
+                            Toast.makeText(this@InitialPageActivity, "Internal server error", Toast.LENGTH_LONG).show()
+                        }
                     }
-                    500 -> {
-                        Toast.makeText(this@InitialPageActivity, "Internal server error", Toast.LENGTH_LONG).show()
-                    }
-
                 }
-
             }
-
-            override fun onFailure(p0: Call<User>, p1: Throwable) {
-                Toast.makeText(this@InitialPageActivity, p1.message, Toast.LENGTH_LONG).show()
+            override fun onFailure(call: Call<User>, response: Throwable) {
+                Toast.makeText(this@InitialPageActivity, response.message, Toast.LENGTH_LONG).show()
             }
-
         })
     }
-*/
+
     private fun sendTokenToServer(token: String?) {
         val deviceToken = hashMapOf(
             "token" to token,
@@ -121,6 +127,13 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
 
             Log.w("Main", token)
         }
+    }
+
+    override fun onUsersFetched(user: User) {
+        val loginUser = viewBinding.initPageNameTV
+        loginUser.text = user.name
+        //val loginPhoto = viewBinding.userImage
+        //loginPhoto.setImageURI(user.image)
     }
 
     override fun onVehiclesFetched(vehicleList: ArrayList<Vehicle>) {

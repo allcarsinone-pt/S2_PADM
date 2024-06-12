@@ -65,7 +65,7 @@ class RegisterActivity : AppCompatActivity() {
             // 1- Admin, 2-Stand 3- Customer
             // By defaut user is always created as a Customer
             val user =
-                RegisterUserDto(username, name, email, password, confirmPassword, "", "", "", 3)
+                RegisterUserDto(username, name, email, password, confirmPassword, "", "", "", 2)
             registerUser(user)
         } catch (ex:Exception) {
             Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()

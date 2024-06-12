@@ -78,7 +78,7 @@ class InsertEditVehicleActivity : AppCompatActivity() {
     private fun validateDataFields() {
         val sharedPrefs = DataUtils.getSharedPreferences(this@InsertEditVehicleActivity)
         //val token = sharedPrefs.getString("token", "")
-        val token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhZG1pbnRlc3RlIiwibmFtZSI6IkFkbWluVGVzdGUiLCJlbWFpbCI6ImFkbWludGVzdGVAYWxsY2Fyc2lub25lLnB0IiwicGFzc3dvcmQiOiIkMmIkMTAkd0ZLOXJNb1YvQmFzcDJUeW13cUY5LkZjNmVmYmxwc0tUNFFoUUprc0QvTHY1a3Z2LnVtdU8iLCJhZGRyZXNzIjoiYWtkc3AiLCJjaXR5IjoiYmFyY2Vsb3MiLCJwb3N0YWxjb2RlIjoiMTAtMiIsIm1vYmlsZXBob25lIjoiMTIzNDU2NzgiLCJwaG90byI6bnVsbCwicm9sZV9pZCI6MSwiaWF0IjoxNzE3NjY2NTEyLCJleHAiOjE3MTc2NzM3MTJ9.jDv9CMiuaq9mtOpWcRJN31DtStCVf7JmvpUm1cKyOB4"
+        val token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJ6ZWNhZ2FsaGFvIiwibmFtZSI6IlN0YW5kIFplY2EgR2FsaGFvIiwiZW1haWwiOiJwYXVsb2Fzc2lzdGFudEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRHR3IzdkNJZkdTMUlVZlhtdDlDMG1lRXhCYndXYnBramNjM3VhMGJ1YXlGaGhaeU8yNHA1NiIsImFkZHJlc3MiOiIiLCJjaXR5IjpudWxsLCJwb3N0YWxjb2RlIjoiIiwibW9iaWxlcGhvbmUiOiIiLCJwaG90byI6bnVsbCwicm9sZV9pZCI6MiwiaWF0IjoxNzE4MjAyNzAxLCJleHAiOjE3MTgyMDk5MDF9.bMcZHpaIBBp45ov-jAvF4Yc09gY1qt8GPXy0of07Uhw"
         if (token.isNullOrEmpty()) {
             Toast.makeText(this, "Token is missing", Toast.LENGTH_LONG).show()
             return

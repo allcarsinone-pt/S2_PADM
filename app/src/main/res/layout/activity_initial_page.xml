@@ -38,7 +38,7 @@
                         android:layout_height="60dp"
                         app:cardCornerRadius="360dp">
                         <ImageView
-                            android:id="@+id/news_image"
+                            android:id="@+id/userImage"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:src="@mipmap/ic_launcher_foreground" />
@@ -78,6 +78,7 @@
                         android:textStyle = "bold"
                         style="@style/txtLightGray"/>
                     <TextView
+                        android:id="@+id/initPageName_TV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toEndOf="@id/initPage_TV"
@@ -147,7 +148,6 @@
                         android:thumb="@drawable/sb_thumb" />
                 </RelativeLayout>
             </LinearLayout>
-
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/VehiclesListViewView_RecycleView"
