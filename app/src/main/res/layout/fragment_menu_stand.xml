@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_15sp">
+
+        <TextView
+            android:id="@+id/fragmentMenuStandInsertBTN"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical|start"
+            android:textAlignment="viewStart"
+            android:text="Insert vehicle"
+            android:textSize="18sp" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sp">
+        </com.google.android.material.divider.MaterialDivider>
+
+        <TextView
+            android:id="@+id/fragmentMenuStandProfileBTN"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical|start"
+            android:textAlignment="viewStart"
+            android:text="Profile"
+            android:textSize="18sp" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sp">
+        </com.google.android.material.divider.MaterialDivider>
+
+        <TextView
+            android:id="@+id/fragmentMenuStandLogoutBTN"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical|start"
+            android:textAlignment="viewStart"
+            android:text="Logout"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

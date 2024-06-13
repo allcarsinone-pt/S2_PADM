@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,8 @@ import com.allcarsinone.allcarsinone.databinding.ActivityInitialPageBinding
 import com.allcarsinone.allcarsinone.databinding.ActivityInitialPageStandBinding
 import com.allcarsinone.allcarsinone.models.User
 import com.allcarsinone.allcarsinone.models.Vehicle
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.SupportMapFragment
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.firestore
@@ -47,14 +50,34 @@ class InitialPageStandActivity : AppCompatActivity(), ListViewVehiclesStandAdapt
         val view = viewBinding.root
         setContentView(view)
 
+        viewBinding.menuStand.setOnClickListener {
+            toggleFragment()
+        }
+
         // Initialize RecyclerView
         val recyclerView = viewBinding.VehiclesListStandViewRecycleView
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         runVehiclesList(this)
         getToken()
-
         getLoggedUser(this)
+    }
+
+    private fun toggleFragment() {
+        val fragment = supportFragmentManager.findFragmentByTag(MenuStandFragment::class.java.simpleName)
+
+        if (fragment != null) {
+            val transaction = supportFragmentManager.beginTransaction()
+            if (fragment.isVisible) {
+                transaction.hide(fragment).commit()
+            } else {
+                transaction.show(fragment).commit()
+            }
+        } else {
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.add(R.id.fragment_container, MenuStandFragment.newInstance("", ""), MenuStandFragment::class.java.simpleName)
+            transaction.commit()
+        }
     }
 
     private fun getLoggedUser(listener: OnUsersStandFetchedListener) {

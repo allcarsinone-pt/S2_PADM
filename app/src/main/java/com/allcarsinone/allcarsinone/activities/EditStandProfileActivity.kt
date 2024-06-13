@@ -18,6 +18,9 @@ class EditStandProfileActivity : AppCompatActivity() {
         viewBinding.EditStandProfileEditBtn.setOnClickListener {
 
         }
+        viewBinding.EditStandProfileBackbuttonBtn.setOnClickListener {
+            finish()
+        }
     }
 
 }

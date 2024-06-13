@@ -216,6 +216,7 @@
                 <Switch
                     android:id="@+id/editVehicle_availability_et"
                     android:layout_width="85dp"
+                    android:showText="false"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="30dp"
                     android:layout_marginTop="@dimen/_8pxv"

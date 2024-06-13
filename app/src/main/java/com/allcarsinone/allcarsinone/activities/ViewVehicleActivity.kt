@@ -2,6 +2,7 @@ package com.allcarsinone.allcarsinone.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -43,9 +44,18 @@ class ViewVehicleActivity : AppCompatActivity() {
         viewBinding.viewVehicleBackIcon.setOnClickListener {
             finish()
         }
+        viewBinding.ViewVehicleEditBTN.setOnClickListener {
+            val intent = Intent(this, InsertEditVehicleActivity::class.java)
+            intent.putExtra("vehicleid", vehicleID)
+            startActivity(intent)
+        }
     }
 
     fun loadData(vehicle: Vehicle) {
+
+        //if(vehicle.standid != LoginStandId || LoginRole != 2 )
+        //    viewBinding.ViewVehicleEditBTN.visibility = View.GONE
+
         viewBinding.ViewVehicleKmsTV.setText(vehicle.mileage.toInt().toString() + ' ' + "kms")
         viewBinding.ViewVehiclePriceTV.setText(vehicle.price.toInt().toString()+ ' ' + '€')
         viewBinding.ViewVehicleFuelTV.setText(vehicle.gastypename)
@@ -70,11 +80,9 @@ class ViewVehicleActivity : AppCompatActivity() {
                     }
                 }
             }
-
             override fun onFailure(p0: Call<Vehicle>, p1: Throwable) {
                 Toast.makeText(this@ViewVehicleActivity, p1.message, Toast.LENGTH_LONG).show()
             }
-
         })
     }
 }

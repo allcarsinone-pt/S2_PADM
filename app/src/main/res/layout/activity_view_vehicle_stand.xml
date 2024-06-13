@@ -6,7 +6,7 @@ android:id="@+id/main"
 android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:background="@color/generalBack"
-tools:context=".activities.ViewVehicleStandActivity" >
+tools:context=".activities.ViewVehicleActivity" >
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/listviewVehiclesStandContentCardViewMain"
@@ -28,7 +28,6 @@ tools:context=".activities.ViewVehicleStandActivity" >
             android:src="@drawable/ferrari"
             android:scaleType="centerCrop"
             android:elevation="1dp" />
-
 
     </androidx.cardview.widget.CardView>
 

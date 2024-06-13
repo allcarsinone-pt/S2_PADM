@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.allcarsinone.allcarsinone.DataUtils
 import com.allcarsinone.allcarsinone.Globals
+import com.allcarsinone.allcarsinone.R
 import com.allcarsinone.allcarsinone.databinding.ActivityEditVehicleBinding
 import com.allcarsinone.allcarsinone.dtos.InsertEditVehicleDto
 import com.allcarsinone.allcarsinone.models.Vehicle
@@ -28,14 +29,60 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         val view = viewBinding.root
         setContentView(view)
 
-
         val vehicleID = intent.getIntExtra("vehicleid", 0) as Int
         //TODO: Testar id
 
+        if(vehicleID > 0)
+            viewBinding.btnInsertVehicle.text = getString(R.string.edit)
 
         viewBinding.btnInsertVehicle.setOnClickListener {
             validateDataFields()
         }
+        viewBinding.editVehicleBackbuttonBtn.setOnClickListener {
+            finish()
+        }
+
+        loadVehicle(vehicleID)
+    }
+
+    private fun fillVehicleForm(v: Vehicle) {
+        viewBinding.editVehicleBrandEt.setText(v.brandname)
+        viewBinding.editVehicleModelEt.setText(v.model)
+        viewBinding.editVehicleGastypeEt.setText(v.gastypename)
+        viewBinding.editVehicleYearEt.setText(v.year.toString())
+        viewBinding.editVehicleMileageEt.setText(v.mileage.toString())
+        viewBinding.editVehiclePriceEt.setText(v.price.toString())
+        viewBinding.editVehicleAvailabilityEt.setChecked(v.availability)
+        viewBinding.editVehicleDescriptionEt.setText(v.description)
+        viewBinding.editVehicleConsumeEt.setText(v.consume.toString())
+        viewBinding.editVehicleLocationEt.setText(v.location)
+    }
+
+    private fun loadVehicle(vehicleID: Int) {
+        val call: Call<Vehicle> = vehicleAPI.getVehicle(vehicleID)
+        call.enqueue(object : Callback<Vehicle> {
+            override fun onResponse(call: Call<Vehicle>, response: Response<Vehicle>) {
+                if (response.isSuccessful) {
+                    response.body()?.let { vehicle ->
+                        fillVehicleForm(vehicle)
+                    }
+                } else {
+                    val errorMessage = response.errorBody()?.string() ?: "Unknown error"
+                    when (response.code()) {
+                        400 -> {
+                            Toast.makeText(this@InsertEditVehicleActivity, errorMessage, Toast.LENGTH_LONG).show()
+                        }
+                        else -> {
+                            Toast.makeText(this@InsertEditVehicleActivity, "Error: ${response.code()}", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<Vehicle>, t: Throwable) {
+                Toast.makeText(this@InsertEditVehicleActivity, t.message ?: "Unknown error", Toast.LENGTH_LONG).show()
+            }
+        })
     }
 
     private fun processVehicle(token: String, body: InsertEditVehicleDto) {

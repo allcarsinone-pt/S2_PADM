@@ -8,32 +8,56 @@
     android:background="@color/generalBack"
     tools:context=".activities.InitialPageStandActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/InitialPageStandActivityLayoutTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_27pxh"
-        android:orientation="horizontal"
-        android:weightSum="10"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent">
-        <EditText
-            android:id="@+id/InitialPageStandActivitySearch_TV"
-            style="@style/txtlightGray15LookingFor"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/InitialPageStandActivityLayoutInto"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginEnd="@dimen/_20sp"
-            android:layout_weight="8"
-            android:padding="@dimen/_15sp"
-            android:text="@string/what_are_you_looking_for"
-            app:drawableEndCompat="@drawable/find" />
-        <ImageView
-            android:id="@+id/imageView12"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_weight="2"
-            android:src="@drawable/menu" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_27pxh"
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/InitialPageStandActivitySearch_TV"
+                style="@style/txtlightGray15LookingFor"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginEnd="@dimen/_20sp"
+                android:layout_weight="8"
+                android:padding="@dimen/_15sp"
+                android:text="@string/what_are_you_looking_for"
+                app:drawableEndCompat="@drawable/find" />
+            <ImageView
+                android:id="@+id/menuStand"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="2"
+                android:src="@drawable/menu" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_80sp"
+            android:layout_marginBottom="@dimen/_5sp"
+            android:layout_marginLeft="@dimen/_80sp"
+            android:layout_marginRight="@dimen/_30sp"
+            android:elevation="@dimen/_10sp"
+            android:background="@drawable/rectangle_bg_white_no_border_radius_10"
+            app:layout_constraintTop_toBottomOf="@+id/InitialPageStandActivityLayoutInto">
+        </FrameLayout>
+
+    </RelativeLayout>
+
 
     <LinearLayout
         android:id="@+id/RecoverPass_mid_MAIN_LAY"
