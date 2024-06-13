@@ -1,6 +1,7 @@
 package com.allcarsinone.allcarsinone
 
 import com.allcarsinone.allcarsinone.api.interfaces.BrandAPI
+import com.allcarsinone.allcarsinone.api.interfaces.GasTypeAPI
 import com.allcarsinone.allcarsinone.api.interfaces.StandAPI
 import com.allcarsinone.allcarsinone.api.interfaces.UserAPI
 import com.allcarsinone.allcarsinone.api.interfaces.VehicleAPI
@@ -14,6 +15,7 @@ object Globals {
     lateinit var vehicleAPI: VehicleAPI
     lateinit var standAPI: StandAPI
     lateinit var brandAPI: BrandAPI
+    lateinit var gastypeAPI: GasTypeAPI
     private lateinit var retrofit: Retrofit
     fun initAPIs() {
         // For development: change base url, For production: host at cloud our self host backend
@@ -22,5 +24,6 @@ object Globals {
         vehicleAPI = retrofit.create(VehicleAPI::class.java)
         standAPI = retrofit.create(StandAPI::class.java)
         brandAPI = retrofit.create(BrandAPI::class.java)
+        gastypeAPI = retrofit.create(GasTypeAPI::class.java)
     }
 }

@@ -12,6 +12,7 @@ import com.allcarsinone.allcarsinone.R
 import com.allcarsinone.allcarsinone.databinding.ActivityEditVehicleBinding
 import com.allcarsinone.allcarsinone.dtos.InsertEditVehicleDto
 import com.allcarsinone.allcarsinone.models.Brand
+import com.allcarsinone.allcarsinone.models.GasType
 import com.allcarsinone.allcarsinone.models.Vehicle
 import com.google.gson.Gson
 import com.google.gson.JsonParser
@@ -26,6 +27,7 @@ class InsertEditVehicleActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityEditVehicleBinding
     private val vehicleAPI by lazy { Globals.vehicleAPI }
     private val brandAPI by lazy { Globals.brandAPI }
+    private val gastypeAPI by lazy { Globals.gastypeAPI }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,10 +51,14 @@ class InsertEditVehicleActivity : AppCompatActivity() {
 
         loadVehicle(vehicleID)
         loadBrands(0)
+        loadGasTypes(0)
     }
     private fun fillVehicleForm(v: Vehicle) {
+
+        //viewBinding.editVehicleBrandSPIN.
+        //viewBinding.editVehicleGastypeSPIN
+
         viewBinding.editVehicleModelEt.setText(v.model)
-        viewBinding.editVehicleGastypeEt.setText(v.gastypename)
         viewBinding.editVehicleYearEt.setText(v.year.toString())
         viewBinding.editVehicleMileageEt.setText(v.mileage.toString())
         viewBinding.editVehiclePriceEt.setText(v.price.toString())
@@ -62,16 +68,48 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         viewBinding.editVehicleLocationEt.setText(v.location)
     }
     private fun fillBrandSelect(b: List<Brand>, selectedBrand: Int) {
-
         // TODO: Selecionar a ativa
-
         val brandNames = b.map { it.name }
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, brandNames)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        viewBinding.editVehicleBrandEt.adapter = adapter
+        viewBinding.editVehicleBrandSPIN.adapter = adapter
+
+        viewBinding.editVehicleBrandSPIN.setSelection(4)
+
+    }
+    private fun fillGastypeSelect(b: List<GasType>, selectedBrand: Int) {
+        // TODO: Selecionar a ativa
+        val gastypeNames = b.map { it.name }
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, gastypeNames)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        viewBinding.editVehicleGastypeSPIN.adapter = adapter
+    }
+    private fun loadGasTypes(selectedGasType: Int) {
+        val call: Call<List<GasType>> = gastypeAPI.getAll()
+        call.enqueue(object : Callback<List<GasType>> {
+            override fun onResponse(call: Call<List<GasType>>, response: Response<List<GasType>>) {
+                if (response.isSuccessful) {
+                    response.body()?.let { gastypes ->
+                        fillGastypeSelect(gastypes, selectedGasType)
+                    }
+                } else {
+                    val errorMessage = response.errorBody()?.string() ?: "Unknown error"
+                    when (response.code()) {
+                        400 -> {
+                            Toast.makeText(this@InsertEditVehicleActivity, errorMessage, Toast.LENGTH_LONG).show()
+                        }
+                        else -> {
+                            Toast.makeText(this@InsertEditVehicleActivity, "Error: ${response.code()}", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
+            }
+            override fun onFailure(call: Call<List<GasType>>, t: Throwable) {
+                Toast.makeText(this@InsertEditVehicleActivity, t.message ?: "Unknown error", Toast.LENGTH_LONG).show()
+            }
+        })
     }
     private fun loadBrands(selectedBrand: Int) {
-
         val call: Call<List<Brand>> = brandAPI.getAll()
         call.enqueue(object : Callback<List<Brand>> {
             override fun onResponse(call: Call<List<Brand>>, response: Response<List<Brand>>) {
