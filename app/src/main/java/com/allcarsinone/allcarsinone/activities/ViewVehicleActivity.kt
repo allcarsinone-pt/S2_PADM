@@ -57,7 +57,7 @@ class ViewVehicleActivity : AppCompatActivity() {
         //    viewBinding.ViewVehicleEditBTN.visibility = View.GONE
 
         viewBinding.ViewVehicleKmsTV.setText(vehicle.mileage.toInt().toString() + ' ' + "kms")
-        viewBinding.ViewVehiclePriceTV.setText(vehicle.price.toInt().toString()+ ' ' + '€')
+        viewBinding.ViewVehiclePriceTV.setText("€ " + String.format("%.2f", vehicle.price))
         viewBinding.ViewVehicleFuelTV.setText(vehicle.gastypename)
         viewBinding.ViewVehicleDescriptionTV.setText(vehicle.description)
         viewBinding.ViewVehicleIconGearTextTV.setText(vehicle.brandname)

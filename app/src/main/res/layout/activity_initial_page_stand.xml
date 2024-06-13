@@ -24,7 +24,6 @@
             android:weightSum="10"
             android:gravity="center"
             app:layout_constraintTop_toTopOf="parent">
-
             <EditText
                 android:id="@+id/InitialPageStandActivitySearch_TV"
                 style="@style/txtlightGray15LookingFor"
@@ -42,7 +41,6 @@
                 android:layout_weight="2"
                 android:src="@drawable/menu" />
         </LinearLayout>
-
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
@@ -55,9 +53,7 @@
             android:background="@drawable/rectangle_bg_white_no_border_radius_10"
             app:layout_constraintTop_toBottomOf="@+id/InitialPageStandActivityLayoutInto">
         </FrameLayout>
-
     </RelativeLayout>
-
 
     <LinearLayout
         android:id="@+id/RecoverPass_mid_MAIN_LAY"
@@ -70,7 +66,8 @@
         <ScrollView
             android:id="@+id/RecoverPass_scrollView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_80sp">>
             <LinearLayout
                 android:id="@+id/RecoverPass_mid_LAY"
                 android:layout_width="match_parent"
