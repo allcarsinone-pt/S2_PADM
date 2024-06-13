@@ -2,6 +2,8 @@ package com.allcarsinone.allcarsinone.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +11,8 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import com.allcarsinone.allcarsinone.DataUtils
 import com.allcarsinone.allcarsinone.Globals
 import com.allcarsinone.allcarsinone.R
+import com.allcarsinone.allcarsinone.adapters.BrandsSpinnerAdapter
+import com.allcarsinone.allcarsinone.adapters.GasTypesSpinnerAdapter
 import com.allcarsinone.allcarsinone.databinding.ActivityEditVehicleBinding
 import com.allcarsinone.allcarsinone.dtos.InsertEditVehicleDto
 import com.allcarsinone.allcarsinone.models.Brand
@@ -28,7 +32,9 @@ class InsertEditVehicleActivity : AppCompatActivity() {
     private val vehicleAPI by lazy { Globals.vehicleAPI }
     private val brandAPI by lazy { Globals.brandAPI }
     private val gastypeAPI by lazy { Globals.gastypeAPI }
+    private lateinit var brand: Brand
 
+    private lateinit var gasType: GasType
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityEditVehicleBinding.inflate(layoutInflater)
@@ -50,8 +56,42 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         }
 
         loadVehicle(vehicleID)
+        val brandsOnItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                viewBinding.editVehicleBrandSPIN.setSelection(0)
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                brand = parent?.getItemAtPosition(position) as Brand
+            }
+        }
+
+        val gasTypesOnItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                viewBinding.editVehicleBrandSPIN.setSelection(0)
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                gasType = parent?.getItemAtPosition(position) as GasType
+            }
+        }
+
         loadBrands(0)
         loadGasTypes(0)
+
+
+        viewBinding.editVehicleBrandSPIN.onItemSelectedListener = brandsOnItemSelectedListener
+        viewBinding.editVehicleGastypeSPIN.onItemSelectedListener = gasTypesOnItemSelectedListener
     }
     private fun fillVehicleForm(v: Vehicle) {
 
@@ -67,22 +107,24 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         viewBinding.editVehicleConsumeEt.setText(v.consume.toString())
         viewBinding.editVehicleLocationEt.setText(v.location)
     }
-    private fun fillBrandSelect(b: List<Brand>, selectedBrand: Int) {
-        // TODO: Selecionar a ativa
+    private fun fillBrandSelect(b: List<Brand>) {
         val brandNames = b.map { it.name }
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, brandNames)
+        val adapter = BrandsSpinnerAdapter(this, b.toMutableList())
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         viewBinding.editVehicleBrandSPIN.adapter = adapter
 
-        viewBinding.editVehicleBrandSPIN.setSelection(4)
+        viewBinding.editVehicleBrandSPIN.setSelection(0)
+
 
     }
-    private fun fillGastypeSelect(b: List<GasType>, selectedBrand: Int) {
+    private fun fillGastypeSelect(b: List<GasType>) {
         // TODO: Selecionar a ativa
         val gastypeNames = b.map { it.name }
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, gastypeNames)
+        val adapter = GasTypesSpinnerAdapter(this, b.toMutableList())
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         viewBinding.editVehicleGastypeSPIN.adapter = adapter
+
+        viewBinding.editVehicleGastypeSPIN.setSelection(0)
     }
     private fun loadGasTypes(selectedGasType: Int) {
         val call: Call<List<GasType>> = gastypeAPI.getAll()
@@ -90,7 +132,7 @@ class InsertEditVehicleActivity : AppCompatActivity() {
             override fun onResponse(call: Call<List<GasType>>, response: Response<List<GasType>>) {
                 if (response.isSuccessful) {
                     response.body()?.let { gastypes ->
-                        fillGastypeSelect(gastypes, selectedGasType)
+                        fillGastypeSelect(gastypes)
                     }
                 } else {
                     val errorMessage = response.errorBody()?.string() ?: "Unknown error"
@@ -115,7 +157,7 @@ class InsertEditVehicleActivity : AppCompatActivity() {
             override fun onResponse(call: Call<List<Brand>>, response: Response<List<Brand>>) {
                 if (response.isSuccessful) {
                     response.body()?.let { brands ->
-                        fillBrandSelect(brands, selectedBrand)
+                        fillBrandSelect(brands)
                     }
                 } else {
                     val errorMessage = response.errorBody()?.string() ?: "Unknown error"
@@ -224,19 +266,20 @@ class InsertEditVehicleActivity : AppCompatActivity() {
 
         val id = vehicleId
         val standid = standId
-        val brandid = 1
-        val gastypeid = 1
+
         val model = viewBinding.editVehicleModelEt.text.toString()
         val year = viewBinding.editVehicleYearEt.text.toString().toInt()
-        val mileage = viewBinding.editVehicleMileageEt.toString().toInt()
-        val price = viewBinding.editVehiclePriceEt.toString().toDouble()
+        val mileage = viewBinding.editVehicleMileageEt.text.toString().toDouble()
+        val price = viewBinding.editVehiclePriceEt.text.toString().toDouble()
         val availability = viewBinding.editVehicleAvailabilityEt.isChecked
-        val description = viewBinding.editVehicleDescriptionEt.toString()
-        val consume = viewBinding.editVehicleConsumeEt.toString().toDouble()
-        val location = viewBinding.editVehicleLocationEt.toString()
+        val description = viewBinding.editVehicleDescriptionEt.text.toString()
+        val consume = viewBinding.editVehicleConsumeEt.text.toString().toDouble()
+        val location = viewBinding.editVehicleLocationEt.text.toString()
         val photos = arrayOf("")
 
         try {
+            val brandid = brand.id
+            val gastypeid = gasType.id
             val vehicle = InsertEditVehicleDto(
                 standid, brandid, gastypeid, model, year, mileage, price, availability, description, "", "", id, photos, consume, location
             )
