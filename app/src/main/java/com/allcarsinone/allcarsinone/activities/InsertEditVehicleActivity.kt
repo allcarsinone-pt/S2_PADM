@@ -26,7 +26,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
 class InsertEditVehicleActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityEditVehicleBinding
     private val vehicleAPI by lazy { Globals.vehicleAPI }
@@ -89,15 +88,10 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         loadBrands(0)
         loadGasTypes(0)
 
-
         viewBinding.editVehicleBrandSPIN.onItemSelectedListener = brandsOnItemSelectedListener
         viewBinding.editVehicleGastypeSPIN.onItemSelectedListener = gasTypesOnItemSelectedListener
     }
     private fun fillVehicleForm(v: Vehicle) {
-
-        //viewBinding.editVehicleBrandSPIN.
-        //viewBinding.editVehicleGastypeSPIN
-
         viewBinding.editVehicleModelEt.setText(v.model)
         viewBinding.editVehicleYearEt.setText(v.year.toString())
         viewBinding.editVehicleMileageEt.setText(v.mileage.toString())
@@ -112,10 +106,7 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         val adapter = BrandsSpinnerAdapter(this, b.toMutableList())
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         viewBinding.editVehicleBrandSPIN.adapter = adapter
-
         viewBinding.editVehicleBrandSPIN.setSelection(0)
-
-
     }
     private fun fillGastypeSelect(b: List<GasType>) {
         // TODO: Selecionar a ativa
@@ -123,7 +114,6 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         val adapter = GasTypesSpinnerAdapter(this, b.toMutableList())
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         viewBinding.editVehicleGastypeSPIN.adapter = adapter
-
         viewBinding.editVehicleGastypeSPIN.setSelection(0)
     }
     private fun loadGasTypes(selectedGasType: Int) {
