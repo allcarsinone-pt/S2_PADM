@@ -30,7 +30,7 @@
             android:name=".activities.ViewStandLocationActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.InitialPageStandActivity"
+            android:name=".activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,7 +45,7 @@
             android:name=".activities.BookTestDriveActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.LoginActivity"
+            android:name=".activities.InitialPageStandActivity"
             android:exported="false" />
         <activity
             android:name=".activities.ViewStandProfileActivity"

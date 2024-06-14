@@ -3,12 +3,20 @@ package com.allcarsinone.allcarsinone.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.allcarsinone.allcarsinone.AuthUtils
 import com.allcarsinone.allcarsinone.Globals
+import com.allcarsinone.allcarsinone.R
 import com.allcarsinone.allcarsinone.databinding.ActivityRegisterBinding
+import com.allcarsinone.allcarsinone.dtos.InsertEditVehicleDto
 import com.allcarsinone.allcarsinone.dtos.RegisterUserDto
 import com.allcarsinone.allcarsinone.models.User
+import com.allcarsinone.allcarsinone.models.Vehicle
+import com.allcarsinone.allcarsinone.models.retrofit.DatabaseRequests
+import okhttp3.RequestBody
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,32 +35,22 @@ class RegisterActivity : AppCompatActivity() {
         viewBinding.registerRegisterBtn.setOnClickListener {
             validateDataFields()
         }
+
+        val itemsRole = arrayOf("User", "Stand")
+        val adapterRole = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, itemsRole )
+        viewBinding.registerRoleSPIN.setAdapter(adapterRole)
+
     }
+    private fun registerUserCallback(user: User?, errCode: Int) {
+        if(user == null) {
+            Toast.makeText(this, "Error: " + errCode.toString(), Toast.LENGTH_LONG).show()
+            return;
+        }
 
-    fun registerUser(body: RegisterUserDto) {
-        val call = usersAPI.register(body)
-
-        call.enqueue(object: Callback<User> {
-            override fun onResponse(p0: Call<User>, p1: Response<User>) {
-                if(p1.isSuccessful) {
-                    val intent = Intent()
-                    intent.putExtra("email", p1.body()!!.email)
-                    setResult(RESULT_OK, intent)
-                    finish()
-                }
-                else {
-                    when(p1.code()) {
-                        400 -> {
-                            Toast.makeText(this@RegisterActivity, JSONObject(p1.errorBody()?.string()).getString("message"), Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }
-            }
-
-            override fun onFailure(p0: Call<User>, p1: Throwable) {
-                Toast.makeText(this@RegisterActivity, p1.message, Toast.LENGTH_LONG).show()
-            }
-        })
+        val intent = Intent()
+        intent.putExtra("email", user?.email)
+        setResult(RESULT_OK, intent)
+        finish()
     }
     fun validateDataFields() {
         val username = viewBinding.registerUsernameEt.text.toString()
@@ -60,16 +58,16 @@ class RegisterActivity : AppCompatActivity() {
         val email = viewBinding.registerEmailEt.text.toString()
         val password = viewBinding.registerPasswordEt.text.toString()
         val confirmPassword = viewBinding.registerConfirmPasswordEt.text.toString()
+        val roleId = viewBinding.registerRoleSPIN.selectedItemPosition + 1 // Select in base 0
 
         try {
             // 1- Admin, 2-Stand 3- Customer
             // By defaut user is always created as a Customer
             val user =
-                RegisterUserDto(username, name, email, password, confirmPassword, "", "", "", 2)
-            registerUser(user)
+                RegisterUserDto(username, name, email, password, confirmPassword, "", "", "", roleId)
+            DatabaseRequests.registerUser(user, ::registerUserCallback)
         } catch (ex:Exception) {
             Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
         }
     }
-
 }

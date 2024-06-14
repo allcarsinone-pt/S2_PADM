@@ -183,6 +183,24 @@
             android:singleLine="true"
             android:textColorHint="@color/black_900_cc"
             style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
+        <TextView android:ellipsize="end"
+            android:id="@+id/register_role_tv"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:text="Role"
+            style="@style/txtMontserratromanregular14"/>
+        <Spinner
+            android:id="@+id/register_role_SPIN"
+            android:layout_marginTop="@dimen/_8pxv"
+            android:layout_marginBottom="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:paddingEnd="@dimen/_25pxh"
+            android:paddingStart="14dp"
+            android:background="@drawable/rectangle_bg_white_a700_border_gray_600_radius_10" />
         <androidx.appcompat.widget.AppCompatButton
             android:ellipsize="end" android:gravity="center"
             android:id="@+id/register_register_btn"

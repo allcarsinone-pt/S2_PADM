@@ -28,8 +28,6 @@ import retrofit2.Response
 class InsertEditVehicleActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityEditVehicleBinding
     private val vehicleAPI by lazy { Globals.vehicleAPI }
-    private val brandAPI by lazy { Globals.brandAPI }
-    private val gastypeAPI by lazy { Globals.gastypeAPI }
     private lateinit var brand: Brand
 
     private lateinit var gasType: GasType
@@ -52,7 +50,6 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         viewBinding.editVehicleBackbuttonBtn.setOnClickListener {
             finish()
         }
-
         val brandsOnItemSelectedListener = object: AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 viewBinding.editVehicleBrandSPIN.setSelection(0)
@@ -62,7 +59,6 @@ class InsertEditVehicleActivity : AppCompatActivity() {
                 brand = parent?.getItemAtPosition(position) as Brand
             }
         }
-
         val gasTypesOnItemSelectedListener = object: AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 viewBinding.editVehicleBrandSPIN.setSelection(0)
@@ -72,7 +68,6 @@ class InsertEditVehicleActivity : AppCompatActivity() {
                 gasType = parent?.getItemAtPosition(position) as GasType
             }
         }
-
         viewBinding.editVehicleBrandSPIN.onItemSelectedListener = brandsOnItemSelectedListener
         viewBinding.editVehicleGastypeSPIN.onItemSelectedListener = gasTypesOnItemSelectedListener
 
@@ -91,7 +86,6 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         viewBinding.editVehicleConsumeEt.setText(v.consume.toString())
         viewBinding.editVehicleLocationEt.setText(v.location)
     }
-
     private fun fillBrandSelect(b: List<Brand>) {
         val brandNames = b.map { it.name }
         val adapter = BrandsSpinnerAdapter(this, b.toMutableList())
@@ -99,7 +93,6 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         viewBinding.editVehicleBrandSPIN.adapter = adapter
         viewBinding.editVehicleBrandSPIN.setSelection(0)
     }
-
     private fun fillGastypeSelect(b: List<GasType>) {
         // TODO: Selecionar a ativa
         val gastypeNames = b.map { it.name }
@@ -108,56 +101,38 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         viewBinding.editVehicleGastypeSPIN.adapter = adapter
         viewBinding.editVehicleGastypeSPIN.setSelection(0)
     }
-
     private fun brandsCallback(b: List<Brand>?, errCode: Int) {
         if(b != null)
             fillBrandSelect(b)
     }
-
     private fun gasTypesCallback(g: List<GasType>?, errCode: Int) {
         if(g != null)
             fillGastypeSelect(g)
     }
-
     private fun vehiclesCallback(v: Vehicle?, errCode: Int) {
         if(v != null)
             fillVehicleForm(v)
     }
+    private fun processVehiclesCallback(errCode: Int) {
+        if(errCode == 200) {
+            Toast.makeText(this, "Register successfully processed", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, InitialPageStandActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        else
+            Toast.makeText(this, "Error processing", Toast.LENGTH_LONG).show()
+    }
 
     private fun processVehicle(token: String, body: InsertEditVehicleDto) {
-
         val jsonString = Gson().toJson(body)
         val obj = JsonParser.parseString(jsonString).asJsonObject.toString()
         var rb = RequestBody.create(MediaType.parse("application/json; charset=uft-8"), obj)
-
-        val call: Call<Vehicle> = if (body.id.toInt() > 0) {
-            vehicleAPI.edit(body.id.toInt(), body)
+        if (body.id.toInt() > 0) {
+            DatabaseRequests.editVehicle(body, ::processVehiclesCallback)
         } else {
-            vehicleAPI.register("Bearer $token", rb, mutableListOf())
+            DatabaseRequests.insertVehicle("Bearer $token", rb, ::processVehiclesCallback)
         }
-
-        call.enqueue(object : Callback<Vehicle> {
-            override fun onResponse(call: Call<Vehicle>, response: Response<Vehicle>) {
-                if (response.isSuccessful) {
-                    val intent = Intent(this@InsertEditVehicleActivity, BookTestDriveActivity::class.java)
-                    setResult(RESULT_OK, intent)
-                    startActivity(intent)
-                } else {
-                    when (response.code()) {
-                        400 -> {
-                            Toast.makeText(this@InsertEditVehicleActivity, response.errorBody().toString(), Toast.LENGTH_LONG).show()
-                        }
-                        else -> {
-                            Toast.makeText(this@InsertEditVehicleActivity, "Error: ${response.code()}", Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }
-            }
-            override fun onFailure(call: Call<Vehicle>, t: Throwable) {
-                Toast.makeText(this@InsertEditVehicleActivity, t.message, Toast.LENGTH_LONG).show()
-                //throw t
-            }
-        })
     }
 
     private fun validateDataFields(vehicleId: Int, standId: Int) {

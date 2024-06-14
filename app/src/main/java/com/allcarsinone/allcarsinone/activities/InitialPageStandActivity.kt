@@ -3,25 +3,19 @@ package com.allcarsinone.allcarsinone.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.allcarsinone.allcarsinone.AuthUtils
 import com.allcarsinone.allcarsinone.DataUtils
 import com.allcarsinone.allcarsinone.Globals
 import com.allcarsinone.allcarsinone.R
 import com.allcarsinone.allcarsinone.adapters.ListViewVehiclesStandAdapter
-import com.allcarsinone.allcarsinone.adapters.ListviewVehiclesAdapter
-import com.allcarsinone.allcarsinone.databinding.ActivityInitialPageBinding
 import com.allcarsinone.allcarsinone.databinding.ActivityInitialPageStandBinding
+import com.allcarsinone.allcarsinone.fragments.MenuStandFragment
 import com.allcarsinone.allcarsinone.models.User
 import com.allcarsinone.allcarsinone.models.Vehicle
 import com.allcarsinone.allcarsinone.models.retrofit.DatabaseRequests
-import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.FieldValue
@@ -67,15 +61,15 @@ class InitialPageStandActivity : AppCompatActivity(), ListViewVehiclesStandAdapt
         val token = sharedPrefs.getString("token", "")
         if(token != "")
             DatabaseRequests.getLoggedUser(this, token, ::getLoggedUserCallback)
-        else
-            Toast.makeText(this@InitialPageStandActivity, "No token.", Toast.LENGTH_LONG).show()
+        else {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun getLoggedUserCallback(u: User?, errCode: Int, arg: Any) {
         if(u == null) {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
+            AuthUtils.logoutUser(this)
         }
         else {
             val listener = arg as? OnUsersStandFetchedListener

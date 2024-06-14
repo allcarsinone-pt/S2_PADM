@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.allcarsinone.allcarsinone.AllCarsInOneApplication
+import com.allcarsinone.allcarsinone.AuthUtils
 import com.allcarsinone.allcarsinone.DataUtils
 import com.allcarsinone.allcarsinone.Globals
 import com.allcarsinone.allcarsinone.R
@@ -65,15 +67,15 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
         val token = sharedPrefs.getString("token", "")
         if(token != "")
             DatabaseRequests.getLoggedUser(this, token, ::getLoggedUserCallback)
-        else
-            Toast.makeText(this@InitialPageActivity, "No token.", Toast.LENGTH_LONG).show()
+        else {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun getLoggedUserCallback(u: User?, errCode: Int, arg: Any) {
         if(u == null) {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
+            AuthUtils.logoutUser(this)
         }
         else {
             val listener = arg as? OnUsersFetchedListener
@@ -116,13 +118,11 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
                         "token" to token,
                         "timestamp" to FieldValue.serverTimestamp(),
                     )
-
                     // Get user ID from Firebase Auth or your own server
                     Firebase.firestore.collection("tokens").document(token)
                         .set(deviceToken).await()
                 }
             }
-
             Log.w("Main", token)
         }
     }
