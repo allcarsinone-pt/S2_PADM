@@ -15,8 +15,10 @@ import com.allcarsinone.allcarsinone.Globals
 import com.allcarsinone.allcarsinone.R
 import com.allcarsinone.allcarsinone.adapters.ListviewVehiclesAdapter
 import com.allcarsinone.allcarsinone.databinding.ActivityInitialPageBinding
+import com.allcarsinone.allcarsinone.models.Brand
 import com.allcarsinone.allcarsinone.models.User
 import com.allcarsinone.allcarsinone.models.Vehicle
+import com.allcarsinone.allcarsinone.models.retrofit.DatabaseRequests
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.firestore
@@ -27,6 +29,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.ArrayList
+import java.util.Objects
 
 interface OnUsersFetchedListener {
     fun onUsersFetched(user: User)
@@ -54,41 +57,36 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
         val recyclerView = viewBinding.VehiclesListViewViewRecycleView
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        runVehiclesList(this)
+        DatabaseRequests.loadAllVehicles(this, ::getVehiclesCallback)
+
         getToken()
 
-        getLoggedUser(this)
+        val sharedPrefs = DataUtils.getSharedPreferences(context = this)
+        val token = sharedPrefs.getString("token", "")
+        if(token != "")
+            DatabaseRequests.getLoggedUser(this, token, ::getLoggedUserCallback)
+        else
+            Toast.makeText(this@InitialPageActivity, "No token.", Toast.LENGTH_LONG).show()
     }
 
-    private fun getLoggedUser(listener: OnUsersFetchedListener) {
-        val sharedPrefences = DataUtils.getSharedPreferences(context = this)
-        val token = sharedPrefences.getString("token", "")
-        if(token == "")
-            return
-        val usersAPI = Globals.userAPI
-        val authHeader = "Bearer $token"
-        val loggedUser = usersAPI.validate(authHeader)
-        loggedUser.enqueue(object : Callback<User> {
-            override fun onResponse(call: Call<User>, response: Response<User>) {
-                if (response.isSuccessful) {
-                    response.body()?.let { userGot ->
-                        val user = userGot
-                        listener.onUsersFetched(user)
-                    }
-                } else {
-                    when (response.code()) {
-                        401 -> { Toast.makeText(this@InitialPageActivity, "No token.", Toast.LENGTH_LONG).show()
-                        }
-                        500 -> {
-                            Toast.makeText(this@InitialPageActivity, "Internal server error", Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }
-            }
-            override fun onFailure(call: Call<User>, response: Throwable) {
-                Toast.makeText(this@InitialPageActivity, response.message, Toast.LENGTH_LONG).show()
-            }
-        })
+    private fun getLoggedUserCallback(u: User?, errCode: Int, arg: Any) {
+        if(u == null) {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        else {
+            val listener = arg as? OnUsersFetchedListener
+            listener?.onUsersFetched(u)
+        }
+    }
+
+    private fun getVehiclesCallback(v: List<Vehicle>?, errCode: Int, arg: Any) {
+        if(v != null) {
+            val list = ArrayList(v)
+            val listener = arg as? OnVehiclesFetchedListener
+            listener?.onVehiclesFetched(list)
+        }
     }
 
     private fun sendTokenToServer(token: String?) {
@@ -146,33 +144,5 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
         val intent = Intent(this, ViewVehicleActivity::class.java)
         intent.putExtra("vehicleid", vehicle.id.toInt())
         startActivity(intent)
-    }
-
-    private fun runVehiclesList(listener: OnVehiclesFetchedListener) {
-        val call: Call<List<Vehicle>> = vehicleAPI.getAll()
-
-        call.enqueue(object : Callback<List<Vehicle>> {
-            override fun onResponse(call: Call<List<Vehicle>>, response: Response<List<Vehicle>>) {
-                if (response.isSuccessful) {
-                    response.body()?.let { vehicleList ->
-                        val list = ArrayList(vehicleList)
-                        listener.onVehiclesFetched(list)
-                    }
-                } else {
-                    when (response.code()) {
-                        400 -> {
-                            Toast.makeText(this@InitialPageActivity, response.errorBody()?.string(), Toast.LENGTH_LONG).show()
-                        }
-                        else -> {
-                            Toast.makeText(this@InitialPageActivity, "Error: ${response.code()}", Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<List<Vehicle>>, t: Throwable) {
-                Toast.makeText(this@InitialPageActivity, t.message, Toast.LENGTH_LONG).show()
-            }
-        })
     }
 }

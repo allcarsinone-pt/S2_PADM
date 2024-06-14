@@ -35,18 +35,16 @@ class LoginActivity : AppCompatActivity() {
         val sharedPrefences = DataUtils.getSharedPreferences(this)
         val token = sharedPrefences.getString("token", "")
 
-        if(token != "") {
-            openInitialPage()
-        }
-
+        // TODO: Para ativar este código é necessário apagar o token caso esteja expirado para evitar loop infinito
+        //if(token != "") {
+        //    openInitialPage()
+        //}
         viewBinding.loginCreateAccountTv.setOnClickListener {
             openRegisterForm()
         }
-
         viewBinding.btnLogin.setOnClickListener {
             login()
         }
-
     }
 
     fun login() {

@@ -4,10 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.allcarsinone.allcarsinone.DataUtils
 import com.allcarsinone.allcarsinone.Globals
 import com.allcarsinone.allcarsinone.R
@@ -18,6 +16,7 @@ import com.allcarsinone.allcarsinone.dtos.InsertEditVehicleDto
 import com.allcarsinone.allcarsinone.models.Brand
 import com.allcarsinone.allcarsinone.models.GasType
 import com.allcarsinone.allcarsinone.models.Vehicle
+import com.allcarsinone.allcarsinone.models.retrofit.DatabaseRequests
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import okhttp3.MediaType
@@ -54,18 +53,12 @@ class InsertEditVehicleActivity : AppCompatActivity() {
             finish()
         }
 
-        loadVehicle(vehicleID)
         val brandsOnItemSelectedListener = object: AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 viewBinding.editVehicleBrandSPIN.setSelection(0)
             }
 
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 brand = parent?.getItemAtPosition(position) as Brand
             }
         }
@@ -75,21 +68,18 @@ class InsertEditVehicleActivity : AppCompatActivity() {
                 viewBinding.editVehicleBrandSPIN.setSelection(0)
             }
 
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 gasType = parent?.getItemAtPosition(position) as GasType
             }
         }
 
-        loadBrands(0)
-        loadGasTypes(0)
-
         viewBinding.editVehicleBrandSPIN.onItemSelectedListener = brandsOnItemSelectedListener
         viewBinding.editVehicleGastypeSPIN.onItemSelectedListener = gasTypesOnItemSelectedListener
+
+        DatabaseRequests.loadBrands(::brandsCallback)
+        DatabaseRequests.loadGasTypes( ::gasTypesCallback)
+        if(vehicleID > 0)
+            DatabaseRequests.loadVehicle(vehicleID, ::vehiclesCallback )
     }
     private fun fillVehicleForm(v: Vehicle) {
         viewBinding.editVehicleModelEt.setText(v.model)
@@ -101,6 +91,7 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         viewBinding.editVehicleConsumeEt.setText(v.consume.toString())
         viewBinding.editVehicleLocationEt.setText(v.location)
     }
+
     private fun fillBrandSelect(b: List<Brand>) {
         val brandNames = b.map { it.name }
         val adapter = BrandsSpinnerAdapter(this, b.toMutableList())
@@ -108,6 +99,7 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         viewBinding.editVehicleBrandSPIN.adapter = adapter
         viewBinding.editVehicleBrandSPIN.setSelection(0)
     }
+
     private fun fillGastypeSelect(b: List<GasType>) {
         // TODO: Selecionar a ativa
         val gastypeNames = b.map { it.name }
@@ -116,80 +108,20 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         viewBinding.editVehicleGastypeSPIN.adapter = adapter
         viewBinding.editVehicleGastypeSPIN.setSelection(0)
     }
-    private fun loadGasTypes(selectedGasType: Int) {
-        val call: Call<List<GasType>> = gastypeAPI.getAll()
-        call.enqueue(object : Callback<List<GasType>> {
-            override fun onResponse(call: Call<List<GasType>>, response: Response<List<GasType>>) {
-                if (response.isSuccessful) {
-                    response.body()?.let { gastypes ->
-                        fillGastypeSelect(gastypes)
-                    }
-                } else {
-                    val errorMessage = response.errorBody()?.string() ?: "Unknown error"
-                    when (response.code()) {
-                        400 -> {
-                            Toast.makeText(this@InsertEditVehicleActivity, errorMessage, Toast.LENGTH_LONG).show()
-                        }
-                        else -> {
-                            Toast.makeText(this@InsertEditVehicleActivity, "Error: ${response.code()}", Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }
-            }
-            override fun onFailure(call: Call<List<GasType>>, t: Throwable) {
-                Toast.makeText(this@InsertEditVehicleActivity, t.message ?: "Unknown error", Toast.LENGTH_LONG).show()
-            }
-        })
+
+    private fun brandsCallback(b: List<Brand>?, errCode: Int) {
+        if(b != null)
+            fillBrandSelect(b)
     }
-    private fun loadBrands(selectedBrand: Int) {
-        val call: Call<List<Brand>> = brandAPI.getAll()
-        call.enqueue(object : Callback<List<Brand>> {
-            override fun onResponse(call: Call<List<Brand>>, response: Response<List<Brand>>) {
-                if (response.isSuccessful) {
-                    response.body()?.let { brands ->
-                        fillBrandSelect(brands)
-                    }
-                } else {
-                    val errorMessage = response.errorBody()?.string() ?: "Unknown error"
-                    when (response.code()) {
-                        400 -> {
-                            Toast.makeText(this@InsertEditVehicleActivity, errorMessage, Toast.LENGTH_LONG).show()
-                        }
-                        else -> {
-                            Toast.makeText(this@InsertEditVehicleActivity, "Error: ${response.code()}", Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }
-            }
-            override fun onFailure(call: Call<List<Brand>>, t: Throwable) {
-                Toast.makeText(this@InsertEditVehicleActivity, t.message ?: "Unknown error", Toast.LENGTH_LONG).show()
-            }
-        })
+
+    private fun gasTypesCallback(g: List<GasType>?, errCode: Int) {
+        if(g != null)
+            fillGastypeSelect(g)
     }
-    private fun loadVehicle(vehicleID: Int) {
-        val call: Call<Vehicle> = vehicleAPI.getVehicle(vehicleID)
-        call.enqueue(object : Callback<Vehicle> {
-            override fun onResponse(call: Call<Vehicle>, response: Response<Vehicle>) {
-                if (response.isSuccessful) {
-                    response.body()?.let { vehicle ->
-                        fillVehicleForm(vehicle)
-                    }
-                } else {
-                    val errorMessage = response.errorBody()?.string() ?: "Unknown error"
-                    when (response.code()) {
-                        400 -> {
-                            Toast.makeText(this@InsertEditVehicleActivity, errorMessage, Toast.LENGTH_LONG).show()
-                        }
-                        else -> {
-                            Toast.makeText(this@InsertEditVehicleActivity, "Error: ${response.code()}", Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }
-            }
-            override fun onFailure(call: Call<Vehicle>, t: Throwable) {
-                Toast.makeText(this@InsertEditVehicleActivity, t.message ?: "Unknown error", Toast.LENGTH_LONG).show()
-            }
-        })
+
+    private fun vehiclesCallback(v: Vehicle?, errCode: Int) {
+        if(v != null)
+            fillVehicleForm(v)
     }
 
     private fun processVehicle(token: String, body: InsertEditVehicleDto) {
@@ -221,7 +153,6 @@ class InsertEditVehicleActivity : AppCompatActivity() {
                     }
                 }
             }
-
             override fun onFailure(call: Call<Vehicle>, t: Throwable) {
                 Toast.makeText(this@InsertEditVehicleActivity, t.message, Toast.LENGTH_LONG).show()
                 //throw t
@@ -238,25 +169,8 @@ class InsertEditVehicleActivity : AppCompatActivity() {
             return
         }
 
-        //val id = vehicleId
-        //val standid = standId
-        //val brandid = 1 //viewBinding.editVehicleBrandEt.text.toString().toInt()
-        //val gastypeid = 1
-        //val model = "Abbarth" //viewBinding.editVehicleBrandEt.text.toString()
-        //val year = 2003
-        //val mileage = 3230000
-        //val price = 33500 //viewBinding.editVehiclePriceEt.text.toString().toDouble()
-        //val availability = true
-        //val description = "Bebe como um camelo. Para testar um texto grande."
-        //val brandname = "Matavelhos"
-        //val gastypename = ""
-        //val photos = arrayOf("")
-        //val consume = 11.3
-        //val location = "Faro"
-
         val id = vehicleId
         val standid = standId
-
         val model = viewBinding.editVehicleModelEt.text.toString()
         val year = viewBinding.editVehicleYearEt.text.toString().toInt()
         val mileage = viewBinding.editVehicleMileageEt.text.toString().toDouble()
