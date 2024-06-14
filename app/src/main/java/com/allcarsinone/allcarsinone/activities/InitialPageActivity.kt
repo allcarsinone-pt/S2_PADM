@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.allcarsinone.allcarsinone.AllCarsInOneApplication
+import com.allcarsinone.allcarsinone.fragments.MenuFragment
 import com.allcarsinone.allcarsinone.AuthUtils
 import com.allcarsinone.allcarsinone.DataUtils
 import com.allcarsinone.allcarsinone.Globals
@@ -67,9 +68,27 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
         val token = sharedPrefs.getString("token", "")
         if(token != "")
             DatabaseRequests.getLoggedUser(this, token, ::getLoggedUserCallback)
-        else {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+
+
+        viewBinding.menuInicial.setOnClickListener {
+            toggleFragment()
+        }
+
+    }
+
+    private fun toggleFragment() {
+        val fragment = supportFragmentManager.findFragmentByTag(MenuFragment::class.java.simpleName)
+
+        if (fragment != null) {
+            val transaction = supportFragmentManager.beginTransaction()
+            if (fragment.isVisible)
+                transaction.hide(fragment).commit()
+            else
+                transaction.show(fragment).commit()
+        } else {
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.add(R.id.fragment_container, MenuFragment.newInstance("", ""), MenuFragment::class.java.simpleName)
+            transaction.commit()
         }
     }
 
