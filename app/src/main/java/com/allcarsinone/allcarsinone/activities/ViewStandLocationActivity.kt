@@ -41,7 +41,9 @@ class ViewStandLocationActivity : AppCompatActivity(), OnMapReadyCallback, Googl
             .findFragmentById(R.id.mapFragmentViewStandLocation) as SupportMapFragment
         mapFragment.getMapAsync(this@ViewStandLocationActivity)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this@ViewStandLocationActivity)
-
+        viewBinding.ViewStandLocationBackbuttonBtn.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
