@@ -69,7 +69,6 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
         if(token != "")
             DatabaseRequests.getLoggedUser(this, token, ::getLoggedUserCallback)
 
-
         viewBinding.menuInicial.setOnClickListener {
             toggleFragment()
         }
@@ -87,7 +86,7 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
                 transaction.show(fragment).commit()
         } else {
             val transaction = supportFragmentManager.beginTransaction()
-            transaction.add(R.id.fragment_container, MenuFragment.newInstance("", ""), MenuFragment::class.java.simpleName)
+            transaction.replace(R.id.fragment_container, MenuFragment.newInstance("", ""), MenuFragment::class.java.simpleName)
             transaction.commit()
         }
     }
