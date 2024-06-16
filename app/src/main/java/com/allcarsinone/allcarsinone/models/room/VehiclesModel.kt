@@ -3,6 +3,7 @@ package com.allcarsinone.allcarsinone.models.room
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.allcarsinone.allcarsinone.models.Vehicle
 
 @Entity(tableName = "vehicles")
 data class VehiclesModel(@PrimaryKey(autoGenerate = true) val id: Int,
@@ -13,6 +14,8 @@ data class VehiclesModel(@PrimaryKey(autoGenerate = true) val id: Int,
                          @ColumnInfo(name = "price") val price: Double = 0.0,
                          @ColumnInfo(name = "availability") val availability: Boolean = false,
                          @ColumnInfo(name = "description") val description: String = "",
-                         @ColumnInfo(name = "gastypeid") val gastypeid: Int = 0,   // REFERENCES gastypes(id)
-                         @ColumnInfo(name = "brandid") val brandid: Int = 0,       // REFERENCES brands(id)
-)
+                         @ColumnInfo(name = "location") val location: String,
+                         @ColumnInfo(name = "consume") val consume: Double
+) {
+    constructor(vehicle: Vehicle):this(0, 1, vehicle.model, vehicle.year.toInt(), vehicle.mileage.toDouble(), vehicle.price.toDouble(), vehicle.availability, vehicle.description, vehicle.location, vehicle.consume.toDouble())
+}

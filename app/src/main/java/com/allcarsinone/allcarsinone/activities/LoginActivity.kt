@@ -48,20 +48,31 @@ class LoginActivity : AppCompatActivity() {
             login()
         }
     }
-    private fun getLoggedUserCallback(u: User?, errCode: Int, arg: Any) {
-        if(u == null) {
-            AuthUtils.logoutUser(this)
-        }
-        else {
-            AuthUtils.loginUser(this, u.role_id)
-            openInitialPage(u.role_id)
-        }
-    }
+
     private fun checkAuthCallback(token: String?, errCode: Int){
-        val sharedPreferences = DataUtils.getSharedPreferences(this@LoginActivity)
-        sharedPreferences.edit().putString("token", token).apply()
-        DatabaseRequests.getLoggedUser(this, token, ::getLoggedUserCallback)
+
+        try {
+            if(errCode == 400) {
+                Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_LONG).show()
+                return
+            }
+
+            val validationResult = AuthUtils.validateToken(this, token)
+
+            if (!validationResult.success) {
+                Toast.makeText(this, "Error validating token", Toast.LENGTH_LONG).show()
+            }
+            else {
+                openInitialPage(validationResult.username, validationResult.roleid)
+            }
+        }
+        catch (err: Exception) {
+            Toast.makeText(this, err.message, Toast.LENGTH_LONG).show()
+        }
+        //DatabaseRequests.getLoggedUser(this, token, ::getLoggedUserCallback)
     }
+
+
     fun login() {
         try {
             val email = viewBinding.etEmail.text.toString()
@@ -71,11 +82,13 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
         }
     }
-    fun openInitialPage(roleId: Int) {
+    fun openInitialPage(username: String, roleId: Int) {
         val intent = if(roleId == 1 || roleId == 3)
             Intent(this, InitialPageActivity::class.java)
         else
             Intent(this, InitialPageStandActivity::class.java)
+
+        intent.putExtra("username", username)
         startActivity(intent)
         finish()
     }

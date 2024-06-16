@@ -22,19 +22,6 @@ class MainActivity : AppCompatActivity() {
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
         val view = viewBinding.root
         setContentView(view)
-
-        // Test ROOM database
-        ////////////////////////////////////////////////
-        val db = Room.databaseBuilder( applicationContext, VehiclesDatabase::class.java, "vehicles.db").build()
-        lifecycleScope.launch {
-
-            val data = withContext(Dispatchers.IO) {db.vehiclesDao().getAll() }
-            data?.forEach {
-                println(it)
-            }
-        }
-        ////////////////////////////////////////////////
-
         acioPreferences()
     }
     private fun acioPreferences() {

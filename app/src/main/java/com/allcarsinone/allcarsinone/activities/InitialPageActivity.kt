@@ -15,19 +15,25 @@ import com.allcarsinone.allcarsinone.fragments.MenuFragment
 import com.allcarsinone.allcarsinone.AuthUtils
 import com.allcarsinone.allcarsinone.DataUtils
 import com.allcarsinone.allcarsinone.Globals
+import com.allcarsinone.allcarsinone.NetworkUtils
 import com.allcarsinone.allcarsinone.R
 import com.allcarsinone.allcarsinone.adapters.ListviewVehiclesAdapter
+import com.allcarsinone.allcarsinone.database.VehiclesDatabase
 import com.allcarsinone.allcarsinone.databinding.ActivityInitialPageBinding
 import com.allcarsinone.allcarsinone.models.Brand
 import com.allcarsinone.allcarsinone.models.User
 import com.allcarsinone.allcarsinone.models.Vehicle
 import com.allcarsinone.allcarsinone.models.retrofit.DatabaseRequests
+import com.allcarsinone.allcarsinone.models.room.VehiclesModel
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.firestore
 import com.google.firebase.messaging.FirebaseMessaging
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -50,7 +56,7 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
         viewBinding = ActivityInitialPageBinding.inflate(layoutInflater)
         val view = viewBinding.root
         setContentView(view)
-
+        setRoomVehiclesData()
         val spinnerMon = findViewById<Spinner>(R.id.InitPageLocationSpinner_SP)
         val itemsMon = arrayOf("Aveiro", "Bragança", "Braga", "Coimbra", "Faro", "Funchal", "Guarda", "Lisboa", "Portalegre", "Porto", "Santarém", "Viana do Castelo")
         val adapterMon = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, itemsMon)
@@ -60,19 +66,45 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
         val recyclerView = viewBinding.VehiclesListViewViewRecycleView
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        DatabaseRequests.loadAllVehicles(this, ::getVehiclesCallback)
+
 
         getToken()
 
         val sharedPrefs = DataUtils.getSharedPreferences(context = this)
         val token = sharedPrefs.getString("token", "")
-        if(token != "")
-            DatabaseRequests.getLoggedUser(this, token, ::getLoggedUserCallback)
+        val validationResult = AuthUtils.validateToken(this, token)
 
+        if(validationResult.success) {
+            val loginUser = viewBinding.initPageNameTV
+            loginUser.text = validationResult.username
+        }
         viewBinding.menuInicial.setOnClickListener {
             toggleFragment()
         }
+    }
 
+    override fun onStart() {
+        super.onStart()
+        setRoomVehiclesData()
+
+    }
+    fun setRoomVehiclesData() {
+        super.onResume()
+        if(NetworkUtils.isNetworkAvailable(this)) {
+            DatabaseRequests.loadAllVehicles(this, ::getVehiclesCallback)
+        }
+        else {
+            val db = VehiclesDatabase(this)
+            lifecycleScope.launch {
+                val list = withContext(Dispatchers.IO) {
+                    db.vehiclesDao().getAll().map { Vehicle(it) }
+                }
+
+                withContext(Dispatchers.Main) {
+                    getVehiclesCallback(list, 200, this@InitialPageActivity)
+                }
+            }
+        }
     }
 
     private fun toggleFragment() {
@@ -103,9 +135,20 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
 
     private fun getVehiclesCallback(v: List<Vehicle>?, errCode: Int, arg: Any) {
         if(v != null) {
-            val list = ArrayList(v)
-            val listener = arg as? OnVehiclesFetchedListener
-            listener?.onVehiclesFetched(list)
+            val db = VehiclesDatabase(this)
+            lifecycleScope.launch {
+
+                withContext(Dispatchers.IO) {
+                    db.vehiclesDao().insert(*v.map { VehiclesModel(it) }.toTypedArray())
+                }
+
+                withContext(Dispatchers.Main) {
+                    val list = ArrayList(v)
+                    val listener = arg as? OnVehiclesFetchedListener
+                    listener?.onVehiclesFetched(list)
+                }
+            }
+
         }
     }
 
@@ -151,7 +194,6 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
         //val loginPhoto = viewBinding.userImage
         //loginPhoto.setImageURI(user.image)
     }
-
     override fun onVehiclesFetched(vehicleList: ArrayList<Vehicle>) {
         val recyclerView = viewBinding.VehiclesListViewViewRecycleView
         val adapter = ListviewVehiclesAdapter(vehicleList, this)

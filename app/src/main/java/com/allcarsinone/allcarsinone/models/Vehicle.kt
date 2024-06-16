@@ -1,5 +1,6 @@
 package com.allcarsinone.allcarsinone.models
 
+import com.allcarsinone.allcarsinone.models.room.VehiclesModel
 import com.google.gson.annotations.SerializedName
 
 data class Vehicle (@SerializedName("standid") val standid: Number,
@@ -16,5 +17,6 @@ data class Vehicle (@SerializedName("standid") val standid: Number,
                     @SerializedName("consume") val consume: Float,
                     @SerializedName("location") val location: String,
                     @SerializedName("photos") val photos: List<String>,
-                    @SerializedName("id") val id: Number
-    )
+                    @SerializedName("id") val id: Number) {
+    constructor(vehiclesModel: VehiclesModel):this(1,1,1, vehiclesModel.model, vehiclesModel.year, vehiclesModel.mileage.toFloat(), vehiclesModel.price.toFloat(), vehiclesModel.availability, vehiclesModel.description, "","", vehiclesModel.consume.toFloat(), vehiclesModel.location, mutableListOf(), vehiclesModel.id)
+}
