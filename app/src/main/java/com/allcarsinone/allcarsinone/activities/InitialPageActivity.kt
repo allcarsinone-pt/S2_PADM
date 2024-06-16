@@ -78,6 +78,10 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
             val loginUser = viewBinding.initPageNameTV
             loginUser.text = validationResult.username
         }
+        else {
+            AuthUtils.logoutUser(this)
+            finish()
+        }
         viewBinding.menuInicial.setOnClickListener {
             toggleFragment()
         }
