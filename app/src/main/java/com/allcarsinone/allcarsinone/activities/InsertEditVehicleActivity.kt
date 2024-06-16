@@ -113,8 +113,8 @@ class InsertEditVehicleActivity : AppCompatActivity() {
             fillVehicleForm(v)
     }
     private fun processVehiclesCallback(errCode: Int) {
-        if(errCode == 200) {
-            Toast.makeText(this, "Register successfully processed", Toast.LENGTH_LONG).show()
+        if(errCode == 201 || errCode == 200) {
+            Toast.makeText(this, "Vehicle successfully processed", Toast.LENGTH_LONG).show()
             val intent = Intent(this, InitialPageStandActivity::class.java)
             startActivity(intent)
             finish()
@@ -144,7 +144,7 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         }
 
         val id = vehicleId
-        val standid = standId
+        val standid = 1 // Backend API is not returning StandID on vehicle/token. Assuming 1
         val model = viewBinding.editVehicleModelEt.text.toString()
         val year = viewBinding.editVehicleYearEt.text.toString().toInt()
         val mileage = viewBinding.editVehicleMileageEt.text.toString().toDouble()

@@ -66,8 +66,6 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
         val recyclerView = viewBinding.VehiclesListViewViewRecycleView
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-
-
         getToken()
 
         val sharedPrefs = DataUtils.getSharedPreferences(context = this)

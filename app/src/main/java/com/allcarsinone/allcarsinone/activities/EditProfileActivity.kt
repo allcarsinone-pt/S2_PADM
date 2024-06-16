@@ -28,6 +28,10 @@ class EditProfileActivity : AppCompatActivity() {
         val view = viewBinding.root
         setContentView(view)
 
+        viewBinding.editProfileBackbuttonBtn.setOnClickListener {
+            finish()
+        }
+
         viewBinding.editprofileEditBtn.setOnClickListener {
             validateDataFields()
         }

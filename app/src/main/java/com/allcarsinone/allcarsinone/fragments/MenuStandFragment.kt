@@ -47,6 +47,7 @@ class MenuStandFragment : Fragment() {
         viewBinding.fragmentMenuStandInsertBTN.setOnClickListener {
             finishFragment()
             val intent = Intent(requireActivity(), InsertEditVehicleActivity::class.java)
+            intent.putExtra("standid", 1)
             startActivity(intent)
 
         }

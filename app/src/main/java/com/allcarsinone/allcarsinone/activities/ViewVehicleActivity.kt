@@ -8,6 +8,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.allcarsinone.allcarsinone.AuthUtils
+import com.allcarsinone.allcarsinone.DataUtils
 import com.allcarsinone.allcarsinone.Globals
 import com.allcarsinone.allcarsinone.R
 import com.allcarsinone.allcarsinone.databinding.ActivityRegisterBinding
@@ -56,6 +58,15 @@ class ViewVehicleActivity : AppCompatActivity() {
             val intent = Intent(this, ViewStandProfileActivity::class.java)
             intent.putExtra("standid", standID)
             startActivity(intent)
+        }
+        val sharedPrefs = DataUtils.getSharedPreferences(context = this)
+        val token = sharedPrefs.getString("token", "")
+        val validationResult = AuthUtils.validateToken(this, token)
+
+        if(validationResult.success) {
+            if (validationResult.roleid !== 2) {
+                viewBinding.ViewVehicleEditBTN.visibility = View.GONE
+            }
         }
     }
 
