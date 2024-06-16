@@ -15,6 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="vertical">
 
+
         <LinearLayout
             android:id="@+id/InitialPageStandActivityLayoutInto"
             android:layout_width="match_parent"
@@ -54,15 +55,40 @@
             app:layout_constraintTop_toBottomOf="@+id/InitialPageStandActivityLayoutInto">
         </FrameLayout>
     </RelativeLayout>
-
+    <RelativeLayout
+        android:id="@+id/initPageStandHello_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/InitialPageStandActivityLayoutTop"
+        android:layout_marginBottom="5dp"
+        android:paddingHorizontal="27dp"
+        android:layout_gravity="right">
+        <TextView
+            android:id="@+id/initPageStand_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hello"
+            android:textStyle = "bold"
+            style="@style/txtLightGray"/>
+        <TextView
+            android:id="@+id/initPageStandName_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/initPageStand_TV"
+            android:paddingHorizontal="5dp"
+            android:text="@string/username"
+            android:textStyle = "bold"
+            style="@style/txtLightGray" />
+    </RelativeLayout>
     <LinearLayout
         android:id="@+id/RecoverPass_mid_MAIN_LAY"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_marginStart="@dimen/_27pxh"
         android:layout_marginEnd="@dimen/_27pxh"
         android:paddingTop="@dimen/_10sp"
-        app:layout_constraintTop_toBottomOf="@+id/InitialPageStandActivityLayoutTop">
+        app:layout_constraintTop_toBottomOf="@+id/initPageStandHello_TV">
         <ScrollView
             android:id="@+id/RecoverPass_scrollView"
             android:layout_width="match_parent"

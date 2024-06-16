@@ -17,10 +17,10 @@ interface VehiclesDao {
     fun findByID(id: Int):VehiclesModel
 
     @Insert
-    fun insert(vehicle: VehiclesModel)
+    fun insert(vararg vehicle: VehiclesModel)
 
     @Update
-    fun update(vehicle: VehiclesModel)
+    fun update(vararg vehicle: VehiclesModel)
 
     @Delete
     fun delete(vararg vehicle: VehiclesModel)

@@ -3,6 +3,7 @@ package com.allcarsinone.allcarsinone.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -59,11 +60,14 @@ class InitialPageStandActivity : AppCompatActivity(), ListViewVehiclesStandAdapt
 
         val sharedPrefs = DataUtils.getSharedPreferences(context = this)
         val token = sharedPrefs.getString("token", "")
-        if(token != "")
-            DatabaseRequests.getLoggedUser(this, token, ::getLoggedUserCallback)
-        else {
+        val validationResult = AuthUtils.validateToken(this, token)
+        if(!validationResult.success) {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+        }
+        else {
+            val loginUser = viewBinding.initPageStandNameTV
+            loginUser.text = validationResult.username
         }
     }
 

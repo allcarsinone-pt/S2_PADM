@@ -1,6 +1,7 @@
 package com.allcarsinone.allcarsinone.models.retrofit
 
 import android.content.Intent
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.allcarsinone.allcarsinone.Globals
@@ -39,11 +40,10 @@ class DatabaseRequests : AppCompatActivity() {
                     } else {
                         var v: Vehicle? = null
                         callback(v, response.code())
-                        Toast.makeText(this@Companion, response.errorBody()?.string() ?: "Unknown error", Toast.LENGTH_LONG).show()
                     }
                 }
                 override fun onFailure(call: Call<Vehicle>, t: Throwable) {
-                    Toast.makeText(this@Companion, t.message ?: "Unknown error", Toast.LENGTH_LONG).show()
+                    Log.d("Error", "Unknown error")
                 }
             })
         }
@@ -58,11 +58,10 @@ class DatabaseRequests : AppCompatActivity() {
                     } else {
                         var v: List<Vehicle>? = null
                         callback(v, response.code(), arg)
-                        Toast.makeText(this@Companion, response.errorBody()?.string() ?: "Unknown error", Toast.LENGTH_LONG).show()
                     }
                 }
                 override fun onFailure(call: Call<List<Vehicle>>, t: Throwable) {
-                    Toast.makeText(this@Companion, t.message ?: "Unknown error", Toast.LENGTH_LONG).show()
+                    Log.d("Error", "Unknown error")
                 }
             })
         }
@@ -73,7 +72,7 @@ class DatabaseRequests : AppCompatActivity() {
                     callback(response.code())
                 }
                 override fun onFailure(call: Call<Vehicle>, t: Throwable) {
-                    Toast.makeText(this@Companion, t.message, Toast.LENGTH_LONG).show()
+                    Log.d("Error", "Unknown error")
                 }
             })
         }
@@ -84,7 +83,7 @@ class DatabaseRequests : AppCompatActivity() {
                     callback(response.code())
                 }
                 override fun onFailure(call: Call<Vehicle>, t: Throwable) {
-                    Toast.makeText(this@Companion, t.message, Toast.LENGTH_LONG).show()
+                    Log.d("Error", "Unknown error")
                 }
             })
         }
@@ -99,11 +98,10 @@ class DatabaseRequests : AppCompatActivity() {
                     } else {
                         var g: List<GasType>? = null
                         callback(g, response.code())
-                        Toast.makeText(this@Companion, response.errorBody()?.string() ?: "Unknown error", Toast.LENGTH_LONG).show()
                     }
                 }
                 override fun onFailure(call: Call<List<GasType>>, t: Throwable) {
-                    Toast.makeText(this@Companion, t.message ?: "Unknown error", Toast.LENGTH_LONG).show()
+                    Log.d("Error", "Unknown error")
                 }
             })
         }
@@ -118,11 +116,10 @@ class DatabaseRequests : AppCompatActivity() {
                     } else {
                         var b: List<Brand>? = null
                         callback(b, response.code())
-                        Toast.makeText(this@Companion, response.errorBody()?.string() ?: "Unknown error", Toast.LENGTH_LONG).show()
                     }
                 }
                 override fun onFailure(call: Call<List<Brand>>, t: Throwable) {
-                    Toast.makeText(this@Companion, t.message ?: "Unknown error", Toast.LENGTH_LONG).show()
+                    Log.d("Error", "Unknown error")
                 }
             })
         }
@@ -138,11 +135,11 @@ class DatabaseRequests : AppCompatActivity() {
                     } else {
                         var u: User? = null
                         callback(u, response.code(), arg)
-                        Toast.makeText(this@Companion, response.errorBody()?.string() ?: "Unknown error", Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext, response.errorBody()?.string() ?: "Unknown error", Toast.LENGTH_LONG).show()
                     }
                 }
                 override fun onFailure(call: Call<User>, response: Throwable) {
-                    Toast.makeText(this@Companion, response.message, Toast.LENGTH_LONG).show()
+                    Log.d("Error", "Unknown error")
                 }
             })
         }
@@ -157,11 +154,11 @@ class DatabaseRequests : AppCompatActivity() {
                     } else {
                         var u: User? = null
                         callback(u, response.code())
-                        Toast.makeText(this@Companion, response.errorBody()?.string() ?: "Unknown error", Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext, response.errorBody()?.string() ?: "Unknown error", Toast.LENGTH_LONG).show()
                     }
                 }
                 override fun onFailure(call: Call<User>, t: Throwable) {
-                    Toast.makeText(this@Companion, t.message, Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
                 }
             })
         }
@@ -177,11 +174,10 @@ class DatabaseRequests : AppCompatActivity() {
                     } else {
                         var u: String? = null
                         callback(u, response.code())
-                        Toast.makeText(this@Companion, response.errorBody()?.string() ?: "Unknown error", Toast.LENGTH_LONG).show()
                     }
                 }
                 override fun onFailure(p0: Call<Token>, p1: Throwable) {
-                    Toast.makeText(this@Companion, p1.message, Toast.LENGTH_LONG).show()
+                    Log.d("Error", "Unknown error")
                 }
             })
         }
