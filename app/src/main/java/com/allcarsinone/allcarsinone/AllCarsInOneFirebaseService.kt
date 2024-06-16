@@ -29,11 +29,11 @@ class AllCarsInOneFirebaseService : FirebaseMessagingService() {
         Log.d(TAG, "From ${remoteMessage.from}")
 
         if(remoteMessage.data.isNotEmpty()) {
-            Log.d(TAG, "Message data payload: ${remoteMessage.data}")
+            Log.d(TAG, "Notifications: ${remoteMessage.data}")
         }
 
         remoteMessage.notification?.let {
-            Log.d(TAG, "Message notification body: ${it.body}")
+            Log.d(TAG, "Notification body: ${it.body}")
             sendNotification(it.body ?: "Body")
         }
     }
@@ -41,13 +41,13 @@ class AllCarsInOneFirebaseService : FirebaseMessagingService() {
     private fun sendNotification(messageBody: String) {
         val intent = Intent(this, InitialPageActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        val pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
+        val pendingIntent = PendingIntent.getActivity(this, 0, intent,
             PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE)
 
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(this, "1")
             .setSmallIcon(R.mipmap.ic_launcher)
-            .setContentTitle("Notif")
+            .setContentTitle("Notification")
             .setContentText(messageBody)
             .setAutoCancel(true)
             .setSound(defaultSoundUri)
@@ -70,7 +70,7 @@ class AllCarsInOneFirebaseService : FirebaseMessagingService() {
         val deviceToken = hashMapOf(
             "token" to token,
         )
-        // Get user ID from Firebase Auth or your own server
+
         Firebase.firestore.collection("tokens").document("tokenid")
             .set(deviceToken)
     }

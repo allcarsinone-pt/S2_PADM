@@ -41,7 +41,7 @@ class ViewStandProfileActivity : AppCompatActivity(), OnMapReadyCallback, Google
         super.onCreate(savedInstanceState)
         setContentView(viewBinding.root)
 
-        getStandDetails(1)
+        getStandDetails(5)
 
     }
 
@@ -82,7 +82,7 @@ class ViewStandProfileActivity : AppCompatActivity(), OnMapReadyCallback, Google
 
         val standAPI = Globals.standAPI
 
-        val call = standAPI.getLocation(1)
+        val call = standAPI.getLocation(5)
 
         call.enqueue(object: Callback<Coordinates>{
             override fun onResponse(p0: Call<Coordinates>, p1: Response<Coordinates>) {

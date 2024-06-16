@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".AllCarsInOneApplication"
@@ -22,7 +24,8 @@
             android:exported="false" />
         <activity
             android:name=".activities.InitialPageActivity"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
         <activity
             android:name=".activities.EditStandProfileActivity"
             android:exported="false" />
@@ -32,6 +35,9 @@
         <activity
             android:name=".activities.LoginActivity"
             android:exported="true">
+
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,7 +55,8 @@
             android:exported="false" />
         <activity
             android:name=".activities.ViewStandProfileActivity"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
         <activity
             android:name=".activities.ViewVehicleActivity"
             android:exported="false" />
@@ -70,7 +77,8 @@
             android:exported="false" />
         <activity
             android:name=".activities.NotificationsActivity"
-            android:exported="false" />
+            android:exported="true">
+        </activity>
         <activity
             android:name=".activities.RecoverPasswordActivity"
             android:exported="false" />
@@ -84,6 +92,8 @@
             android:name=".activities.InsertEditVehicleActivity"
             android:exported="false"></activity>
 
+
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="${MAPS_API_KEY}"/>
         <service
             android:name=".AllCarsInOneFirebaseService"
             android:exported="false">
