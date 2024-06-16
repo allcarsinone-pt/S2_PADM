@@ -41,7 +41,8 @@ class ViewStandProfileActivity : AppCompatActivity(), OnMapReadyCallback, Google
         super.onCreate(savedInstanceState)
         setContentView(viewBinding.root)
 
-        getStandDetails(5)
+        val standId = intent.getIntExtra("standid", 0) as Int
+        getStandDetails(standId)
 
     }
 

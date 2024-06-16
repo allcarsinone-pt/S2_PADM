@@ -37,9 +37,8 @@ class InsertEditVehicleActivity : AppCompatActivity() {
         val view = viewBinding.root
         setContentView(view)
 
-        val standID = 1 // TODO: Obeter o standID
+        val standID = intent.getIntExtra("standid", 0) as Int
         val vehicleID = intent.getIntExtra("vehicleid", 0) as Int
-        //TODO: Testar id
 
         if(vehicleID > 0)
             viewBinding.btnInsertVehicle.text = getString(R.string.edit)

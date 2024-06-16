@@ -160,6 +160,7 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
 
     override fun onItemClick(vehicle: Vehicle) {
         val intent = Intent(this, ViewVehicleActivity::class.java)
+        intent.putExtra("standid", vehicle.standid.toInt())
         intent.putExtra("vehicleid", vehicle.id.toInt())
         startActivity(intent)
     }
