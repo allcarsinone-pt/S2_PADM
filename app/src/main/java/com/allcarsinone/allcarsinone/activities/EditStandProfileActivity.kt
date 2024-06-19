@@ -16,7 +16,7 @@ class EditStandProfileActivity : AppCompatActivity() {
         val view = viewBinding.root
         setContentView(view)
         viewBinding.EditStandProfileEditBtn.setOnClickListener {
-
+            finish()
         }
         viewBinding.EditStandProfileBackbuttonBtn.setOnClickListener {
             finish()

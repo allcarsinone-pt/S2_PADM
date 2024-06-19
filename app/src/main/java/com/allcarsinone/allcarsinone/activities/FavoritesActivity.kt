@@ -26,6 +26,11 @@ class FavoritesActivity : AppCompatActivity() {
         viewBinding.favoritesListFavoritesRl.layoutManager = LinearLayoutManager(this@FavoritesActivity).apply {
             this.orientation = LinearLayoutManager.VERTICAL
         }
+
+        viewBinding.favoritesBackbuttonBtn.setOnClickListener {
+            finish()
+        }
+
         val favorites = vehicleAPI.getUserFavorites(1)
         favorites.enqueue(object : Callback<List<FavoriteUserCar>> {
             override fun onResponse(
