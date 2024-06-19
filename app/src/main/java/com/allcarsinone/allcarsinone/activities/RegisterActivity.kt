@@ -41,7 +41,7 @@ class RegisterActivity : AppCompatActivity() {
         viewBinding.registerRoleSPIN.setAdapter(adapterRole)
 
         viewBinding.NotificationsBackbuttonBtn.setOnClickListener {
-            val intent = Intent(this, InitialPageActivity::class.java)
+            val intent = Intent(this@RegisterActivity, InitialPageActivity::class.java)
             startActivity(intent)
         }
 

@@ -49,6 +49,7 @@ class MenuFragment : Fragment() {
             finishFragment()
             AuthUtils.logoutUser(requireContext())
         }
+
         return view
     }
 
