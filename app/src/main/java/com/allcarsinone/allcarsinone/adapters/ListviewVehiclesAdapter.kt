@@ -10,6 +10,7 @@ import com.allcarsinone.allcarsinone.R
 import com.allcarsinone.allcarsinone.activities.ViewVehicleActivity
 import com.allcarsinone.allcarsinone.databinding.ListviewLayoutVehiclesBinding
 import com.allcarsinone.allcarsinone.models.Vehicle
+import com.bumptech.glide.Glide
 
 class ListviewVehiclesAdapter(
     private val list: ArrayList<Vehicle>,
@@ -26,6 +27,10 @@ class ListviewVehiclesAdapter(
             viewBinding.listviewVehiclesCarPriceTV.text = vehicle.price.toString()
             viewBinding.listviewVehiclesStandNameTV.text = "Ir buscar o nome"   // TODO: Ir buscar o nome
             viewBinding.listviewVehiclesLocationTV.text = "Barcelos"            // TODO: Ir buscar a localização
+            if(vehicle.photos.size > 0) {
+                val thumbnail = vehicle.photos[0].url.replace("src/static", "")
+                Glide.with(viewBinding.root).load("http://5.180.182.3:8080"+thumbnail).into(viewBinding.listviewVehiclesImageView)
+            }
 
             itemView.setOnClickListener {
                 listener.onItemClick(vehicle)

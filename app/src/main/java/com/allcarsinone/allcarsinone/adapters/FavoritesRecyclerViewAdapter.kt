@@ -28,7 +28,7 @@ class FavoritesRecyclerViewAdapter(var mList: MutableList<FavoriteUserCar>): Rec
             viewBinding.favoritesLayoutPriceTv.text = favorite.price.toString() + "€"
             viewBinding.favoritesLayoutVehicleNameTv.text = favorite.carname
             if(favorite.thumbnail != "")
-                Glide.with(viewBinding.root).load("http://pauloestevao.com:8080"+favorite.thumbnail).into(viewBinding.favorites1Iv)
+                Glide.with(viewBinding.root).load("http://5.180.182.3:8080"+favorite.thumbnail).into(viewBinding.favorites1Iv)
 
         }
     }

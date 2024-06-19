@@ -16,6 +16,7 @@ data class Vehicle (@SerializedName("standid") val standid: Number,
                     @SerializedName("brandname") val brandname: String,
                     @SerializedName("consume") val consume: Float,
                     @SerializedName("location") val location: String,
+                    @SerializedName("photos") val photos: List<Photo>,
                     @SerializedName("id") val id: Number) {
-    constructor(vehiclesModel: VehiclesModel):this(1,1,1, vehiclesModel.model, vehiclesModel.year, vehiclesModel.mileage.toFloat(), vehiclesModel.price.toFloat(), vehiclesModel.availability, vehiclesModel.description, "","", vehiclesModel.consume.toFloat(), vehiclesModel.location, vehiclesModel.id)
+    constructor(vehiclesModel: VehiclesModel):this(1,1,1, vehiclesModel.model, vehiclesModel.year, vehiclesModel.mileage.toFloat(), vehiclesModel.price.toFloat(), vehiclesModel.availability, vehiclesModel.description, "","", vehiclesModel.consume.toFloat(), vehiclesModel.location, mutableListOf() ,vehiclesModel.id)
 }
