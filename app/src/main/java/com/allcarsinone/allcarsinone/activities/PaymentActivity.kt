@@ -1,7 +1,10 @@
 package com.allcarsinone.allcarsinone.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Spinner
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -22,5 +25,11 @@ class PaymentActivity : AppCompatActivity() {
         val itemsYear = arrayOf("2024", "2025", "2026", "2027")
         val adapterYear = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, itemsYear )
         spinnerYear.setAdapter(adapterYear)
+
+        val backButton = findViewById<ImageButton>(R.id.Notifications_backbutton_btn)
+        backButton.setOnClickListener {
+            val intent = Intent(this@PaymentActivity, InitialPageActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
