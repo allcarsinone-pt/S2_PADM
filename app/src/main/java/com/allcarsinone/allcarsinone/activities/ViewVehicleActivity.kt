@@ -36,6 +36,10 @@ class ViewVehicleActivity : AppCompatActivity() {
         standID = intent.getIntExtra("standid", 0) as Int
         vehicleID = intent.getIntExtra("vehicleid", 0) as Int
         getVehicle(vehicleID)
+        viewBinding.viewVehicleLikeIcon.setOnClickListener {
+            val intent = Intent(this, FavoritesActivity::class.java)
+            startActivity(intent)
+        }
         viewBinding.ViewVehicleBuyBTN.setOnClickListener {
             val intent = Intent(this, PaymentActivity::class.java)
             intent.putExtra("vehicleid", vehicleID)

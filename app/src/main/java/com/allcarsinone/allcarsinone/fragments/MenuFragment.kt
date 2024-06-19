@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.allcarsinone.allcarsinone.AuthUtils
 import com.allcarsinone.allcarsinone.activities.EditProfileActivity
+import com.allcarsinone.allcarsinone.activities.FavoritesActivity
 import com.allcarsinone.allcarsinone.activities.InsertEditVehicleActivity
 import com.allcarsinone.allcarsinone.activities.LoginActivity
 import com.allcarsinone.allcarsinone.activities.NotificationsViewActivity
@@ -45,6 +46,13 @@ class MenuFragment : Fragment() {
             val intent = Intent(context, NotificationsViewActivity::class.java)
             startActivity(intent)
         }
+
+        viewBinding?.fragmentMenuFavoritesBTN?.setOnClickListener {
+            finishFragment()
+            val intent = Intent(context, FavoritesActivity::class.java)
+            startActivity(intent)
+        }
+
         viewBinding?.fragmentMenuLogoutBTN?.setOnClickListener {
             finishFragment()
             AuthUtils.logoutUser(requireContext())
