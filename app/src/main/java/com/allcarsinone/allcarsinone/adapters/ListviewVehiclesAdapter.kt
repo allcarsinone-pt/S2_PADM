@@ -25,8 +25,8 @@ class ListviewVehiclesAdapter(
         fun bindData(vehicle: Vehicle) {
             viewBinding.listviewVehiclesCarBrandTV.text = "${vehicle.brandname} - ${vehicle.model}"
             viewBinding.listviewVehiclesCarPriceTV.text = vehicle.price.toString()
-            viewBinding.listviewVehiclesStandNameTV.text = "Ir buscar o nome"   // TODO: Ir buscar o nome
-            viewBinding.listviewVehiclesLocationTV.text = "Barcelos"            // TODO: Ir buscar a localização
+            viewBinding.listviewVehiclesStandNameTV.text = "Stand ACIO"   // TODO: Ir buscar o nome
+            viewBinding.listviewVehiclesLocationTV.text = vehicle.location            // TODO: Ir buscar a localização
             if(vehicle.photos.size > 0) {
                 val thumbnail = vehicle.photos[0].url.replace("src/static", "")
                 Glide.with(viewBinding.root).load("http://5.180.182.3:8080"+thumbnail).into(viewBinding.listviewVehiclesImageView)

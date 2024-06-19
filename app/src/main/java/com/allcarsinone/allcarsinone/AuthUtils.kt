@@ -1,5 +1,6 @@
 package com.allcarsinone.allcarsinone
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -19,9 +20,8 @@ class AuthUtils {
         }
         fun logoutUser(context: Context) {
             setUserPreferences(context, "", "", 0)
-            val intent = Intent(context, LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            context.startActivity(intent)
+            val activity = context as Activity
+            activity.finish()
         }
         fun loginUser(context: Context, username: String, role: Int) {
             val sharedPreferences = DataUtils.getSharedPreferences(context)

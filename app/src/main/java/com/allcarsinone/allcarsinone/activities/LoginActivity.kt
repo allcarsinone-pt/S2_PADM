@@ -29,6 +29,9 @@ class LoginActivity : AppCompatActivity() {
             viewBinding.etEmail.setText(it.data!!.getStringExtra("email"))
         }
     }
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityLoginBinding.inflate(layoutInflater)
@@ -36,10 +39,17 @@ class LoginActivity : AppCompatActivity() {
         setContentView(view)
 
         // TODO: Para ativar o código abaixo é necessário validar o token antes
-        //val sharedPrefences = DataUtils.getSharedPreferences(this)
-        //val token = sharedPrefences.getString("token", "")
-        //if(token != "")
-        //    openInitialPage()
+
+        val sharedPrefences = DataUtils.getSharedPreferences(this)
+        val token = sharedPrefences.getString("token", "")
+        if(token == "") {
+            openInitialPage("Guest", 3)
+        }
+        val validationResult = AuthUtils.validateToken(this,token)
+        if(validationResult.success) {
+            openInitialPage(validationResult.username, validationResult.roleid)
+        }
+
 
         viewBinding.loginCreateAccountTv.setOnClickListener {
             openRegisterForm()
@@ -94,7 +104,6 @@ class LoginActivity : AppCompatActivity() {
 
         intent.putExtra("username", username)
         startActivity(intent)
-        finish()
     }
     fun openRegisterForm() {
         val intent = Intent(this, RegisterActivity::class.java)

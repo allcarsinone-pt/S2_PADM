@@ -16,6 +16,7 @@ import com.allcarsinone.allcarsinone.databinding.ActivityRegisterBinding
 import com.allcarsinone.allcarsinone.databinding.ActivityViewVehicleBinding
 import com.allcarsinone.allcarsinone.models.User
 import com.allcarsinone.allcarsinone.models.Vehicle
+import com.bumptech.glide.Glide
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -44,9 +45,9 @@ class ViewVehicleActivity : AppCompatActivity() {
             val sharedPrefs = DataUtils.getSharedPreferences(context = this)
             val token = sharedPrefs.getString("token", "")
             val validationResult = AuthUtils.validateToken(this, token)
-            var intent: Intent
-                if(validationResult.success) {
-                intent = Intent(this, PaymentActivity::class.java)
+            lateinit var intent: Intent
+            if(validationResult.success) {
+                val intent = Intent(this, PaymentActivity::class.java)
                 intent.putExtra("vehicleid", vehicleID)
             }
             else {
@@ -98,6 +99,10 @@ class ViewVehicleActivity : AppCompatActivity() {
         viewBinding.ViewVehicleIconSitTextTV.setText(vehicle.consume.toInt().toString() + " l/100km")
         viewBinding.initPageCarBrandTV.setText(vehicle.brandname + ' ' + vehicle.model)
         viewBinding.initPageLocationTV.setText(vehicle.location)
+
+        val thumbnail = vehicle.photos[0].url.replace("src/static", "")
+        Glide.with(viewBinding.root).load("http://5.180.182.3:8080"+thumbnail).into(viewBinding.ViewVehicleroundedImageView)
+
 
         vehicleID = vehicle.id.toInt()
     }
