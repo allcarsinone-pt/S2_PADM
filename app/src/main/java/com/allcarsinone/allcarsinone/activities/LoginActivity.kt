@@ -47,6 +47,10 @@ class LoginActivity : AppCompatActivity() {
         viewBinding.btnLogin.setOnClickListener {
             login()
         }
+        viewBinding.txtForgotpassword.setOnClickListener {
+            val intent = Intent(this, RecoverPasswordActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun checkAuthCallback(token: String?, errCode: Int){
