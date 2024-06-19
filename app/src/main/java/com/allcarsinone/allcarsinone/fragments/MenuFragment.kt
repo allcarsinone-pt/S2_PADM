@@ -11,6 +11,7 @@ import com.allcarsinone.allcarsinone.AuthUtils
 import com.allcarsinone.allcarsinone.activities.EditProfileActivity
 import com.allcarsinone.allcarsinone.activities.InsertEditVehicleActivity
 import com.allcarsinone.allcarsinone.activities.LoginActivity
+import com.allcarsinone.allcarsinone.activities.NotificationsViewActivity
 import com.allcarsinone.allcarsinone.databinding.FragmentMenuBinding
 
 
@@ -36,6 +37,12 @@ class MenuFragment : Fragment() {
         viewBinding?.fragmentMenuEditProfileBTN?.setOnClickListener {
             finishFragment()
             val intent = Intent(context, EditProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        viewBinding?.fragmentMenuNotificationsBTN?.setOnClickListener {
+            finishFragment()
+            val intent = Intent(context, NotificationsViewActivity::class.java)
             startActivity(intent)
         }
         viewBinding?.fragmentMenuLogoutBTN?.setOnClickListener {
