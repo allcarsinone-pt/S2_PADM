@@ -129,6 +129,7 @@
                         android:orientation="horizontal"
                         app:layout_constraintBottom_toBottomOf="parent">
                         <LinearLayout
+                            android:id="@+id/InitialPageStandStatsSold_LAY"
                             android:layout_width="@dimen/_100sp"
                             android:layout_height="@dimen/_100sp"
                             android:background="@drawable/sales1"
