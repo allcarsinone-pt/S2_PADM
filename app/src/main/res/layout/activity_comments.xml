@@ -6,10 +6,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CommentsActivity">
+
+    <RelativeLayout
+        android:id="@+id/comments_toolbar_rl"
+        android:paddingTop="@dimen/_30sp"
+        android:paddingHorizontal="@dimen/_30sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" >
+        <ImageButton
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/backbutton"
+            android:id="@+id/Notifications_backbutton_btn"
+            android:background="@drawable/circle_button"
+            android:onClick="backButton"
+            android:layout_marginTop="20dp" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/logo_cropped" />
+    </RelativeLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewComments"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/comments_toolbar_rl"
         tools:listitem="@layout/listview_layout_comments">
     </androidx.recyclerview.widget.RecyclerView>
 </androidx.constraintlayout.widget.ConstraintLayout>
