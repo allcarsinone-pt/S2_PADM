@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.allcarsinone.allcarsinone.AllCarsInOneApplication
 import com.allcarsinone.allcarsinone.fragments.MenuFragment
 import com.allcarsinone.allcarsinone.AuthUtils
+import com.allcarsinone.allcarsinone.CommentsActivity
 import com.allcarsinone.allcarsinone.DataUtils
 import com.allcarsinone.allcarsinone.Globals
 import com.allcarsinone.allcarsinone.NetworkUtils
@@ -92,12 +93,12 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
             startActivity(intent)
         }
         
-        /*
+
         viewBinding.initPageFooterMoreImg.setOnClickListener {
-            val intent = Intent(this, commentsActivity::class.java)
+            val intent = Intent(this, CommentsActivity::class.java)
             startActivity(intent)
         }
-        */
+
 
     }
 

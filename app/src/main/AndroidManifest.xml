@@ -46,6 +46,10 @@
 
 
         </activity>
+
+        <activity
+            android:name=".CommentsActivity"
+            android:exported="false"></activity>
         <activity
             android:name=".activities.StandStatisticsActivity"
             android:exported="false" />
