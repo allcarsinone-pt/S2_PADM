@@ -17,6 +17,20 @@
             android:text="Edit Profile"
             android:textSize="18sp" />
 
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sp">
+        </com.google.android.material.divider.MaterialDivider>
+        <TextView
+            android:id="@+id/fragmentMenuNotificationsBTN"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical|start"
+            android:textAlignment="viewStart"
+            android:text="Notifications"
+            android:textSize="18sp" />
+
         <com.google.android.material.divider.MaterialDivider
             android:layout_width="match_parent"
             android:layout_height="@dimen/_1sp">
@@ -29,7 +43,6 @@
             android:textAlignment="viewStart"
             android:text="Logout"
             android:textSize="18sp" />
-
     </LinearLayout>
 
 </LinearLayout>
