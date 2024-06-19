@@ -180,13 +180,13 @@
         android:orientation="horizontal"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent">
+
         <ImageView
             android:id="@+id/initPageFooter_home_Img"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/home"
-            android:layout_weight="1">
-        </ImageView>
+            android:layout_weight="1"
+            android:src="@drawable/home"></ImageView>
         <ImageView
             android:id="@+id/initPageFooter_heart_Img"
             android:layout_width="match_parent"

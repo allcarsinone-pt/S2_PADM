@@ -83,6 +83,22 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
         viewBinding.menuInicial.setOnClickListener {
             toggleFragment()
         }
+        viewBinding.initPageFooterHeartImg.setOnClickListener {
+            val intent = Intent(this, FavoritesActivity::class.java)
+            startActivity(intent)
+        }
+        viewBinding.initPageFooterLocationImg.setOnClickListener {
+            val intent = Intent(this, ViewStandLocationActivity::class.java)
+            startActivity(intent)
+        }
+        
+        /*
+        viewBinding.initPageFooterMoreImg.setOnClickListener {
+            val intent = Intent(this, commentsActivity::class.java)
+            startActivity(intent)
+        }
+        */
+
     }
 
     override fun onStart() {
@@ -140,9 +156,9 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
             val db = VehiclesDatabase(this)
             lifecycleScope.launch {
 
-                //withContext(Dispatchers.IO) {
-                //    db.vehiclesDao().insert(*v.map { VehiclesModel(it) }.toTypedArray())
-                //}
+                withContext(Dispatchers.IO) {
+                    db.vehiclesDao().insert(*v.map { VehiclesModel(it) }.toTypedArray())
+                }
 
                 withContext(Dispatchers.Main) {
                     val list = ArrayList(v)
@@ -150,7 +166,6 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
                     listener?.onVehiclesFetched(list)
                 }
             }
-
         }
     }
 
