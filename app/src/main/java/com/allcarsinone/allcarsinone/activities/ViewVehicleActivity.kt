@@ -41,8 +41,19 @@ class ViewVehicleActivity : AppCompatActivity() {
             startActivity(intent)
         }
         viewBinding.ViewVehicleBuyBTN.setOnClickListener {
-            val intent = Intent(this, PaymentActivity::class.java)
-            intent.putExtra("vehicleid", vehicleID)
+            val sharedPrefs = DataUtils.getSharedPreferences(context = this)
+            val token = sharedPrefs.getString("token", "")
+            val validationResult = AuthUtils.validateToken(this, token)
+            var intent: Intent
+                if(validationResult.success) {
+                intent = Intent(this, PaymentActivity::class.java)
+                intent.putExtra("vehicleid", vehicleID)
+            }
+            else {
+                AuthUtils.logoutUser(this)
+                finish()
+                intent = Intent(this, LoginActivity::class.java)
+            }
             startActivity(intent)
         }
         viewBinding.testDriveTv.setOnClickListener {

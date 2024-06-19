@@ -3,6 +3,7 @@ package com.allcarsinone.allcarsinone.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
@@ -73,14 +74,19 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
         val token = sharedPrefs.getString("token", "")
         val validationResult = AuthUtils.validateToken(this, token)
 
+        viewBinding.ivProfilePhotoDefault.visibility = View.VISIBLE
+        viewBinding.ivProfilePhotoUser.visibility = View.GONE
+
         if(validationResult.success) {
             val loginUser = viewBinding.initPageNameTV
             loginUser.text = validationResult.username
+            viewBinding.ivProfilePhotoDefault.visibility = View.GONE
+            viewBinding.ivProfilePhotoUser.visibility = View.VISIBLE
         }
-        else {
-            AuthUtils.logoutUser(this)
-            finish()
-        }
+        //else {
+        //    AuthUtils.logoutUser(this)
+        //    finish()
+        //}
         viewBinding.menuInicial.setOnClickListener {
             toggleFragment()
         }

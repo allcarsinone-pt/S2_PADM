@@ -38,10 +38,16 @@
                         android:layout_height="60dp"
                         app:cardCornerRadius="360dp">
                         <ImageView
-                            android:id="@+id/userImage"
+                            android:id="@+id/iv_ProfilePhotoDefault"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:src="@mipmap/ic_launcher_foreground" />
+
+                        <ImageView
+                            android:id="@+id/iv_ProfilePhotoUser"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/default_profile"/>
 
                     </com.google.android.material.card.MaterialCardView>
                     <ImageView

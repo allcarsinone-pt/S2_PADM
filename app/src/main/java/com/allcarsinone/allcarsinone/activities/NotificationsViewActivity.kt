@@ -15,15 +15,23 @@ import com.allcarsinone.allcarsinone.R
 import com.allcarsinone.allcarsinone.adapters.ListViewAdapter
 import com.allcarsinone.allcarsinone.Notifications
 import com.allcarsinone.allcarsinone.adapters.ListItem
+import com.allcarsinone.allcarsinone.databinding.ActivityNotificationsViewBinding
+import com.allcarsinone.allcarsinone.databinding.ActivityViewVehicleBinding
 import java.util.Date
 
 class NotificationsViewActivity : AppCompatActivity() {
+    private lateinit var viewBinding: ActivityNotificationsViewBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_notifications_view)
+        viewBinding = ActivityNotificationsViewBinding.inflate(layoutInflater)
+        val view = viewBinding.root
+        setContentView(view)
 
         runNotifList()
+
+        viewBinding.NotificationsBackbuttonBtn.setOnClickListener {
+            finish()
+        }
     }
 
     private fun runNotifList() {
