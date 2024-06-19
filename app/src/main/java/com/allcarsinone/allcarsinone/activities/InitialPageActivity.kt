@@ -92,14 +92,10 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
             val intent = Intent(this, ViewStandLocationActivity::class.java)
             startActivity(intent)
         }
-        
-
         viewBinding.initPageFooterMoreImg.setOnClickListener {
             val intent = Intent(this, CommentsActivity::class.java)
             startActivity(intent)
         }
-
-
     }
 
     override fun onStart() {
