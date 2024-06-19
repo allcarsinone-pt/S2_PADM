@@ -1,5 +1,6 @@
 package com.allcarsinone.allcarsinone.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,9 @@ import com.allcarsinone.allcarsinone.R
 import android.graphics.Color
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import com.allcarsinone.allcarsinone.databinding.ActivityEditVehicleBinding
+import com.allcarsinone.allcarsinone.databinding.ActivityInitialPageStandBinding
+import com.allcarsinone.allcarsinone.databinding.ActivityStandStatisticsBinding
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
@@ -28,10 +32,15 @@ class StandStatisticsActivity : AppCompatActivity() {
     private lateinit var pieData: PieData
     private lateinit var pieDataSet: PieDataSet
     private lateinit var pieEntriesList: ArrayList<PieEntry>
+
+    private lateinit var viewBinding: ActivityStandStatisticsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_stand_statistics)
+
+        viewBinding = ActivityStandStatisticsBinding.inflate(layoutInflater)
+        val view = viewBinding.root
+        setContentView(view)
 
         val spinnerTop = findViewById<Spinner>(R.id.StandsStatisticsTop_Spinner_SP)
         val spinnerBot = findViewById<Spinner>(R.id.StandsStatisticsBottom_Spinner_SP)
@@ -42,6 +51,10 @@ class StandStatisticsActivity : AppCompatActivity() {
 
         loadBarChart()
         loadPieChart()
+
+        viewBinding.NotificationsBackbuttonBtn.setOnClickListener {
+            finish()
+        }
     }
     private fun loadPieChart(){
         pieChart = findViewById(R.id.StandStatisticsPieChart)

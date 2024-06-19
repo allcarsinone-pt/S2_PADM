@@ -140,9 +140,9 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
             val db = VehiclesDatabase(this)
             lifecycleScope.launch {
 
-                withContext(Dispatchers.IO) {
-                    db.vehiclesDao().insert(*v.map { VehiclesModel(it) }.toTypedArray())
-                }
+                //withContext(Dispatchers.IO) {
+                //    db.vehiclesDao().insert(*v.map { VehiclesModel(it) }.toTypedArray())
+                //}
 
                 withContext(Dispatchers.Main) {
                     val list = ArrayList(v)

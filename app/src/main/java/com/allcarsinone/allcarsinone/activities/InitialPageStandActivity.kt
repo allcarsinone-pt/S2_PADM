@@ -50,6 +50,11 @@ class InitialPageStandActivity : AppCompatActivity(), ListViewVehiclesStandAdapt
             toggleFragment()
         }
 
+        viewBinding.InitialPageStandStatsSoldLAY.setOnClickListener {
+            val intent = Intent(this, StandStatisticsActivity::class.java)
+            startActivity(intent)
+        }
+
         // Initialize RecyclerView
         val recyclerView = viewBinding.VehiclesListStandViewRecycleView
         recyclerView.layoutManager = LinearLayoutManager(this)
