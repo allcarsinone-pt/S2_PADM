@@ -44,6 +44,10 @@ class ViewStandProfileActivity : AppCompatActivity(), OnMapReadyCallback, Google
         val standId = intent.getIntExtra("standid", 0) as Int
         getStandDetails(standId)
 
+        viewBinding.viewStandProfileBackbuttonBtn.setOnClickListener {
+            finish()
+        }
+
     }
 
     fun getStandDetails(standid: Int) {
