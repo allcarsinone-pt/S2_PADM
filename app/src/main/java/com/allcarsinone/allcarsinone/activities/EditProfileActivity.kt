@@ -22,6 +22,7 @@ class EditProfileActivity : AppCompatActivity() {
 
     private lateinit var viewBinding : ActivityEditProfileBinding
     private val usersAPI by lazy { Globals.userAPI }
+    var roleid:Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityEditProfileBinding.inflate(layoutInflater)
@@ -35,8 +36,17 @@ class EditProfileActivity : AppCompatActivity() {
         viewBinding.editprofileEditBtn.setOnClickListener {
             validateDataFields()
         }
-
-        val call = usersAPI.getUser("admin")
+        val username = intent?.getStringExtra("username")
+        roleid = intent?.getIntExtra("roleid", 0)!!
+        if(roleid == 0) {
+            finish()
+            return
+        }
+        if(username.isNullOrEmpty()) {
+            finish()
+            return
+        }
+        val call = usersAPI.getUser(username)
 
         call.enqueue(object: Callback<User> {
             override fun onResponse(p0: Call<User>, p1: Response<User>) {
@@ -44,6 +54,8 @@ class EditProfileActivity : AppCompatActivity() {
                     viewBinding.editprofileUsernameEt.setText(p1.body()!!.username)
                     viewBinding.editprofileNameEt.setText(p1.body()!!.name)
                     viewBinding.editprofileEmailEt.setText(p1.body()!!.email)
+                    viewBinding.editprofileAddressEt.setText(p1.body()!!.address)
+                    viewBinding.editprofileMobilephoneEt.setText(p1.body()!!.mobilephone)
                 }
                 else {
                     when(p1.code()) {
@@ -96,11 +108,11 @@ class EditProfileActivity : AppCompatActivity() {
         val email = viewBinding.editprofileEmailEt.text.toString()
         var mobilephone : String? = viewBinding.editprofileMobilephoneEt.text.toString()
         var address : String? = viewBinding.editprofileAddressEt.text.toString()
-
+        val roleid =
         try {
             mobilephone = if(mobilephone!!.length > 8) mobilephone else null
             address = if(address!!.length > 3) address else null
-            val user = EditUserDto(username, name, email, mobilephone, address, "")
+            val user = EditUserDto(username, name, email, mobilephone, address,"", roleid)
             editUser(user)
         } catch (ex:Exception) {
             Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()

@@ -95,10 +95,14 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
             startActivity(intent)
         }
 
-        viewBinding.initPageFooterMoreImg.setOnClickListener {
-            val intent = Intent(this, CommentsActivity::class.java)
+        viewBinding.ivProfilePhoto.setOnClickListener {
+            val intent = Intent(this, EditProfileActivity::class.java)
+            intent.putExtra("username", validationResult.username)
+            intent.putExtra("roleid", validationResult.roleid)
             startActivity(intent)
         }
+
+
     }
 
     override fun onStart() {

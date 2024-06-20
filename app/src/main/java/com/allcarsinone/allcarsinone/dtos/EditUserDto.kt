@@ -10,8 +10,9 @@ data class EditUserDto (@SerializedName("username") val username: String,
                         @SerializedName("email") val email: String,
                         @SerializedName("mobilephone") val mobilephone: String?,
                         @SerializedName("address") val address: String?,
-                        @SerializedName("photo") val photo: String?
-)
+                        @SerializedName("photo") val photo: String?,
+                        @SerializedName("role_id") val roleid: Int)
+
 {
 
     init {
