@@ -28,6 +28,8 @@ class NotificationsActivity : AppCompatActivity() {
         setContentView(view)
 
 
+
+
         notifLoadPreferences()
 
         viewBinding.NotificationsBackbuttonBtn.setOnClickListener {
@@ -72,6 +74,6 @@ class NotificationsActivity : AppCompatActivity() {
           //  .putString("acioPreferences", prefs.toJSONString())
             //.apply()
 
-        //Toast.makeText(baseContext, "Preferences successfully saved", Toast.LENGTH_SHORT).show()
+        Toast.makeText(baseContext, "Preferences successfully saved", Toast.LENGTH_SHORT).show()
     }
 }

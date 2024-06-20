@@ -115,6 +115,19 @@ tools:context=".activities.NotificationsActivity">
                         android:track="@drawable/switch_track"
                         android:paddingVertical="@dimen/_20sp"
                         android:text="@string/share_favorites_with_the_stand" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/Notifications_update_btn"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:paddingBottom="@dimen/_18pxv"
+                        android:paddingEnd="@dimen/_30pxh"
+                        android:paddingStart="@dimen/_30pxh"
+                        android:paddingTop="@dimen/_18pxv"
+                        android:layout_marginVertical="60dp"
+                        android:singleLine="true"
+                        style="@style/btnSolidRounded"
+                        android:onClick="notifSavePreferences"
+                        android:text="@string/update"/>
                 </LinearLayout>
             </RelativeLayout>
         </ScrollView>
