@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.allcarsinone.allcarsinone.R
 import com.allcarsinone.allcarsinone.databinding.ActivityViewVehicleStandBinding
 import com.allcarsinone.allcarsinone.models.Vehicle
+import com.bumptech.glide.Glide
 
 class ListViewVehiclesStandAdapter(
     private val list: ArrayList<Vehicle>,
@@ -21,7 +22,11 @@ class ListViewVehiclesStandAdapter(
         fun bindData(vehicle: Vehicle) {
             viewBinding.listviewVehiclesStandCarBrandTV.text = "${vehicle.brandname} - ${vehicle.model}"
             viewBinding.listviewVehiclesStandCarPriceTV.text = "€ " + String.format("%.2f", vehicle.price)
-            viewBinding.listviewVehiclesStandStandNameTV.text = "Ir buscar o nome"   // TODO: Ir buscar o nome
+            viewBinding.listviewVehiclesStandStandNameTV.text = "Stand Acio"   // TODO: Ir buscar o nome
+            if(vehicle.photos.size > 0) {
+                val thumbnail = vehicle.photos[0].url.replace("src/static", "")
+                Glide.with(viewBinding.root).load("http://5.180.182.3:8080"+thumbnail).into(viewBinding.listviewVehiclesStandImageView)
+            }
 
             itemView.setOnClickListener {
                 listener.onItemClick(vehicle)
