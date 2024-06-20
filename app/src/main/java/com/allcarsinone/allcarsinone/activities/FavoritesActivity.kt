@@ -6,6 +6,8 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.allcarsinone.allcarsinone.AuthUtils
+import com.allcarsinone.allcarsinone.DataUtils
 import com.allcarsinone.allcarsinone.Globals
 import com.allcarsinone.allcarsinone.R
 import com.allcarsinone.allcarsinone.adapters.FavoritesRecyclerViewAdapter
@@ -22,6 +24,16 @@ class FavoritesActivity : AppCompatActivity() {
         setContentView(viewBinding.root)
 
         val vehicleAPI = Globals.vehicleAPI
+        val token = DataUtils.getSharedPreferences(this).getString("token", null)
+        if(token.isNullOrEmpty()) {
+           finish()
+        }
+
+        val validationResult = AuthUtils.validateToken(this,token)
+        var userid: Int = 0
+        if(validationResult.success) {
+            userid = validationResult.userid
+        }
 
         viewBinding.favoritesListFavoritesRl.layoutManager = LinearLayoutManager(this@FavoritesActivity).apply {
             this.orientation = LinearLayoutManager.VERTICAL
@@ -31,7 +43,7 @@ class FavoritesActivity : AppCompatActivity() {
             finish()
         }
 
-        val favorites = vehicleAPI.getUserFavorites(1)
+        val favorites = vehicleAPI.getUserFavorites(userid)
         favorites.enqueue(object : Callback<List<FavoriteUserCar>> {
             override fun onResponse(
                 p0: Call<List<FavoriteUserCar>>,

@@ -17,6 +17,7 @@ class AuthUtils {
             sharedPreferences.edit().putString("token", token!!).apply()
             sharedPreferences.edit().putString("username", username).apply()
             sharedPreferences.edit().putInt("role",roleid).apply()
+
         }
         fun logoutUser(context: Context) {
             setUserPreferences(context, "", "", 0)
@@ -45,15 +46,16 @@ class AuthUtils {
                 isExpired = jwt.isExpired(0)
                 val username = jwt.getClaim("username").asString()!!
                 val roleid = jwt.getClaim("role_id").asInt()!!
+                val userid = jwt.getClaim("id").asInt()!!
                 setUserPreferences(context, token ,username, roleid)
-                return UserPayload((username.isNotEmpty() && roleid > 0), username, roleid)
+                return UserPayload((username.isNotEmpty() && roleid > 0), userid ,username, roleid)
             }
             catch(ex: Exception) {
 
                 if(!token.isNullOrEmpty() || isExpired) {
                     logoutUser(context)
                 }
-                return UserPayload(false, "", 0)
+                return UserPayload(false, 0,"", 0)
             }
 
         }
