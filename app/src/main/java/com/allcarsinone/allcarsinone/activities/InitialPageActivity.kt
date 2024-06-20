@@ -94,10 +94,7 @@ class InitialPageActivity : AppCompatActivity(), ListviewVehiclesAdapter.OnItemC
             val intent = Intent(this, FavoritesActivity::class.java)
             startActivity(intent)
         }
-        viewBinding.initPageFooterLocationImg.setOnClickListener {
-            val intent = Intent(this, ViewStandLocationActivity::class.java)
-            startActivity(intent)
-        }
+
         viewBinding.initPageFooterMoreImg.setOnClickListener {
             val intent = Intent(this, CommentsActivity::class.java)
             startActivity(intent)

@@ -15,6 +15,8 @@ import com.allcarsinone.allcarsinone.Globals
 import com.allcarsinone.allcarsinone.R
 import com.allcarsinone.allcarsinone.databinding.ActivityRegisterBinding
 import com.allcarsinone.allcarsinone.databinding.ActivityViewVehicleBinding
+import com.allcarsinone.allcarsinone.dtos.AddFavoriteDto
+import com.allcarsinone.allcarsinone.models.Message
 import com.allcarsinone.allcarsinone.models.User
 import com.allcarsinone.allcarsinone.models.Vehicle
 import com.bumptech.glide.Glide
@@ -34,18 +36,38 @@ class ViewVehicleActivity : AppCompatActivity() {
         viewBinding = ActivityViewVehicleBinding.inflate(layoutInflater)
         val view = viewBinding.root
         setContentView(view)
+        val sharedPrefs = DataUtils.getSharedPreferences(context = this)
+        val token = sharedPrefs.getString("token", "")
+        val validationResult = AuthUtils.validateToken(this, token)
 
         standID = intent.getIntExtra("standid", 0) as Int
         vehicleID = intent.getIntExtra("vehicleid", 0) as Int
         getVehicle(vehicleID)
         viewBinding.viewVehicleLikeIcon.setOnClickListener {
-            val intent = Intent(this, FavoritesActivity::class.java)
-            startActivity(intent)
+            if(validationResult.success) {
+                val vehicleAPI = Globals.vehicleAPI
+                val call = vehicleAPI.addFavorite(AddFavoriteDto(vehicleID, validationResult.userid))
+                call.enqueue(object: Callback<Message>{
+                    override fun onResponse(p0: Call<Message>, p1: Response<Message>) {
+                        when(p1.code()) {
+                            201 -> {
+                                Toast.makeText(this@ViewVehicleActivity, p1.message(), Toast.LENGTH_LONG).show()
+                                viewBinding.viewVehicleLikeIcon.setBackgroundResource(R.drawable.likebutton_liked)
+                            }
+                            500 -> {
+                                Toast.makeText(this@ViewVehicleActivity, "Vehicle already in favorites", Toast.LENGTH_LONG).show()
+                            }
+                        }
+                    }
+
+                    override fun onFailure(p0: Call<Message>, p1: Throwable) {
+                        Toast.makeText(this@ViewVehicleActivity, "Could not add to favorites", Toast.LENGTH_LONG).show()
+                    }
+                })
+            }
         }
         viewBinding.ViewVehicleBuyBTN.setOnClickListener {
-            val sharedPrefs = DataUtils.getSharedPreferences(context = this)
-            val token = sharedPrefs.getString("token", "")
-            val validationResult = AuthUtils.validateToken(this, token)
+
             lateinit var intent: Intent
             if(validationResult.success) {
                 intent = Intent(this, PaymentActivity::class.java)
@@ -82,9 +104,7 @@ class ViewVehicleActivity : AppCompatActivity() {
             intent.putExtra("standid", standID)
             startActivity(intent)
         }
-        val sharedPrefs = DataUtils.getSharedPreferences(context = this)
-        val token = sharedPrefs.getString("token", "")
-        val validationResult = AuthUtils.validateToken(this, token)
+
 
         if(validationResult.success) {
             if (validationResult.roleid !== 2) {

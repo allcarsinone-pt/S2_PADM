@@ -182,7 +182,7 @@
         android:layout_height="@dimen/_60sp"
         android:paddingHorizontal="@dimen/_35sp"
         android:background="@color/white"
-        android:weightSum="4"
+        android:weightSum="3"
         android:orientation="horizontal"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent">
@@ -200,13 +200,7 @@
             android:src="@drawable/heart"
             android:layout_weight="1">
         </ImageView>
-        <ImageView
-            android:id="@+id/initPageFooter_location_Img"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/location"
-            android:layout_weight="1">
-        </ImageView>
+
         <ImageView
             android:id="@+id/initPageFooter_more_Img"
             android:layout_width="match_parent"

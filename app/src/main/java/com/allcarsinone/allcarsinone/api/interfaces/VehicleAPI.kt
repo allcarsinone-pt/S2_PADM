@@ -2,6 +2,7 @@ package com.allcarsinone.allcarsinone.api.interfaces
 import com.allcarsinone.allcarsinone.dtos.AddFavoriteDto
 import com.allcarsinone.allcarsinone.dtos.InsertEditVehicleDto
 import com.allcarsinone.allcarsinone.models.FavoriteUserCar
+import com.allcarsinone.allcarsinone.models.Message
 import com.allcarsinone.allcarsinone.models.Vehicle
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -37,7 +38,7 @@ interface VehicleAPI {
     fun edit(@Path("vehicleid") vehicleid: Int, @Body editVehicleDto: InsertEditVehicleDto): Call<Vehicle>
 
     @POST("proxy-vehicles/vehicles/user/favorites")
-    fun addFavorite(@Body favoriteDto: AddFavoriteDto): Call<Unit>
+    fun addFavorite(@Body favoriteDto: AddFavoriteDto): Call<Message>
 
     @GET ("proxy-vehicles/vehicles/user/favorites/{userid}")
     fun getUserFavorites(@Path("userid") userid:Int):Call<List<FavoriteUserCar>>
