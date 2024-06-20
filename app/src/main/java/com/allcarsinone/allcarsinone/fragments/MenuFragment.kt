@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.allcarsinone.allcarsinone.AuthUtils
 import com.allcarsinone.allcarsinone.activities.EditProfileActivity
+import com.allcarsinone.allcarsinone.activities.EditStandProfileActivity
 import com.allcarsinone.allcarsinone.activities.FavoritesActivity
 import com.allcarsinone.allcarsinone.activities.InsertEditVehicleActivity
 import com.allcarsinone.allcarsinone.activities.LoginActivity
@@ -38,7 +39,7 @@ class MenuFragment : Fragment() {
         val view = viewBinding?.root
         viewBinding?.fragmentMenuEditProfileBTN?.setOnClickListener {
             finishFragment()
-            val intent = Intent(context, EditProfileActivity::class.java)
+            val intent = Intent(requireActivity(), EditProfileActivity::class.java)
             startActivity(intent)
         }
 
