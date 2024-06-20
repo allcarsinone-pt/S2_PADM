@@ -10,23 +10,32 @@ import androidx.appcompat.widget.SwitchCompat
 import com.allcarsinone.allcarsinone.AcioPreferences
 import com.allcarsinone.allcarsinone.DataUtils
 import com.allcarsinone.allcarsinone.R
+import com.allcarsinone.allcarsinone.databinding.ActivityLoginBinding
+import com.allcarsinone.allcarsinone.databinding.ActivityNotificationsBinding
+import com.allcarsinone.allcarsinone.databinding.ActivityNotificationsViewBinding
 import com.github.mikephil.charting.charts.BarChart
 import org.json.JSONObject
 import java.util.Date
 
 class NotificationsActivity : AppCompatActivity() {
-
+    private lateinit var viewBinding : ActivityNotificationsBinding
     private lateinit var prefs: AcioPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_notifications)
+
+        viewBinding = ActivityNotificationsBinding.inflate(layoutInflater)
+        val view = viewBinding.root
+        setContentView(view)
 
         val preferencesString = DataUtils.getSharedPreferences(this).getString("acioPreferences", null)
         if (preferencesString != null) {
             this.prefs = AcioPreferences.convertJSONToPreferences(preferencesString)
         }
         notifLoadPreferences()
+
+        viewBinding.NotificationsBackbuttonBtn.setOnClickListener {
+            finish()
+        }
     }
     fun notifLoadPreferences() {
         findViewById<Switch>(R.id.Notifications_switch_allNotif).setChecked(prefs.notifySetAllRead)

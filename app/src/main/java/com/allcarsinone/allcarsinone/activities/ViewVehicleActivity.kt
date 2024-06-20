@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.allcarsinone.allcarsinone.AuthUtils
+import com.allcarsinone.allcarsinone.CommentsActivity
 import com.allcarsinone.allcarsinone.DataUtils
 import com.allcarsinone.allcarsinone.Globals
 import com.allcarsinone.allcarsinone.R
@@ -69,6 +70,15 @@ class ViewVehicleActivity : AppCompatActivity() {
         viewBinding.ViewVehicleEditBTN.setOnClickListener {
             val intent = Intent(this, InsertEditVehicleActivity::class.java)
             intent.putExtra("vehicleid", vehicleID)
+            startActivity(intent)
+        }
+        viewBinding.viewVehicleCommentsTV.setOnClickListener {
+            val intent = Intent(this, CommentsActivity::class.java)
+            intent.putExtra("vehicleid", vehicleID)
+            startActivity(intent)
+        }
+        viewBinding.viewVehicleSharedTV.setOnClickListener {
+            val intent = Intent(this, NotificationsActivity::class.java)
             startActivity(intent)
         }
         viewBinding.initPageLocationTV.setOnClickListener {

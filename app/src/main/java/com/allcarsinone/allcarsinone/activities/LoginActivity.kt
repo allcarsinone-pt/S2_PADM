@@ -22,16 +22,12 @@ import retrofit2.Callback
 
 
 class LoginActivity : AppCompatActivity() {
-
     private lateinit var viewBinding : ActivityLoginBinding
     private var registerFormRequest = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if(it.resultCode == RESULT_OK) {
             viewBinding.etEmail.setText(it.data!!.getStringExtra("email"))
         }
     }
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityLoginBinding.inflate(layoutInflater)
@@ -51,8 +47,6 @@ class LoginActivity : AppCompatActivity() {
         if(validationResult.success) {
             openInitialPage(validationResult.username, validationResult.roleid)
         }
-
-
         viewBinding.loginCreateAccountTv.setOnClickListener {
             openRegisterForm()
         }
