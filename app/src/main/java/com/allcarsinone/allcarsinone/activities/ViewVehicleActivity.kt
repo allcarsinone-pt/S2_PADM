@@ -47,13 +47,14 @@ class ViewVehicleActivity : AppCompatActivity() {
             val validationResult = AuthUtils.validateToken(this, token)
             lateinit var intent: Intent
             if(validationResult.success) {
-                val intent = Intent(this, PaymentActivity::class.java)
+                intent = Intent(this, PaymentActivity::class.java)
                 intent.putExtra("vehicleid", vehicleID)
             }
             else {
                 AuthUtils.logoutUser(this)
                 finish()
                 intent = Intent(this, LoginActivity::class.java)
+                intent.putExtra("buyFlag", true)
             }
             startActivity(intent)
         }

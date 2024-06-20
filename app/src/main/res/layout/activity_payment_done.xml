@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.PaymentDone">
+
+    <ImageView
+        android:id="@+id/PaymentDoneIMG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/pay">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/PaymentDoneSuccess_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/PaymentDoneIMG"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/txtBigGreen"
+        android:textStyle = "bold"
+        android:text="Success">
+    </TextView>
+
+    <TextView
+        android:id="@+id/PaymentDoneSuccesText_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/PaymentDoneSuccess_TV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/txtMedium24Blue"
+        android:textStyle = "bold"
+        android:text="Payment done successfully">
+    </TextView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:gravity="center"
+        android:id="@+id/PaymentDoneHomeBTN"
+        app:layout_constraintTop_toBottomOf="@+id/PaymentDoneSuccesText_TV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:paddingBottom="@dimen/_18pxv"
+        android:paddingEnd="60dp"
+        android:paddingStart="60dp"
+        android:paddingTop="@dimen/_18pxv"
+        android:singleLine="true"
+        style="@style/btnSolidRounded"
+        android:text="HOME"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

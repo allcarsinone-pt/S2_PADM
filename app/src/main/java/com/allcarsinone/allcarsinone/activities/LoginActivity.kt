@@ -40,9 +40,11 @@ class LoginActivity : AppCompatActivity() {
 
         // TODO: Para ativar o código abaixo é necessário validar o token antes
 
+        val BuyIntention: Boolean = intent.getBooleanExtra("buyFlag", false) as Boolean
+
         val sharedPrefences = DataUtils.getSharedPreferences(this)
         val token = sharedPrefences.getString("token", "")
-        if(token == "") {
+        if(token == "" && BuyIntention == false) {
             openInitialPage("Guest", 3)
         }
         val validationResult = AuthUtils.validateToken(this,token)

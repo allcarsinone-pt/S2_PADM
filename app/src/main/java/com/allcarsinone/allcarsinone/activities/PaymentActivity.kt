@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.allcarsinone.allcarsinone.R
@@ -34,6 +35,18 @@ class PaymentActivity : AppCompatActivity() {
 
         viewBinding.NotificationsBackbuttonBtn.setOnClickListener {
             finish()
+        }
+        viewBinding.editprofileBUYBtn.setOnClickListener {
+            if( viewBinding.PaymentCardholderET.length() == 0 ||
+                viewBinding.PaymentNumberET.length() == 0 ||
+                viewBinding.PaymentCvcET.length() == 0 ) {
+                Toast.makeText(this@PaymentActivity, "All fields must be filled", Toast.LENGTH_LONG).show()
+            }
+            else {
+                finish()
+                val intent = Intent(this, PaymentDone::class.java)
+                startActivity(intent)
+            }
         }
     }
 }
