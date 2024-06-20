@@ -19,7 +19,7 @@ import java.util.Date
 
 class NotificationsActivity : AppCompatActivity() {
     private lateinit var viewBinding : ActivityNotificationsBinding
-    private lateinit var prefs: AcioPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,10 +27,7 @@ class NotificationsActivity : AppCompatActivity() {
         val view = viewBinding.root
         setContentView(view)
 
-        val preferencesString = DataUtils.getSharedPreferences(this).getString("acioPreferences", null)
-        if (preferencesString != null) {
-            this.prefs = AcioPreferences.convertJSONToPreferences(preferencesString)
-        }
+
         notifLoadPreferences()
 
         viewBinding.NotificationsBackbuttonBtn.setOnClickListener {
@@ -38,25 +35,43 @@ class NotificationsActivity : AppCompatActivity() {
         }
     }
     fun notifLoadPreferences() {
-        findViewById<Switch>(R.id.Notifications_switch_allNotif).setChecked(prefs.notifySetAllRead)
-        findViewById<Switch>(R.id.Notifications_switch_older2days).setChecked(prefs.notifyDeleteOlder)
-        findViewById<Switch>(R.id.Notifications_switch_msgs).setChecked(prefs.notifyMessages)
-        findViewById<Switch>(R.id.Notifications_switch_favorits).setChecked(prefs.notifyFavorites)
-        findViewById<Switch>(R.id.Notifications_switch_email).setChecked(prefs.notifyEmail)
-        findViewById<Switch>(R.id.Notifications_switch_shareFavs).setChecked(prefs.notifyShare)
+        val notifySetAllRead = DataUtils.getSharedPreferences(this).getBoolean("notifySetAllRead", false)
+        val notifyDeleteOlder = DataUtils.getSharedPreferences(this).getBoolean("notifyDeleteOlder", false)
+        val notifyMessages = DataUtils.getSharedPreferences(this).getBoolean("notifyMessages", false)
+        val notifyFavorites = DataUtils.getSharedPreferences(this).getBoolean("notifyFavorites", false)
+
+        val notifyEmail =  DataUtils.getSharedPreferences(this).getBoolean("notifyEmail", false)
+        val notifyShare = DataUtils.getSharedPreferences(this).getBoolean("notifyShare", false)
+
+        findViewById<Switch>(R.id.Notifications_switch_allNotif).setChecked(notifySetAllRead)
+        findViewById<Switch>(R.id.Notifications_switch_older2days).setChecked(notifyDeleteOlder)
+        findViewById<Switch>(R.id.Notifications_switch_msgs).setChecked(notifyMessages)
+        findViewById<Switch>(R.id.Notifications_switch_favorits).setChecked(notifyFavorites)
+        findViewById<Switch>(R.id.Notifications_switch_email).setChecked(notifyEmail)
+        findViewById<Switch>(R.id.Notifications_switch_shareFavs).setChecked(notifyShare)
     }
+
+
     fun notifSavePreferences(view: View) {
-        prefs.notifySetAllRead = findViewById<Switch>(R.id.Notifications_switch_allNotif).isChecked
-        prefs.notifyDeleteOlder = findViewById<Switch>(R.id.Notifications_switch_older2days).isChecked
-        prefs.notifyMessages = findViewById<Switch>(R.id.Notifications_switch_msgs).isChecked
-        prefs.notifyFavorites = findViewById<Switch>(R.id.Notifications_switch_favorits).isChecked
-        prefs.notifyEmail =  findViewById<Switch>(R.id.Notifications_switch_email).isChecked
-        prefs.notifyShare = findViewById<Switch>(R.id.Notifications_switch_shareFavs).isChecked
+        val notifySetAllRead = findViewById<Switch>(R.id.Notifications_switch_allNotif).isChecked
+        val notifyDeleteOlder = findViewById<Switch>(R.id.Notifications_switch_older2days).isChecked
+        val notifyMessages = findViewById<Switch>(R.id.Notifications_switch_msgs).isChecked
+        val notifyFavorites = findViewById<Switch>(R.id.Notifications_switch_favorits).isChecked
+        val notifyEmail =  findViewById<Switch>(R.id.Notifications_switch_email).isChecked
+        val notifyShare = findViewById<Switch>(R.id.Notifications_switch_shareFavs).isChecked
 
         DataUtils.getSharedPreferences(this).edit()
-            .putString("acioPreferences", prefs.toJSONString())
-            .apply()
+            .putBoolean("notifySetAllRead", notifySetAllRead)
+            .putBoolean("notifyDeleteOlder", notifyDeleteOlder)
+            .putBoolean("notifyMessages", notifyMessages)
+            .putBoolean("notifyFavorites", notifyFavorites)
+            .putBoolean("notifyEmail", notifyEmail)
+            .putBoolean("notifyShare", notifyShare).
+            apply()
+        //DataUtils.getSharedPreferences(this).edit()
+          //  .putString("acioPreferences", prefs.toJSONString())
+            //.apply()
 
-        Toast.makeText(baseContext, "Preferences successfully saved", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(baseContext, "Preferences successfully saved", Toast.LENGTH_SHORT).show()
     }
 }

@@ -32,6 +32,18 @@
             android:textSize="18sp" />
         <com.google.android.material.divider.MaterialDivider
             android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sp"/>
+
+        <TextView
+            android:id="@+id/fragmentMenuUserPreferencesBTN"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical|start"
+            android:textAlignment="viewStart"
+            android:text="Settings"
+            android:textSize="18sp" />
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_1sp">
         </com.google.android.material.divider.MaterialDivider>
         <TextView

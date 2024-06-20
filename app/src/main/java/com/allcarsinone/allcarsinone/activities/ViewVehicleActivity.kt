@@ -77,10 +77,6 @@ class ViewVehicleActivity : AppCompatActivity() {
             intent.putExtra("vehicleid", vehicleID)
             startActivity(intent)
         }
-        viewBinding.viewVehicleSharedTV.setOnClickListener {
-            val intent = Intent(this, NotificationsActivity::class.java)
-            startActivity(intent)
-        }
         viewBinding.initPageLocationTV.setOnClickListener {
             val intent = Intent(this, ViewStandProfileActivity::class.java)
             intent.putExtra("standid", standID)

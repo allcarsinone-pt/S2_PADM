@@ -194,7 +194,7 @@
                 android:background="@drawable/relative_layout_border"
                 android:orientation="horizontal"
                 android:paddingVertical="@dimen/_10sp"
-                android:weightSum="4">
+                android:weightSum="3">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -215,15 +215,7 @@
                     style="@style/txtlightGray12"
                     android:layout_weight="1"
                     android:text="@string/comments"/>
-                <TextView
-                    android:id="@+id/viewVehicleShared_TV"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:drawableTopCompat="@drawable/shared"
-                    android:gravity="center_horizontal"
-                    style="@style/txtlightGray12"
-                    android:layout_weight="1"
-                    android:text="@string/shared"/>
+
                 <TextView
                     android:id="@+id/testDrive_tv"
                     android:layout_width="match_parent"
