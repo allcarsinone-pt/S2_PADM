@@ -39,13 +39,14 @@ class MenuFragment : Fragment() {
         _viewBinding = FragmentMenuBinding.inflate(inflater, container, false)
         val view = viewBinding?.root
         viewBinding?.fragmentMenuEditProfileBTN?.setOnClickListener {
-            finishFragment()
-            val sharedPrefs = DataUtils.getSharedPreferences(context = requireActivity())
+
+            val sharedPrefs = DataUtils.getSharedPreferences(requireContext())
             val token = sharedPrefs.getString("token", "")
             val validationResult = AuthUtils.validateToken(requireActivity(), token)
             val intent = Intent(requireActivity(), EditProfileActivity::class.java)
             intent.putExtra("username", validationResult.username)
             intent.putExtra("roleid", validationResult.roleid)
+            finishFragment()
             startActivity(intent)
         }
 
