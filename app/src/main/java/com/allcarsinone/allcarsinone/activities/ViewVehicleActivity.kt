@@ -91,6 +91,9 @@ class ViewVehicleActivity : AppCompatActivity() {
                 viewBinding.ViewVehicleEditBTN.visibility = View.GONE
             }
         }
+        else {
+            viewBinding.ViewVehicleEditBTN.visibility = View.GONE
+        }
     }
 
     fun loadData(vehicle: Vehicle) {
